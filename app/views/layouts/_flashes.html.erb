@@ -1,0 +1,6 @@
+<% flash.each do |key, value| -%>
+	<% if key.to_s != "notifications" %>
+		<div id="flash_<%= key -%>"><%= html_escape(value) %></div>
+		<%= javascript_tag("setTimeout(function(){ $('#flash_#{key}').fadeOut(); }, 3000);") %>
+	<% end %>
+<% end -%>

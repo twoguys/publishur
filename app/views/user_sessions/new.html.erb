@@ -1,0 +1,31 @@
+<h1>Sign in</h1>  
+  
+<% form_for @user_session do |form| %>  
+<%= form.error_messages %>  
+<ol class="formList">  
+  <li>  
+    <%= form.label :email %>  
+    <%= form.text_field :email %>  
+  </li>  
+  <li>  
+    <%= form.label :password %>  
+    <%= form.password_field :password %>  
+  </li>  
+  <li>  
+    <%= form.submit "Sign in" %>  
+  </li>  
+</ol>  
+<% end %>
+
+<% content_for :sidebar do %>
+	Please sign in using your email and password.
+	<br/><br/>
+	<%= link_to('Forgot your password?', '#') %>
+<% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		console.log($('#user_session_email'));
+		$('#user_session_email').focus();
+	});
+</script>
