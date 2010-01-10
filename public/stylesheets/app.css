@@ -300,8 +300,10 @@ background-position: 0 1px;
 .mail { background-image: url(../images/icons/email.png); }
 .search { background-image: url(../images/icons/magnifier.png); }
 
-.rounded-one { background: #e5e5e5 url(../images/rounded-one.jpg) no-repeat 0 50%; padding-left: 60px; }
-.rounded-two { background: #e5e5e5 url(../images/rounded-two.jpg) no-repeat 0 50%; padding-left: 60px; }
+.rounded-one, .rounded-two, .rounded-three { padding-left: 60px; }
+.rounded-one { background: #e5e5e5 url(../images/rounded-one.jpg) no-repeat 0 50%;  }
+.rounded-two { background: #e5e5e5 url(../images/rounded-two.jpg) no-repeat 0 50%; }
+.rounded-three { background: #e5e5e5 url(../images/rounded-three.jpg) no-repeat 0 50%; }
 
 .mb5 { margin-bottom: 5px; }
 .mb10 { margin-bottom: 10px; }
