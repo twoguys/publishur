@@ -26,8 +26,8 @@
 				<li>Signed in as <%= current_user.email %></li>
 				<li class="last"><%= link_to('Sign out', signout_path) %></li>
 				<% else %>
-				<li><%= link_to('Sign Up', signup_path) %></li>
-				<li class="last"><%= link_to('Sign In', signin_path) %></li>
+				<li><%= link_to('Sign up', signup_path) %></li>
+				<li class="last"><%= link_to('Sign in', signin_path) %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -39,6 +39,17 @@
 				<li class="first">
 					<%= link_to_active('Home', root_path, @nav == :home) %>
 				</li>
+				<% if current_user %>
+				<li>
+					<%= link_to_active('Dashboard', dashboard_path, @nav == :dashboard) %>
+				</li>
+				<li>
+					<%= link_to_active('Groups', groups_path, @nav == :groups) %>
+				</li>
+				<li class="last">
+					<%= link_to_active('Settings', root_path, @nav == :settings) %>
+				</li>
+				<% else %>
 				<li>
 					<%= link_to_active('Tour', root_path, @nav == :tour) %>
 				</li>
@@ -48,6 +59,7 @@
 				<li class="last">
 					<%= link_to_active('Try it!', signup_path, @nav == :signup) %>
 				</li>
+				<% end %>
 			</ul>
 		</div>
   </div>

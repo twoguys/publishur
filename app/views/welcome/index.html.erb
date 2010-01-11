@@ -4,6 +4,12 @@
 </div>
 <% end %>
 
+<% if !current_user %>
+<div class="lined-bottom mt20 pb30 centered">
+	<%= link_to('', signup_path, :id => 'signup-button') %>
+</div>
+<% end %>
+
 <div class="lined-bottom mt20 pb30">
 	<h1 class="centered mb30">Here's how it works</h1>
 	<div class="third">
@@ -20,7 +26,8 @@
 	</div>
 	<div class="clear"></div>
 </div>
-<div class="lined-bottom mt30 pb30">
+
+<div class="mt30 pb50">
 	<h1 class="centered mb30">Here are some examples</h1>
 	<div class="w800 mt20">
 		<p class="medium rounded-one">

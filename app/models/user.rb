@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   #acts_as_network :friends,         :through => :invites,   :conditions => ["is_accepted = ?", true]
   #acts_as_network :pending_friends, :through => :invites,   :conditions => ["is_accepted = ?", false]
   
+  has_many :groups,            :through    => :group_memberships
+  has_many :group_memberships
+  
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
   
   def name

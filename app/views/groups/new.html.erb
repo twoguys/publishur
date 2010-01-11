@@ -1,0 +1,38 @@
+<div class="w400">
+	<h2 class="centered">Create yourself a group.</h2>
+	<div class="centered">
+		or <%= link_to('go back to your group list', groups_path) %>.
+	</div>
+
+	<div class="shadowed-box">
+		<% form_for @group do |form| %>
+		<%= form.error_messages %>
+		<ol class="formList">
+			<li>
+		    <%= form.label :name, "Give it a good name." %>
+		    <%= form.text_field :name %>
+		  </li>
+			<li>
+				<%= form.label :public, "Will it be public or private?", :class => 'mb10' %>
+				<div class="mb10 indented">
+					<%= form.radio_button :public, true %> <strong>Public</strong>
+					<small class="weak">(Anyone can join)</small>
+				</div>
+				<div class="indented">
+					<%= form.radio_button :public, false %> <strong>Private</strong>
+					<small class="weak">(You have to invite people)</small>
+				</div>
+			</li>
+		  <li class="mt10">
+		    <%= form.submit "Create group" %>
+		  </li>
+		</ol>
+		<% end %>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	   $('#group_name').focus();
+	 });
+</script>

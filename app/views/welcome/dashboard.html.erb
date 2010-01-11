@@ -1,0 +1,15 @@
+<h2 class="mb20">Here is your Dashboard, your home away from home.</h2>
+
+<div class="section relative">
+	<div class="heading">Your Groups</div>
+	<%= link_to('Create a group', new_group_path, :class => 'top-right icon add') %>
+	<div class="indented">
+		<% if @groups.empty? %>
+			You don't belong to any groups yet, <%= link_to('create one', new_group_path) %> or <%= link_to('join one', groups_path) %>!
+		<% else %>
+		<ul class="lined">
+			<%= render @groups %>
+		</ul>
+		<% end %>
+	</div>
+</div>

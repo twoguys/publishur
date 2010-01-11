@@ -1,39 +1,37 @@
-<h1>Sign up</h1>
+<div class="w400">
+	<h2 class="centered">You're just a few seconds away from using your Publishur account.</h2>
 
-<% form_for @user do |form| %>
-<%= form.error_messages %>
-<ol class="formList">
-	<li>
-    <%= form.label :first_name, "First name" %>
-    <%= form.text_field :first_name %>
-  </li>
-	<li>
-    <%= form.label :last_name, "Last name" %>
-    <%= form.text_field :last_name %>
-  </li>
-  <li>
-    <%= form.label :email, "Email" %>
-    <%= form.text_field :email %>
-  </li>
-  <li>
-    <%= form.label :password, "Password" %>
-    <%= form.password_field :password %>
-  </li>
-  <li>
-    <%= form.label :password_confirmation, "Password confirmation" %>
-    <%= form.password_field :password_confirmation %>
-  </li>
-  <li>
-    <%= form.submit "Submit" %>
-  </li>
-</ol>
-<% end %>
-
-<% content_for :sidebar do %>
-	Please tell us your name and email, and choose a password.
-	<br/><br/>
-	Your <strong>password must be at least 4 characters long</strong> and the password confirmation must match.
-<% end %>
+	<div class="shadowed-box">
+		<% form_for @user do |form| %>
+		<%= form.error_messages %>
+		<ol class="formList">
+			<li>
+		    <%= form.label :first_name, "First name" %>
+		    <%= form.text_field :first_name %>
+		  </li>
+			<li>
+		    <%= form.label :last_name, "Last name" %>
+		    <%= form.text_field :last_name %>
+		  </li>
+		  <li>
+		    <%= form.label :email, "Email" %>
+		    <%= form.text_field :email %>
+		  </li>
+		  <li>
+		    <%= form.label :password, "Password" %>
+		    <%= form.password_field :password %>
+		  </li>
+		  <li>
+		    <%= form.label :password_confirmation, "Password confirmation" %>
+		    <%= form.password_field :password_confirmation %>
+		  </li>
+		  <li>
+		    <%= form.submit "Sign up" %>
+		  </li>
+		</ol>
+		<% end %>
+	</div>
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
