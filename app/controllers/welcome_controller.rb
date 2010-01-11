@@ -9,4 +9,8 @@ class WelcomeController < ApplicationController
     nav :dashboard
     @groups = current_user.groups
   end
+  
+  def pricing
+    nav :pricing
+  end
 end

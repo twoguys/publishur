@@ -14,7 +14,7 @@ a:link, a:visited { text-decoration: underline; }
 a:hover { text-decoration: underline; cursor: pointer; }
 img { border: medium none; }
 textarea { padding: 5px; }
-p { font-family: georgia, helvetica, arial, sans-serif; }
+p { font-family: georgia, helvetica, arial, sans-serif; line-height: 1.5em; margin: 0 0 10px 0; }
 form p { padding-bottom: 10px; }
 form { padding: 10px 0 20px; }
 small, .small { font-size: 90%; }
@@ -228,6 +228,7 @@ div.pagination span.current { font-weight: 900; }
 div.pagination .disabled { color: #777; }
 
 #footer {
+  background: transparent url(../images/footer-bg.png) repeat-x 50% 0;
   border-top: 1px solid #555;
   padding: 20px 0;
   text-align: center;
@@ -238,7 +239,7 @@ div.pagination .disabled { color: #777; }
 }
 #footer_insides { width: 800px; margin: 0 auto; color: #666; font-size: 12px; }
 #footer_insides td { width: 250px; text-align: left; vertical-align: top; padding: 0 15px; }
-#footer h3 { color: #555; margin-bottom: 3px; }
+#footer h3 { color: #555; margin: 0 0 10px 0; padding: 0 0 5px 0; border-bottom: 1px dotted #444; }
 
 /* Widths */
 .third { width: 200px; padding: 0 60px; float: left; }
