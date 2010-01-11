@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    nav :settings
     @user = current_user
   end
 

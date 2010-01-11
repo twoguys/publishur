@@ -35,7 +35,7 @@
 	<div id="header">
 		<div id="header-insides">
 			<%= link_to(image_tag('/images/logo.gif'), root_path) %>
-			<ul id="nav">
+			<ul id="nav" class="shadowed-box">
 				<li class="first">
 					<%= link_to_active('Home', root_path, @nav == :home) %>
 				</li>
@@ -47,7 +47,7 @@
 					<%= link_to_active('Groups', groups_path, @nav == :groups) %>
 				</li>
 				<li class="last">
-					<%= link_to_active('Settings', root_path, @nav == :settings) %>
+					<%= link_to_active('Settings', settings_path, @nav == :settings) %>
 				</li>
 				<% else %>
 				<li>

@@ -1,6 +1,9 @@
 <div class="w400">
 	<h2 class="centered">Please sign in to access your account.</h2>  
-  
+	<div class="centered">
+		Don't have an account? <%= link_to('Sign up', signup_path) %>.
+	</div>
+	
 	<div class="shadowed-box">
 		<% form_for @user_session do |form| %>  
 		<%= form.error_messages %>  

@@ -118,14 +118,18 @@ input.button { font-size: 14px; border: none; }
   background-color: #e5e5e5;
 }
 #header-insides { width: 960px; padding: 0 20px; margin: 0 auto; position: relative; }
-#header #nav { position: absolute; top: 30px; right: 5px; font-size: 1.3em; }
-#header #nav li { float: left; padding-right: 10px; }
+#header #nav { position: absolute; top: 20px; right: 25px; font-size: 1.3em; padding: 0; }
+#header #nav li {
+  float: left;
+  border-right: 1px solid #eee; 
+  background: transparent url(../images/nav-li.png) no-repeat 100% 50%;
+}
+#header #nav li.last { background: none; }
 #header #nav li a {
   float: left;
-  width: 103px;
   text-align: center;
   height: 34px;
-  padding: 12px 0 0;
+  padding: 12px 20px 0 20px;
   text-decoration: none;
 }
 #header #nav li a:hover {  }

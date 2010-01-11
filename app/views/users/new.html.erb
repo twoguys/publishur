@@ -1,6 +1,9 @@
 <div class="w400">
 	<h2 class="centered">You're just a few seconds away from using your Publishur account.</h2>
-
+	<div class="centered">
+		Already have an account? <%= link_to('Sign in', signin_path) %>.
+	</div>
+	
 	<div class="shadowed-box">
 		<% form_for @user do |form| %>
 		<%= form.error_messages %>
