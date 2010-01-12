@@ -1,5 +1,25 @@
-<h2><%= @group.name %></h2>
+<div class="border-bottom">
+	<h2><%= @group.name %></h2>
+	<%= link_to('Edit this group', edit_group_path(@group), :class => 'mr15') if @group.admin?(current_user) %>
+	<%= link_to('Back to groups', groups_path) %>
+</div>
 
-<ul class="members">
-	<%= render @group.members %>
-</ul>
+<div>
+	<div class="secondary-right">
+	  <div class="insides">
+			<h3>Members</h3>
+	    <ul class="members mt10">
+				<%= render @group.members %>
+			</ul>
+	  </div>
+	</div>
+
+	<div class="primary-left">
+		<div class="insides">
+			<%= render 'messages/form', :group => @group, :message => Message.new %>
+			<ul class="messages">
+				<%= render @group.messages %>
+			</ul>
+		</div>
+	</div>
+</div>

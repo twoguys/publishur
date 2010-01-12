@@ -1,0 +1,13 @@
+<div class="group-message-form">
+	<% form_for [group, message] do |form| %>
+		<%= form.error_messages %>
+		<%= form.text_area :body %>
+  	<%= form.submit "Post message" %>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	   $('#message_body').focus();
+	 });
+</script>

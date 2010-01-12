@@ -1,0 +1,27 @@
+<div class="w400">
+	<h2 class="centered">Write a message to send to the members of <%= link_to(@group.name, @group) %></h2>
+	<div class="centered">
+		<%= link_to('Back to the group', @group) %>.
+	</div>
+	
+	<div class="shadowed-box">
+		<% form_for [@group, @message] do |form| %>
+		<%= form.error_messages %>
+		<ol class="formList">
+			<li>
+				<%= form.label :body, 'Message contents' %>
+		    <%= form.text_area :body %>
+		  </li>
+		  <li>
+		    <%= form.submit "Post message" %>
+		  </li>
+		</ol>
+		<% end %>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	   $('#user_first_name').focus();
+	 });
+</script>

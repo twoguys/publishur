@@ -1,8 +1,8 @@
 class GroupsController < ApplicationController
-  before_filter { |c| c.nav :groups }
   before_filter :require_user
   
   def index
+    nav :groups
     if !params[:q].blank?
       @groups = Group.paginate(:page => params[:page] || 1, :conditions => ["name LIKE ?", "%#{params[:q]}%"])
     else
