@@ -27,4 +27,11 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
   end
+  
+  def join
+    @group = Group.find(params[:id])
+    @group.members << current_user unless @group.members.include?(current_user)
+    flash[:notice] = "You successfully joined this group."
+    redirect_to @group
+  end
 end

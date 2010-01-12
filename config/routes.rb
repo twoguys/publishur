@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
-  map.resources :groups do |group|
+  map.resources :groups,
+    :member => { :join => :get } do |group|
     group.resources :messages
   end
   

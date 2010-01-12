@@ -1,5 +1,6 @@
 <div class="border-bottom">
 	<h2><%= @group.name %></h2>
+	<%= link_to('Join this group', join_group_path(@group), :class => 'mr15') if !@group.members.include?(current_user) && @group.public? %>
 	<%= link_to('Edit this group', edit_group_path(@group), :class => 'mr15') if @group.admin?(current_user) %>
 	<%= link_to('Back to groups', groups_path) %>
 </div>
