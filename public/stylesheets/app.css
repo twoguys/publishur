@@ -145,9 +145,45 @@ input.button { font-size: 14px; border: none; }
 #mid-insides { padding: 0 20px; position: relative; }
 
 /* Signup */
-#signup-button { background: #e5e5e5 url(../images/signup-button.jpg) no-repeat 0 -75px; width: 334px; height: 76px; display: block; margin: 0 auto; position: relative; }
+#signup-button {
+  background: #e5e5e5 url(../images/signup-button.png) no-repeat 0 -75px;
+  width: 332px;
+  height: 75px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
 #signup-button:hover { background-position: 0 0; }
 #signup-button:active { top: 1px; }
+
+/* Pricing */
+.pricing {
+  width: 258px;
+  margin: 30px;
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #efefef;
+  -moz-box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 5px;
+}
+.pricing .title, .pricing .price, .pricing .for-who { background-color: #ecfad8; color: #000; }
+.pricing .title { font-size: 2em; font-weight: bold; text-align: center; padding: 10px 0 0; }
+.pricing .price { position: relative; text-align: center; font-size: 1.2em; }
+.pricing .price .dollar-sign, .pricing .price .value { font-size: 1.6em; }
+.pricing .for-who { color: #777; text-align: center; padding: 0 0 8px; border-bottom: 1px solid #ccc; }
+.pricing .features { text-align: center; padding: 10px 0; font-size: 1.2em; }
+.pricing .receive { margin: 10px 0 0; border-top: 1px solid #ccc; padding: 10px 0 0; }
+.pricing .feature ul { width: 80px; margin: 0 auto; padding-left: 20px; font-size: 0.9em; }
+.pricing .feature ul li { padding: 2px 0; text-align: left; list-style-type: disc; }
+.pricing .signup-link {
+  background: #efefef url(../images/signup-button-short.png) no-repeat 0 -75px;
+  width: 173px;
+  height: 75px;
+  display: block;
+  margin: 0 auto 10px;
+  position: relative;
+}
+.pricing .signup-link:hover { background-position: 0 0; }
 
 /* Forms */
 .input_info { font-size: 11px; display: block; color: #555; margin-bottom: 2px; }

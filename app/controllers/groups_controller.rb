@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
   
   def join
     @group = Group.find(params[:id])
-    @group.members << current_user unless @group.members.include?(current_user)
+    @group.members << current_user if !@group.members.include?(current_user) && @group.public?
     flash[:notice] = "You successfully joined this group."
     redirect_to @group
   end
