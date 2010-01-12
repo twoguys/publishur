@@ -1,0 +1,6 @@
+<li class="group">
+	<%= link_to(group.name, group) %>
+	<span class="member-count">
+		(<%= pluralize(group.members.count, "member") %>)
+	</span>
+</li>

@@ -13,4 +13,18 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
+  
+  def create
+    @group = Group.create(params[:group])
+    if @group.save
+      @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true)
+      redirect_to @group
+    else
+      render 'new'
+    end
+  end
+  
+  def show
+    @group = Group.find(params[:id])
+  end
 end

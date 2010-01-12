@@ -1,15 +1,17 @@
-<h2 class="mb20">This is a list of the <%= pluralize(Group.count, "group") %> in Publishur.</h2>
+<h2 class="mb20">
+	<% if params[:q].blank? %>
+	This is a list of the <%= pluralize(Group.count, "group") %> in Publishur.
+	<% else %>
+	This is a list of the <%= pluralize(@groups.size, "group") %> matching '<%= params[:q] %>'.
+	<%= link_to('clear', groups_path, :class => 'ml10') %>
+	<% end %>
+</h2>
 
 <%= render 'groups/search' %>
 
 <div class="section relative">
 	<div class="heading">
-		<% if params[:q].blank? %>
-		All Groups
-		<% else %>
-		Groups matching '<%= params[:q] %>'
-		<%= link_to('clear', groups_path, :class => 'ml10') %>
-		<% end %>
+		Groups
 	</div>
 	<%= link_to('Create a group', new_group_path, :class => 'top-right icon add') %>
 	<div class="indented">

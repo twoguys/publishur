@@ -1,0 +1,6 @@
+<li class="user">
+	<%= link_to(user.name, user) %>
+	<% if @group && @group.admins.include?(user) %>
+		<strong>(owner)</strong>
+	<% end %>
+</li>

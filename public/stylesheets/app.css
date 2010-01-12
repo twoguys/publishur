@@ -30,6 +30,7 @@ input[type="text"], input[type="password"], input[type="file"], textarea {
   margin-bottom: 10px;
   width: 300px;
 }
+input[type="checkbox"] { margin: 0 5px 0 0; }
 select { margin-bottom: 10px; }
 input[type="file"] { font-size: 12px; }
 input[type="text"].small_input, input[type="password"].small_input, textarea.small_input { font-size: 100%; padding: 2px; }
@@ -117,7 +118,7 @@ input.button { font-size: 14px; border: none; }
   height: 100px;
   background-color: #e5e5e5;
 }
-#header-insides { width: 960px; padding: 0 20px; margin: 0 auto; position: relative; }
+#header-insides { width: 960px; padding: 0 20px 0; margin: 0 auto; position: relative; }
 #header #nav { position: absolute; top: 20px; right: 25px; font-size: 1.3em; padding: 0; }
 #header #nav li {
   float: left;
@@ -160,34 +161,10 @@ img.avatar { height: 50px; }
   display: inline-block;
   width: 330px;
   border-bottom: 1px dotted #999;
-  padding-bottom: 10px;
-  margin: 0 20px 10px 20px;
+  padding: 10px 0;
+  margin: 5px 0;
   position: relative;
 }
-.user .name { font-size: 12px; }
-.user .avatar { float: left; padding-right: 10px; }
-.user .reputation { font-size: 22px; position: absolute; top: 0; right: 10px; }
-#user .header img { height: 32px; }
-.edit_user img { height: 70px; }
-#user .user-tags {
-  background: transparent url(../images/icons/tag_blue.png) no-repeat 0 5px;
-  padding-left: 20px;
-  width: 360px;
-  line-height: 24px;
-}
-#user .user-tags a {
-  background-color: #ddd;
-  padding: 2px 4px;
-  font-size: 12px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-}
-#user .user-tags a:hover { background-color: #bbb; }
-.user-signature { font-size: 12px; color: #555; height: 40px; display: block; }
-.user-signature div { float: right; }
-.user-signature img { float: left; margin: 4px 4px 0 0; height: 30px; }
-.user-signature .name { display: block; width: 170px; padding-top: 4px; }
 
 /* Groups */
 .group_list li { border-bottom: 1px solid #ddd; margin-bottom: 5px; padding: 10px; height: 35px; }
@@ -274,26 +251,25 @@ div.pagination .disabled { color: #777; }
 
 /* Icon Links */
 .icon {
-padding: 1px 0 5px 20px;
-display: block;
-font-size: 12px;
-background-repeat: no-repeat;
+  padding: 0 0 5px 20px;
+  display: block;
+  background-repeat: no-repeat;
 }
 .icon_left { padding: 1px 0 5px 20px; background-repeat: no-repeat; }
 .icon_inline { padding: 1px 0 5px 20px; font-size: 12px; background-repeat: no-repeat; }
 .med_icon {
-padding: 0 0 5px 20px;
-display: block;
-font-size: 15px;
-background-repeat: no-repeat;
-background-position: 0 1px;
+  padding: 0 0 5px 20px;
+  display: block;
+  font-size: 15px;
+  background-repeat: no-repeat;
+  background-position: 0 1px;
 }
 .med_icon_inline {
-padding: 0 0 5px 20px;
-display: normal;
-font-size: 15px;
-background-repeat: no-repeat;
-background-position: 0 1px;
+  padding: 0 0 5px 20px;
+  display: normal;
+  font-size: 15px;
+  background-repeat: no-repeat;
+  background-position: 0 1px;
 }
 .add { background-image: url(../images/icons/add.png); }
 .edit { background-image: url(../images/icons/pencil.png); }
