@@ -10,10 +10,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :current_user_session
   
+  before_filter :set_timezone
+  
   # used to highlight current pages in the navigation
   @nav = :none
   def nav(sym)
     @nav = sym
+  end
+  
+  # used for the page title
+  @title = ''
+  def title(str)
+    @title = str
   end
 
   private
@@ -45,5 +53,9 @@ class ApplicationController < ActionController::Base
         redirect_to(default)
       end
       session[:return_to] = nil
+    end
+    
+    def set_timezone
+      Time.zone = current_user.timezone if current_user
     end
 end

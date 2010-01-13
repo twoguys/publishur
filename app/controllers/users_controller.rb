@@ -10,6 +10,17 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @user.account_type = "free"
+  end
+  def new_pro
+    @user = User.new
+    @user.account_type = "pro"
+    render 'new'
+  end
+  def new_ultimate
+    @user = User.new
+    @user.account_type = "ultimate"
+    render 'new'
   end
   
   def create

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100112193726) do
+ActiveRecord::Schema.define(:version => 20100113155212) do
 
   create_table "group_memberships", :force => true do |t|
     t.integer  "user_id"
@@ -51,12 +51,14 @@ ActiveRecord::Schema.define(:version => 20100112193726) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "login_count",       :default => 0, :null => false
+    t.integer  "login_count",       :default => 0,                            :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.string   "account_type"
+    t.string   "timezone",          :default => "Eastern Time (US & Canada)"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

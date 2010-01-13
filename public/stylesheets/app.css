@@ -166,7 +166,9 @@ input.button { font-size: 14px; border: none; }
   -moz-box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 5px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.496094) 0px 0px 5px;
 }
-.pricing .title, .pricing .price, .pricing .for-who { background-color: #ecfad8; color: #000; }
+.pricing .title, .pricing .price, .pricing .for-who { background-color: #f6d8fa; color: #000; }
+.pricing.pro .title, .pricing.pro .price, .pricing.pro .for-who { background-color: #d8eefa; }
+.pricing.free .title, .pricing.free .price, .pricing.free .for-who { background-color: #ecfad8; }
 .pricing .title { font-size: 2em; font-weight: bold; text-align: center; padding: 10px 0 0; }
 .pricing .price { position: relative; text-align: center; font-size: 1.2em; }
 .pricing .price .dollar-sign, .pricing .price .value { font-size: 1.6em; }
@@ -366,6 +368,7 @@ div.pagination .disabled { color: #777; }
 .pr20 { padding-right: 20px; }
 .w300 { width: 300px; }
 .w400 { width: 400px; margin-right: auto; margin-left: auto; }
+.w600 { width: 600px; margin-right: auto; margin-left: auto; }
 .w800 { width: 800px; margin-right: auto; margin-left: auto; }
 
 /* code formatting */
@@ -387,7 +390,7 @@ ul.hoverable li:hover .hidden { visibility: visible; }
 .very-big { font-size: 3em;}
 .medium { font-size: 1.2em; line-height: 1.4em; }
 .small { font-size: 80%; }
-.bold { font-weight: bold; }
+.strong { font-weight: bold; }
 .weak { color: #777; }
 .block { display: block; }
 .rounded { -moz-border-radius: 10px; -webkit-border-radius: 10px; }

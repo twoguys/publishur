@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def me?
     self == current_user
   end
+  
+  def paying?
+    self.account_type != "free"
+  end
 end

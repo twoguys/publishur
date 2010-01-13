@@ -1,13 +1,15 @@
+<h2 class="centered">Let's get you signed up for your new <strong><%= @user.account_type.capitalize %></strong> Publishur account!</h2>
+<div class="centered">
+	Already have one? <%= link_to('Sign in', signin_path) %>.
+</div>
 <div class="w400">
-	<h2 class="centered">You're just a few seconds away from using your Publishur account.</h2>
-	<div class="centered">
-		Already have an account? <%= link_to('Sign in', signin_path) %>.
-	</div>
-	
 	<div class="shadowed-box">
 		<% form_for @user do |form| %>
 		<%= form.error_messages %>
 		<ol class="formList">
+			<li class="border-bottom">
+				<h2 class="strong">1. Create your account</h2>
+			</li>
 			<li>
 		    <%= form.label :first_name, "First name" %>
 		    <%= form.text_field :first_name %>
@@ -25,11 +27,22 @@
 		    <%= form.password_field :password %>
 		  </li>
 		  <li>
-		    <%= form.label :password_confirmation, "Password confirmation" %>
+		    <%= form.label :password_confirmation, "Password (again)" %>
 		    <%= form.password_field :password_confirmation %>
 		  </li>
-		  <li>
-		    <%= form.submit "Sign up" %>
+			<li>
+				<%= form.label :timezone, "Time zone" %>
+				<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
+			<% if @user.paying? %>
+			<li class="border-bottom mt20">
+				<h2 class="strong">2. Enter your billing information</h2>
+			</li>
+			<li>
+				some cool billing form inputs will go here
+			</li>
+			<% end %>
+		  <li class="mt20">
+		    <%= form.submit "Create my account" %>
 		  </li>
 		</ol>
 		<% end %>
