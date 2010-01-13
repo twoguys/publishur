@@ -157,6 +157,7 @@ input.button { font-size: 14px; border: none; }
 #signup-button:active { top: 1px; }
 
 /* Pricing */
+#try-it-out { position: absolute; top: -20px; right: 0; }
 .pricing {
   width: 258px;
   margin: 30px;
@@ -186,6 +187,7 @@ input.button { font-size: 14px; border: none; }
   position: relative;
 }
 .pricing .signup-link:hover { background-position: 0 0; }
+.pricing .signup-link:active { top: 1px; }
 
 /* Forms */
 .input_info { font-size: 11px; display: block; color: #555; margin-bottom: 2px; }
