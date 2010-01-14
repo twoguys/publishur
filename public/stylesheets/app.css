@@ -218,6 +218,16 @@ img.avatar { height: 50px; }
 .group-message-form input[type="submit"] { position: absolute; top: 0; right: 0; font-size: 0.9em; }
 .private { padding: 1px 0 0 20px; background: transparent url(../images/icons/door.png) no-repeat; }
 .public { padding: 1px 0 0 20px; background: transparent url(../images/icons/door_open.png) no-repeat; }
+#request-to-join {
+  background: #e5e5e5 url(../images/request-to-join.png) no-repeat 0 -75px;
+  width: 332px;
+  height: 75px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+#request-to-join:hover { background-position: 0 0; }
+#request-to-join:active { top: 1px; }
 
 /* Messages */
 .messages { border-bottom: 1px solid #d0d0d0; }
@@ -378,6 +388,7 @@ div.pagination .disabled { color: #777; }
 .ml15 { margin-left: 15px; }
 .mr15 { margin-right: 15px; }
 .p0 { padding: 0; }
+.p10 { padding: 10px; }
 .pt10 { padding-top: 10px; }
 .pb30 { padding-bottom: 30px; }
 .pb50 { padding-bottom: 50px; }

@@ -1,0 +1,15 @@
+<div class="centered">
+	<% if @group.pending_members.include?(current_user) %>
+	<h2>You have requested to join this group.</h2>
+	<div class="mt20">
+		Once the group owner accepts this request you can participate in this group.
+	</div>
+	<% else %>
+	<h2>This group is private, but you can request to join it.</h2>
+	<div class="mt20 mb20">
+		Click the button below and we will send a request to the group's owner.<br/>
+		If the owner accepts your request you will be allowed to join.
+	</div>
+	<%= link_to('', join_request_group_path(@group), :id => 'request-to-join') %>
+	<% end %>
+</div>

@@ -13,3 +13,17 @@
 		<% end %>
 	</div>
 </div>
+
+<% if @pending_memberships.size > 0 %>
+<div class="section relative">
+	<div class="heading">Pending Groups</div>
+	<div class="top-right">These are groups you have requested to join.</div>
+	<div class="indented">
+		<ul class="lined">
+			<% @pending_memberships.each do |m| %>
+				<%= render m.group %>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>

@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
   def dashboard
     nav :dashboard
     @groups = current_user.groups
+    @pending_memberships = current_user.group_memberships.pending(:include => :group)
   end
   
   def pricing

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_filter :require_user
-  before_filter :find_group, :only => [:show, :join, :forwarding, :update, :toggle_lock]
+  before_filter :find_group, :except => [:index, :new, :create]
+  before_filter :allowed, :except => [:index, :new, :create, :join_request, :join]
   
   def index
     nav :groups
@@ -30,9 +31,24 @@ class GroupsController < ApplicationController
   end
   
   def join
-    @group.members << current_user if !@group.members.include?(current_user) && @group.public?
-    flash[:notice] = "You successfully joined this group."
-    redirect_to @group
+    redirect_to @group if @group.members.include?(current_user)
+  end
+  
+  def join_request
+    if @group.members.include?(current_user)
+      flash[:notice] = "You are already a member!"
+      redirect_to @group
+    elsif @group.public?
+      @group.members << current_user
+      flash[:notice] = "You successfully joined this group."
+      redirect_to @group
+    elsif !@group.pending_members.include?(current_user)
+      @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => false)
+      flash[:notice] = "Your request has been saved."
+      redirect_to join_group_path(@group)
+    else
+      redirect_to join_group_path(@group)
+    end
   end
   
   def forwarding
@@ -54,5 +70,11 @@ class GroupsController < ApplicationController
   private
     def find_group
       @group = Group.find(params[:id])
+    end
+    
+    def allowed
+      if !@group.public? && !@group.members.include?(current_user)
+        redirect_to join_group_path(@group)
+      end
     end
 end

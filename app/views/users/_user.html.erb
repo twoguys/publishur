@@ -1,6 +1,13 @@
+<% pending ||= false %>
 <li class="user">
 	<%= link_to(user.name, user) %>
-	<% if @group && @group.admins.include?(user) %>
+	<% if @group && @group.admin?(user) %>
 		<strong>(owner)</strong>
+	<% end %>
+	<% if pending && @group.admin?(current_user) %>
+		(
+		<%= link_to('allow', '#', :class => 'mr10') %> or
+		<%= link_to('deny', '#') %>
+		)
 	<% end %>
 </li>

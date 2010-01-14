@@ -11,9 +11,19 @@
 	  <div class="insides">
 			<%= render 'security' %>
 			<h3>Members</h3>
+			<div class="mt10 white-background rounded p10">
+				<strong>Requests to join this group</strong>
+				<ul class="members">
+					<%= render @group.pending_members, :pending => true %>
+				</ul>	
+			</div>
 	    <ul class="members mt10">
 				<%= render @group.members %>
 			</ul>
+			<div class="mt20">
+				Want to invite a friend?  Send them to:
+				<%= link_to(join_group_path(@group, :only_path => false), join_group_path(@group)) %>
+			</div>
 	  </div>
 	</div>
 
