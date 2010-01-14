@@ -5,9 +5,10 @@ class Message < ActiveRecord::Base
   validates_presence_of :body
   
   def deliver_subscriptions
-    #subs = self.group.subscriptions.for_user(self.user)
-    require 'pp'
-    pp self.group # works
-    # pp self.group.id BREAKS, WTF?
+    # for some reason when the observer calls this method, I can't get assocations (getting nil)
+    # subs = self.group.subscriptions.for_user(self.user)
+    #     subs.each do |sub|
+    #       puts "delivering subscription #{sub.id}"
+    #     end
   end
 end
