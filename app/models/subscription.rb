@@ -3,6 +3,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :group
   
   named_scope :for_user, lambda { |user| { :conditions => { :user_id => user.id } } }
+  named_scope :for_everyone_but, lambda { |user| { :conditions => ["user_id <> ?", user.id] } }
   
   TYPES = ['email', 'AIM', 'GoogleTalk', 'SMS'].freeze
   
