@@ -41,10 +41,8 @@ class GroupsController < ApplicationController
   end
   
   def update
-    require 'pp'
-    pp params
     @group.update_attributes(params[:group])
-    flash[:notice] = "Subscriptions saved"
+    flash[:notice] = "Message forwarding updated"
     redirect_to @group
   end
   

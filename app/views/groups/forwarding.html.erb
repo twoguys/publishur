@@ -12,7 +12,7 @@
 
 <div class="w600">
 	<div class="shadowed-box">
-		<h2 class="strong border-bottom mt10">You're currently sending them to...</h2>
+		<h2 class="strong border-bottom mt10">You're currently sending messages from this group to...</h2>
 		<% form_for @group do |form| %>
 			<ul id="subscriptions" class="subscriptions mb10">
 				<li>
@@ -20,19 +20,21 @@
 					<span class="strong contact-info">Contact Info</span>
 				</li>
 				<% form.fields_for :subscriptions do |sf| %>
-				<li class="subscription">
-					<span class="contact-type">
-						<%= sf.hidden_field :user_id, :value => current_user.id %>
-						<%= sf.select(:contact_type, Subscription.types.collect {|t| [ t, t ] }) %>
-					</span>
-					<span>
-						<%= sf.text_field :contact_info %>
-					</span>
-					<span>
-						<%= sf.hidden_field(:_delete, :value => '0', :class => 'delete-hidden') %>
-						<%= link_to(image_tag('/images/icons/delete.png', :title => 'Delete this subscription'), '#', :class => 'delete-subscription')%>
-					</span>
-				</li>
+					<% if sf.object.user == current_user %>
+					<li class="subscription">
+						<span class="contact-type">
+							<%= sf.hidden_field :user_id, :value => current_user.id %>
+							<%= sf.select(:contact_type, Subscription.types.collect {|t| [ t, t ] }) %>
+						</span>
+						<span>
+							<%= sf.text_field :contact_info %>
+						</span>
+						<span>
+							<%= sf.hidden_field(:_delete, :value => '0', :class => 'delete-hidden') %>
+							<%= link_to(image_tag('/images/icons/delete.png', :title => 'Delete this subscription'), '#', :class => 'delete-subscription')%>
+						</span>
+					</li>
+					<% end %>
 				<% end %>
 			</ul>
 			<div class="mb10"><%= link_to('Add another send rule', '#', :id => 'add-subscription') %></div>
