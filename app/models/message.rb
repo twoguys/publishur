@@ -4,6 +4,14 @@ class Message < ActiveRecord::Base
   
   validates_presence_of :body
   
+  def mine?(user)
+    user && self.user == user
+  end
+  
+  def young?
+    Time.now - self.created_at < 10.minutes
+  end
+  
   def deliver_subscriptions
     # for some reason when the observer calls this method, I can't get assocations (getting nil)
     # subs = self.group.subscriptions.for_user(self.user)

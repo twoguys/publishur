@@ -216,6 +216,8 @@ img.avatar { height: 50px; }
 .group-message-form form { padding: 0; height: 45px; }
 .group-message-form textarea { width: 550px; height: 30px; }
 .group-message-form input[type="submit"] { position: absolute; top: 0; right: 0; font-size: 0.9em; }
+.private { padding: 1px 0 0 20px; background: transparent url(../images/icons/door.png) no-repeat; }
+.public { padding: 1px 0 0 20px; background: transparent url(../images/icons/door_open.png) no-repeat; }
 
 /* Messages */
 .messages { border-bottom: 1px solid #d0d0d0; }

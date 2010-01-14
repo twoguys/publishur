@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :require_user
-  before_filter :find_group, :only => [:show, :join, :forwarding, :update]
+  before_filter :find_group, :only => [:show, :join, :forwarding, :update, :toggle_lock]
   
   def index
     nav :groups
@@ -38,6 +38,11 @@ class GroupsController < ApplicationController
   def forwarding
     @membership = @group.group_memberships.for_user(current_user).first
     @subscriptions = @group.subscriptions.for_user(current_user)
+  end
+  
+  def toggle_lock
+    @group.toggle!(:public) if @group.admin?(current_user)
+    redirect_to @group
   end
   
   def update
