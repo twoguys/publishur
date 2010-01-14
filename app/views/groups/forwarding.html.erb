@@ -6,7 +6,7 @@
 <div class="centered">
 	<h2>Where would you like to send messages from this group?</h2>
 	<div class="mt10">
-		You can send messages posted in this group to your email, chat, phone, and more!
+		You can have messages posted in this group sent to you via email, chat, phone, and more!
 	</div>
 </div>
 
@@ -38,12 +38,23 @@
 				<% end %>
 			</ul>
 			<div class="mb10"><%= link_to('Add another send rule', '#', :id => 'add-subscription') %></div>
-			<%= form.submit "Save" %>
+			<%= form.submit "Save" %> or <%= link_to('Cancel', @group) %>
 		<% end %>
 	</div>
 </div>	
 
 <script type="text/javascript">
+	function linkDeleteClicks() {
+		$('.delete-subscription').click(function() {
+			var hidden = $(this).prev('.delete-hidden');
+			if (hidden) {
+				hidden.val('1');
+				$(this).parents('.subscription').hide();
+			} else {
+				$(this).parents('.subscription').remove();
+			}
+		});
+	}
 	$(document).ready(function() {
 		$('#add-subscription').click(function() {
 			var time = new Date().getTime();
@@ -59,17 +70,10 @@
 				+ time + '][contact_info]") %></span>' +
 				'<span><%= link_to(image_tag("/images/icons/delete.png", :title => "Delete this subscription"), "#", :class => "delete-subscription")%></span></li>';
 			$('#subscriptions').append(html);
+			linkDeleteClicks();
 			return false;
 		});
 		
-		$('.delete-subscription').click(function() {
-			var hidden = $(this).prev('.delete-hidden');
-			if (hidden) {
-				hidden.val('1');
-				$(this).parents('.subscription').hide();
-			} else {
-				$(this).parents('.subscription').remove();
-			}
-		});
+		linkDeleteClicks();
 	});
 </script>
