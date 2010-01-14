@@ -164,10 +164,10 @@ input.button { font-size: 14px; border: none; }
 #signup-button:active { top: 1px; }
 
 /* Pricing */
-#try-it-out { position: absolute; top: -20px; right: 0; }
+#try-it-out { position: absolute; top: -20px; right: 100px; }
 .pricing {
   width: 258px;
-  margin: 30px;
+  margin: 30px 100px;
   float: left;
   border: 1px solid #ccc;
   background-color: #efefef;
