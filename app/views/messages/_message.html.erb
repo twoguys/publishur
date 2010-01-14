@@ -3,7 +3,7 @@
 		<%= link_to(message.user.name, message.user) %>
 	</span>
 	<span class="body">
-		<%= message.body %>
+		<%= auto_link(h(message.body)) %>
 	</span>
 	<span class="weak">
 		(<%= time_ago_in_words(message.created_at) %> ago)

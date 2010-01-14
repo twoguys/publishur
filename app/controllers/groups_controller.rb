@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :require_user
+  before_filter :find_group, :only => [:show, :join, :forwarding, :update]
   
   def index
     nav :groups
@@ -25,13 +26,30 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @group = Group.find(params[:id])
+    @membership = @group.group_memberships.for_user(current_user).first
   end
   
   def join
-    @group = Group.find(params[:id])
     @group.members << current_user if !@group.members.include?(current_user) && @group.public?
     flash[:notice] = "You successfully joined this group."
     redirect_to @group
   end
+  
+  def forwarding
+    @membership = @group.group_memberships.for_user(current_user).first
+    @subscriptions = @group.subscriptions.for_user(current_user)
+  end
+  
+  def update
+    require 'pp'
+    pp params
+    @group.update_attributes(params[:group])
+    flash[:notice] = "Subscriptions saved"
+    redirect_to @group
+  end
+  
+  private
+    def find_group
+      @group = Group.find(params[:id])
+    end
 end

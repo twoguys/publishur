@@ -2,8 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
   map.resources :groups,
-    :member => { :join => :get } do |group|
+    :member => { :join => :get, :forwarding => :get } do |group|
     group.resources :messages
+    group.resources :subscriptions
   end
   
   map.signup          'signup',           :controller => 'users',               :action => 'new'

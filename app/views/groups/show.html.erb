@@ -1,6 +1,7 @@
 <div class="border-bottom">
 	<h2><%= @group.name %></h2>
 	<%= link_to('Join this group', join_group_path(@group), :class => 'mr15') if !@group.members.include?(current_user) && @group.public? %>
+	<%= link_to('Change message forwarding', forwarding_group_path(@group), :class => 'mr15') %>
 	<%= link_to('Edit this group', edit_group_path(@group), :class => 'mr15') if @group.admin?(current_user) %>
 	<%= link_to('Back to groups', groups_path) %>
 </div>
@@ -18,9 +19,21 @@
 	<div class="primary-left">
 		<div class="insides">
 			<%= render 'messages/form', :group => @group, :message => Message.new %>
+			<div id="group-message-info"></div>
 			<ul class="messages">
 				<%= render @group.messages %>
 			</ul>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#message_body').keyup(function() {
+			if ($('#message_body').val().length > 140)
+				$('#group-message-info').text('Reminder: anyone receiving an SMS will only get the first 140 characters. You\'re at ' + $('#message_body').val().length + '.');
+			else
+				$('#group-message-info').text('');
+		});
+	});
+</script>

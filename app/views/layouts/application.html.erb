@@ -34,6 +34,9 @@
 	</div>
 	<div id="header">
 		<div id="header-insides">
+			<div id="notice">
+				<%= render 'layouts/flashes' %>
+			</div>
 			<%= link_to(image_tag('/images/logo.gif'), root_path) %>
 			<ul id="nav" class="shadowed-box">
 				<li class="first">
@@ -65,9 +68,6 @@
   </div>
   <div id="centered">
 		<div id="mid">
-			<div id="notice">
-				<%= render 'layouts/flashes' %>
-			</div>
 			<%= yield :wide %>
 			<div id="mid-insides">
 				<%= yield %>

@@ -1,0 +1,73 @@
+<div class="border-bottom">
+	<h2><%= @group.name %></h2>
+	<%= link_to('Back to the group page', @group) %>
+</div>
+
+<div class="centered">
+	<h2>Choose how to receive messages from this group.</h2>
+	<div class="weak">
+		Or go back to the <%= link_to('group page', @group) %>.
+	</div>
+</div>
+
+<div class="w600">
+	<div class="shadowed-box">
+		<h2 class="strong border-bottom mt10">Your current subscriptions</h2>
+		<% form_for @group do |form| %>
+			<ul id="subscriptions" class="subscriptions mb10">
+				<li>
+					<span class="strong contact-type">Type</span>
+					<span class="strong contact-info">Contact Info</span>
+				</li>
+				<% form.fields_for :subscriptions do |sf| %>
+				<li class="subscription">
+					<span class="contact-type">
+						<%= sf.hidden_field :user_id, :value => current_user.id %>
+						<%= sf.select(:contact_type, Subscription.types.collect {|t| [ t, t ] }) %>
+					</span>
+					<span>
+						<%= sf.text_field :contact_info %>
+					</span>
+					<span>
+						<%= sf.hidden_field(:_delete, :value => '0', :class => 'delete-hidden') %>
+						<%= link_to(image_tag('/images/icons/delete.png', :title => 'Delete this subscription'), '#', :class => 'delete-subscription')%>
+					</span>
+				</li>
+				<% end %>
+			</ul>
+			<div class="mb10"><%= link_to('Add a subscription', '#', :id => 'add-subscription') %></div>
+			<%= form.submit "Save" %>
+		<% end %>
+	</div>
+</div>	
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#add-subscription').click(function() {
+			var time = new Date().getTime();
+			var html = '<li class="subscription"><span class="contact-type">' +
+				'<input id="group_subscriptions_attributes_0_user_id" name="group[subscriptions_attributes][' + time +
+				'][user_id]" type="hidden" value="1">' +
+				'<%= select(:subscription,
+					:contact_type,
+					Subscription.types.collect {|t| [ t, t ] },
+					{},
+					:name => "group[subscriptions_attributes][' + time + '][contact_type]").gsub(/\n/, "") %></span>' +
+				'<span><%= text_field_tag("temp", nil, :name => "group[subscriptions_attributes]['
+				+ time + '][contact_info]") %></span>' +
+				'<span><%= link_to(image_tag("/images/icons/delete.png", :title => "Delete this subscription"), "#", :class => "delete-subscription")%></span></li>';
+			$('#subscriptions').append(html);
+			return false;
+		});
+		
+		$('.delete-subscription').click(function() {
+			var hidden = $(this).prev('.delete-hidden');
+			if (hidden) {
+				hidden.val('1');
+				$(this).parents('.subscription').hide();
+			} else {
+				$(this).parents('.subscription').remove();
+			}
+		});
+	});
+</script>

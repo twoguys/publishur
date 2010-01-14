@@ -65,13 +65,20 @@ input.button { font-size: 14px; border: none; }
 }
 
 /* Flash notices */
-#notice { height: 30px; position: relative; }
+#notice {  }
 #flash_success, #flash_notice, #flash_warning, #flash_failure {
-  font-size: 1.3em;
+  font-size: 1.1em;
   margin: 0 auto;
   text-align: center;
   height: 12px;
-  padding: 5px 5px;
+  padding: 10px;
+  height: 100px;
+  width: 380px;
+  overflow: hidden;
+  position: absolute;
+  top: -30px;
+  left: 15px;
+  background: transparent url(../images/flash-bg.png) no-repeat;
 }
 #flash_success, #flash_notice {
   color: #749446;
@@ -136,7 +143,7 @@ input.button { font-size: 14px; border: none; }
 #header #nav li a:hover {  }
 #header #nav li a.active { background: none; color: #353535; }
 
-#centered { width: 100%; background-color: #e5e5e5; padding: 0 0 20px; }
+#centered { width: 100%; background-color: #e5e5e5; padding: 20px 0; }
 #mid {
   width: 1000px;
   margin: 0 auto;
@@ -204,8 +211,9 @@ img.avatar { height: 50px; }
 .group_list li span { font-size: 12px; display: block; float: left; }
 .group_list li .members { width: 100px; }
 .group_list li .medias { width: 100px; }
+#group-message-info { height: 20px; width: 550px; color: #aaa; }
 .group-message-form { position: relative; }
-.group-message-form form { padding: 0 0 5px; }
+.group-message-form form { padding: 0; height: 45px; }
 .group-message-form textarea { width: 550px; height: 30px; }
 .group-message-form input[type="submit"] { position: absolute; top: 0; right: 0; font-size: 0.9em; }
 
@@ -214,6 +222,10 @@ img.avatar { height: 50px; }
 .message { padding: 5px 0; border-top: 1px solid #d0d0d0; }
 .message .message-user a { text-decoration: none; }
 .message .body { padding: 0 0 0 5px; }
+
+/* Subscriptions */
+table.subscriptions { text-align: left; }
+.contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; }
 
 /* In-place Editor */
 .inplaceeditor-form { display: block; }
@@ -364,6 +376,7 @@ div.pagination .disabled { color: #777; }
 .ml15 { margin-left: 15px; }
 .mr15 { margin-right: 15px; }
 .p0 { padding: 0; }
+.pt10 { padding-top: 10px; }
 .pb30 { padding-bottom: 30px; }
 .pb50 { padding-bottom: 50px; }
 .pl20 { padding-left: 20px; }
