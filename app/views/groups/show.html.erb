@@ -11,12 +11,14 @@
 	  <div class="insides">
 			<%= render 'security' %>
 			<h3>Members</h3>
+			<% if @group.pending_members.size > 0 %>
 			<div class="mt10 white-background rounded p10">
 				<strong>Requests to join this group</strong>
 				<ul class="members">
 					<%= render @group.pending_members, :pending => true %>
 				</ul>	
 			</div>
+			<% end %>
 	    <ul class="members mt10">
 				<%= render @group.members %>
 			</ul>

@@ -5,9 +5,10 @@
 		<strong>(owner)</strong>
 	<% end %>
 	<% if pending && @group.admin?(current_user) %>
+		<% membership = @group.group_memberships.for_user(user).first %>
 		(
-		<%= link_to('allow', '#', :class => 'mr10') %> or
-		<%= link_to('deny', '#') %>
+		<%= link_to('allow', [@group, membership], :method => :put, :class => 'mr10') %> or
+		<%= link_to('deny', [@group, membership], :method => :delete, :confirm => 'Are you sure you want to deny this user?') %>
 		)
 	<% end %>
 </li>

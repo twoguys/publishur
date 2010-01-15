@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
     :member => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get } do |group|
     group.resources :messages
     group.resources :subscriptions
+    group.resources :group_memberships, :only => [:update, :destroy]
   end
   
   map.signup          'signup',           :controller => 'users',               :action => 'new'

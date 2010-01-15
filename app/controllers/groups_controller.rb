@@ -69,7 +69,7 @@ class GroupsController < ApplicationController
   
   private
     def find_group
-      @group = Group.find(params[:id])
+      @group = Group.find(params[:id], :include => [:users, :group_memberships])
     end
     
     def allowed
