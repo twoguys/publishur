@@ -482,3 +482,4 @@ ul.hoverable li:hover .hidden { visibility: visible; }
 .actions a { display: inline-block; margin-left: 10px; }
 ul.lined li { border-bottom: 1px solid #ddd; padding: 8px 0; }
 ul.lined li:last-child { border: none; }
+.twitter-icon { float: left; padding: 0 5px 0; }
