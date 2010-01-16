@@ -1,2 +1,3 @@
-will_paginate --version 2.3.11 --source http://gemcutter.org
-authlogic
+will_paginate --version 2.3.11
+authlogic --version 2.1.3
+net-toc --version 0.2
