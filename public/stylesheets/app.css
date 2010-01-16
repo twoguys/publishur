@@ -126,7 +126,7 @@ input.button { font-size: 14px; border: none; }
   background-color: #e5e5e5;
 }
 #header-insides { width: 960px; padding: 0 20px 0; margin: 0 auto; position: relative; }
-#header #nav { position: absolute; top: 20px; right: 25px; font-size: 1.3em; padding: 0; }
+#header #nav { position: absolute; top: 20px; right: 20px; font-size: 1.3em; padding: 0; }
 #header #nav li {
   float: left;
   border-right: 1px solid #eee; 
