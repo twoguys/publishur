@@ -23,7 +23,7 @@
 		<div id="login-insides">
 			<ul>
 				<% if current_user %>
-				<li>Signed in as <%= current_user.email %></li>
+				<li>Signed in as <strong><%= current_user.email %></strong></li>
 				<li class="last"><%= link_to('Sign out', signout_path) %></li>
 				<% else %>
 				<li><%= link_to('Sign up', signup_path) %></li>
@@ -83,17 +83,18 @@
 						Publishur lets you send messages to groups of people, and it lets *them* decide how they want to receive your messages.
 					</p>
 					<p>
-						We give you the ability to receive messages via a number of ways. Instead of using a new tool, use what you're used to using!
+						We give you the ability to receive messages via a number of ways. Instead of everyone having to
+						use the same thing, use what you like best!
 					</p>
 				</td>
 				<td>
 					<h3>Why did we create this?</h3>
 					<p>
-						We wanted a simple way to send messages to a specific group of our friends,
+						We wanted a simple way to send messages to specific groups of our friends,
 						but our friends all use different things.
 					</p>
 					<p>
-						We also wanted to take advantage of things like email, AIM, GoogleTalk, SMS, Twitter, and more.
+						We also wanted to take advantage of things like email, AIM, GoogleTalk, SMS, Twitter in a simple, clever way.
 					</p>
 				</td>
 				<td>

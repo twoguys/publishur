@@ -1,6 +1,16 @@
 <li class="group">
-	<%= link_to(group.name, group) %>
-	<span class="member-count">
-		(<%= pluralize(group.members.count, "member") %>)
-	</span>
+	<div class="locked">
+		<%= image_tag("/images/icons/lock.png", :title => "Private group") if !group.public? %>
+	</div>
+	<div class="name">
+		<%= link_to(group.name, group) %>
+	</div>
+	<div class="weak member-count">
+		<%= pluralize(group.members.count, "member") %>
+	</div>
+	<div class="weak message-time">
+		<% if group.messages.count > 0 %>
+		last message posted <%= time_ago_in_words(group.messages.last.created_at) %> ago
+		<% end %>
+	</div>
 </li>
