@@ -6,4 +6,11 @@ module ApplicationHelper
     end
     condition ? link_to(display, url, :class => "active #{other_css_classes}") : link_to(display, url)
   end
+  
+  def print_subscription(sub)
+    return sub.contact_info if sub.contact_type == "email"
+    return sub.contact_info if sub.contact_type == "AIM"
+    return sub.contact_info if sub.contact_type == "GoogleTalk"
+    "#{number_to_phone(sub.contact_info)} (SMS)" if sub.contact_type == "SMS"
+  end
 end

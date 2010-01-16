@@ -4,7 +4,7 @@
 </div>
 
 <div class="centered">
-	<h2>Where would you like to send messages from this group?</h2>
+	<h2>How would you like to receive messages from this group?</h2>
 	<div class="mt10">
 		You can have messages posted in this group sent to you via email, chat, phone, and more!
 	</div>
@@ -12,7 +12,7 @@
 
 <div class="w600">
 	<div class="shadowed-box">
-		<h2 class="strong border-bottom mt10">You're currently sending messages from this group to...</h2>
+		<h2 class="strong border-bottom mt10">You're currently receiving messages from this group at...</h2>
 		<% form_for @group do |form| %>
 			<ul id="subscriptions" class="subscriptions mb10">
 				<li>
@@ -37,7 +37,7 @@
 					<% end %>
 				<% end %>
 			</ul>
-			<div class="mb10"><%= link_to('Add another send rule', '#', :id => 'add-subscription') %></div>
+			<div class="mb10"><%= link_to('Add another forwarding rule', '#', :id => 'add-subscription') %></div>
 			<%= form.submit "Save" %> or <%= link_to('Cancel', @group) %>
 		<% end %>
 	</div>

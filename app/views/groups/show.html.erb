@@ -1,37 +1,62 @@
 <div class="border-bottom">
 	<h2><%= @group.name %></h2>
-	<%= link_to('Join this group', join_group_path(@group), :class => 'mr15') if !@group.members.include?(current_user) && @group.public? %>
-	<%= link_to('Change message forwarding', forwarding_group_path(@group), :class => 'mr15') %>
-	<%= link_to('Edit this group', edit_group_path(@group), :class => 'mr15') if @group.admin?(current_user) %>
-	<%= link_to('Back to groups', groups_path) %>
+	<%= link_to('Back to groups', groups_path, :class => 'mr15') %>
+	<%= link_to('Edit this group', edit_group_path(@group)) if @group.admin?(current_user) %>
 </div>
 
 <div>
 	<div class="secondary-right">
 	  <div class="insides">
-			<%= render 'security' %>
-			<h3>Members</h3>
-			<% if @group.pending_members.size > 0 %>
-			<div class="mt10 white-background rounded p10">
-				<strong>Requests to join this group</strong>
-				<ul class="members">
-					<%= render @group.pending_members, :pending => true %>
-				</ul>	
+			<div id="group-subscriptions">
+				<%= link_to('Edit', forwarding_group_path(@group), :class => 'right') if !@subscriptions.empty? %>
+				<h3>Message forwarding</h3>
+				<% if @subscriptions.empty? %>
+					<div class="mt10 border-bottom">
+						Forwarding messages is what makes Publishur special.
+						<%= link_to('Start forwarding!', forwarding_group_path(@group))%>
+					</div>
+				<% else %>
+				<ul class="mt10 border-bottom group-subscriptions">
+					<% @subscriptions.each do |sub| %>
+						<li class="<%= sub.contact_type %>">
+							<%= print_subscription(sub) %>
+						</li>
+					<% end %>
+				</ul>		
+				<% end %>
 			</div>
-			<% end %>
-	    <ul class="members mt10">
-				<%= render @group.members %>
-			</ul>
-			<div class="mt20">
-				Want to invite a friend?  Send them to:
-				<%= link_to(join_group_path(@group, :only_path => false), join_group_path(@group)) %>
+			<div id="group-members">
+				<%= render 'security' %>
+				<h3>Members</h3>
+				<% if !@group.pending_members.empty? %>
+				<div class="mt10 white-background rounded p10">
+					<strong>Requests to join this group</strong>
+					<ul class="members">
+						<%= render @group.pending_members, :pending => true %>
+					</ul>	
+				</div>
+				<% end %>
+		    <ul class="members mt10">
+					<%= render @group.members %>
+				</ul>
+				<div class="mt20">
+					Want to invite a friend?  Send them to:
+					<%= link_to(join_group_path(@group, :only_path => false), join_group_path(@group)) %>
+				</div>
 			</div>
 	  </div>
 	</div>
 
 	<div class="primary-left">
 		<div class="insides">
+			<% if !@group.members.include?(current_user) && @group.public? %>
+			<div class="group-join-question">
+				You cannot post a message to this group unless you are a member of it.<br/>
+				<%= link_to("Click here to join", join_group_path(@group))  %>
+			</div>
+			<% else %>
 			<%= render 'messages/form', :group => @group, :message => Message.new %>
+			<% end %>
 			<div id="group-message-info"></div>
 			<ul class="messages">
 				<%= render @group.messages %>

@@ -28,10 +28,16 @@ class GroupsController < ApplicationController
   
   def show
     @membership = @group.group_memberships.for_user(current_user).first
+    @subscriptions = @group.subscriptions.for_user(current_user)
   end
   
   def join
-    redirect_to @group if @group.members.include?(current_user)
+    if @group.members.include?(current_user)
+      redirect_to @group
+    elsif @group.public?
+      @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => true)
+      redirect_to @group
+    end
   end
   
   def join_request
