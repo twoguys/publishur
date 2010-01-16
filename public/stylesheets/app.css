@@ -151,6 +151,7 @@ input.button { font-size: 14px; border: none; }
 }
 #mid-insides { padding: 0 20px; position: relative; }
 
+#diagram { width: 1000px; height: 623px; background: transparent url(../images/spinner.gif) no-repeat 50% 50%; }
 /* Signup */
 #signup-button {
   background: #e5e5e5 url(../images/signup-button.png) no-repeat 0 -75px;
