@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
   named_scope :for_user, lambda { |user| { :conditions => { :user_id => user.id } } }
   named_scope :for_everyone_but, lambda { |user| { :conditions => ["user_id <> ?", user.id] } }
   
-  TYPES = ['email', 'AIM', 'GoogleTalk', 'SMS'].freeze
+  TYPES = ['Email', 'AIM', 'Jabber', 'SMS'].freeze
   
   validates_presence_of   :contact_type
   validates_inclusion_of  :contact_type, :in => TYPES
@@ -16,15 +16,10 @@ class Subscription < ActiveRecord::Base
   end
   
   def deliver(message)
-    if self.contact_type == 'AIM'
-      login = ENV['AIM_LOGIN'] || 'publishur'
-      password = ENV['AIM_PASSWORD'] || 'b33r1sc00l'
-      client = Net::TOC.new(login, password)
-      client.connect
-      receiver = friend = client.buddy_list.buddy_named(self.contact_info)
-      receiver.send_im(message)
-    else
-      raise "Unknown Contact Type"
-    end
+    Delayed::Job.enqueue("Transport::#{self.contact_type}".constantize.new(:receiver => self.contact_info, :message => message.body))
+    
+    # Uncomment to send messages without using DJ
+    # transport = ("Transport::#{self.contact_type}".constantize.new(:receiver => self.contact_info, :message => message.body)
+    # transport.perform
   end
 end
