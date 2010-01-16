@@ -12,4 +12,13 @@ class Group < ActiveRecord::Base
   def admin?(user)
     self.admins.include?(user)
   end
+  
+  def deliver_message(message)
+    self.subscriptions.each do |sub|
+      logger.info "[Publishur] Delivering subscription #{sub.id}"
+      #Delayed::Job.enqueue sub.deliver(message.body)
+      sub.deliver(message.body)
+    end
+  end
+  
 end

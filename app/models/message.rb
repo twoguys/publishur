@@ -12,11 +12,13 @@ class Message < ActiveRecord::Base
     Time.now - self.created_at < 10.minutes
   end
   
-  def deliver_subscriptions
-    # for some reason when the observer calls this method, I can't get assocations (getting nil)
-    # subs = self.group.subscriptions.for_user(self.user)
-    #     subs.each do |sub|
-    #       puts "delivering subscription #{sub.id}"
-    #     end
-  end
+  # def deliver_subscriptions
+  #   # for some reason when the observer calls this method, I can't get assocations (getting nil)
+  #   self.reload
+  #   subs = self.group.subscriptions.for_user(self.user)
+  #   subs.each do |sub|
+  #     logger.info "[Publishur] Delivering subscription #{sub.id}"
+  #     Delayed::Job.enqueue sub.deliver(self.body)
+  #   end
+  # end
 end

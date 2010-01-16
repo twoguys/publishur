@@ -2,8 +2,9 @@ class MessagesController < ApplicationController
   before_filter :find_group
   
   def create
-    @message = Message.create(params[:message])
+    @message      = Message.new(params[:message])
     @message.user = current_user
+    
     if @group.messages << @message
       redirect_to @group
     else

@@ -15,9 +15,11 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
-  config.gem "authlogic"
-
+  config.gem 'will_paginate', :version => '2.3.11'
+  config.gem 'authlogic',     :version => '2.1.3'
+  config.gem 'net-toc',       :version => '0.2', :lib => 'net/toc'
+  
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
