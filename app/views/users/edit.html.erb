@@ -2,9 +2,14 @@
 	<h2>This is where you can update your settings.</h2>
 	
 	<div class="w400">
-		<div class="shadowed-box">
+		<div class="shadowed-box text-left">
 			<% form_for current_user do |form| %>
+				<%= form.label :timezone, "Time zone" %>
+				<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
 				
+				<div class="mt10">
+					<%= form.submit %>
+				</div>
 			<% end %>
 		</div>
 	</div>

@@ -259,7 +259,7 @@ table.subscriptions { text-align: left; }
 /* Search */
 #search { position: absolute; top: 0; right: 0; }
 #search form { padding: 0; }
-#search input[type="text"] { width: 150px; font-size: 14px; }
+#search input[type="text"] { width: 150px; font-size: 14px; position: absolute; right: 37px; }
 #search input[type="submit"] {
   background: transparent url(../images/icons/magnifier.png) no-repeat 4px 6px;
   -moz-border-radius: 0;
@@ -267,6 +267,9 @@ table.subscriptions { text-align: left; }
   -webkit-box-shadow: none;
   border: 0 none;
   margin: 0;
+  position: re;
+  right: 5px;
+  width: 20px;
 }
 #search input:focus { outline: 0 none; }
 
@@ -409,6 +412,8 @@ pre.prettyprint { border: none; }
 .hidden { display: none; }
 .down-below { position: absolute; top: 10000px; }
 .centered { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 .right { float: right; }
 .left { float: left; }
 .clear { clear: both; }
