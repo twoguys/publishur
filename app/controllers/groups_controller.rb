@@ -60,6 +60,7 @@ class GroupsController < ApplicationController
   def forwarding
     @membership = @group.group_memberships.for_user(current_user).first
     @subscriptions = @group.subscriptions.for_user(current_user)
+    @subscriptions += [@group.subscriptions.new(:user => current_user)] if @subscriptions.empty?
   end
   
   def toggle_lock

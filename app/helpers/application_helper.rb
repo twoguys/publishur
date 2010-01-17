@@ -10,7 +10,7 @@ module ApplicationHelper
   def print_subscription(sub)
     return "#{sub.contact_info}" if sub.contact_type == "Email"
     return "#{sub.contact_info}" if sub.contact_type == "AIM"
-    return "#{sub.contact_info}" if sub.contact_type == "GoogleTalk"
+    return "#{sub.contact_info}" if sub.contact_type == "Jabber"
     "#{number_to_phone(sub.contact_info)} (SMS)" if sub.contact_type == "SMS"
   end
 end
