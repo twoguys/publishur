@@ -39,7 +39,7 @@
 				<% end %>
 			</ul>
 			<div class="mb10"><%= link_to('Add another forwarding rule', '#', :id => 'add-subscription') %></div>
-			<div id="save-warning" class="h30"></div>
+			<div id="save-warning" style="display:none;"></div>
 			<%= form.submit "Save" %> or <%= link_to('Cancel', @group) %>
 		<% end %>
 	</div>
@@ -49,13 +49,14 @@
 	function linkDeleteClicks() {
 		$('.delete-subscription').click(function() {
 			var hidden = $(this).prev('.delete-hidden');
-			if (hidden) {
+			if (hidden.length > 0) {
 				hidden.val('1');
 				$(this).parents('.subscription').hide();
+				$('#save-warning').text("Make sure you press save, since you've deleted something.");
+				$('#save-warning').fadeIn();
 			} else {
 				$(this).parents('.subscription').remove();
 			}
-			//$('#save-warning').text("Make sure you save, since you've deleted something").
 		});
 	}
 	$(document).ready(function() {
