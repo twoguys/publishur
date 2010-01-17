@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20100116214444) do
   end
 
   create_table "user_sessions", :force => true do |t|
-    t.string   "email"
+    t.string   "username"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20100116214444) do
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
-    t.string   "account_type",      :default => "free"
+    t.string   "account_type"
     t.string   "timezone",          :default => "Eastern Time (US & Canada)"
   end
 
