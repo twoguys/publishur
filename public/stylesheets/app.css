@@ -227,7 +227,7 @@ img.avatar { height: 50px; }
 .private { padding: 1px 0 0 20px; background: transparent url(../images/icons/door.png) no-repeat; }
 .public { padding: 1px 0 0 20px; background: transparent url(../images/icons/door_open.png) no-repeat; }
 .group-subscriptions li { padding: 3px 0 3px 25px; }
-.group-subscriptions li.email { background: transparent url(../images/icons/email-grey.png) no-repeat 0 3px; }
+.group-subscriptions li.Email { background: transparent url(../images/icons/email-grey.png) no-repeat 0 3px; }
 .group-subscriptions li.SMS { background: transparent url(../images/icons/phone-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.AIM { background: transparent url(../images/icons/aim-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.GoogleTalk { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
