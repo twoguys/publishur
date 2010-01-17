@@ -16,7 +16,7 @@ class Subscription < ActiveRecord::Base
   end
   
   def deliver(message)
-    Delayed::Job.enqueue("Transport::#{self.contact_type}".constantize.new(:receiver => self.contact_info, :message => message.body))
+    Delayed::Job.enqueue("Transport::#{self.contact_type}".constantize.new(:receiver => self.contact_info, :message => message.body, :group => self.group.name))
     
     # Uncomment to send messages without using DJ
     # transport = ("Transport::#{self.contact_type}".constantize.new(:receiver => self.contact_info, :message => message.body)

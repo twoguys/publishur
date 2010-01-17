@@ -14,11 +14,7 @@ class Group < ActiveRecord::Base
   end
   
   def deliver_message(message)
-    self.subscriptions.each do |sub|
-      logger.info "[Publishur] Delivering subscription #{sub.id}"
-      #Delayed::Job.enqueue sub.deliver(message.body)
-      sub.deliver(message)
-    end
+    self.subscriptions.each { |sub| sub.deliver(message) }
   end
   
 end
