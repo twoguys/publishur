@@ -6,13 +6,14 @@
 <div class="centered">
 	<h2>How would you like to receive messages from this group?</h2>
 	<div class="mt10">
-		You can have messages posted in this group sent to you via email, chat, phone, and more!
+		You can have messages posted in this group sent to you via email, chat, phone, and more!<br/>
+		<strong>This information is kept private, so others cannot see it</strong>.
 	</div>
 </div>
 
 <div class="w600">
 	<div class="shadowed-box">
-		<h2 class="strong border-bottom mt10">You're currently receiving messages from this group at...</h2>
+		<h2 class="strong border-bottom mt10">You're currently receiving messages from this group via...</h2>
 		<% form_for @group do |form| %>
 			<ul id="subscriptions" class="subscriptions mb10">
 				<li>
@@ -38,6 +39,7 @@
 				<% end %>
 			</ul>
 			<div class="mb10"><%= link_to('Add another forwarding rule', '#', :id => 'add-subscription') %></div>
+			<div id="save-warning" style="display:none;"></div>
 			<%= form.submit "Save" %> or <%= link_to('Cancel', @group) %>
 		<% end %>
 	</div>
@@ -47,9 +49,11 @@
 	function linkDeleteClicks() {
 		$('.delete-subscription').click(function() {
 			var hidden = $(this).prev('.delete-hidden');
-			if (hidden) {
+			if (hidden.length > 0) {
 				hidden.val('1');
 				$(this).parents('.subscription').hide();
+				$('#save-warning').text("Make sure you press save, since you've deleted something.");
+				$('#save-warning').fadeIn();
 			} else {
 				$(this).parents('.subscription').remove();
 			}

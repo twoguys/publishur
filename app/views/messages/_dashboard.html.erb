@@ -1,0 +1,8 @@
+<li class="message">
+	<span class="">
+		<%= auto_link(h(message.body)) %>
+	</span>
+	<span class="weak">
+		(sent <%= time_ago_in_words(message.created_at) %> ago in <%= link_to(message.group.name, message.group) %>)
+	</span>
+</li>

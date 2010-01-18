@@ -1,11 +1,11 @@
 <h2 class="mb20">Here is your Dashboard, your home away from home.</h2>
 
 <div class="section relative">
-	<div class="heading">Your Groups</div>
+	<div class="heading">Your groups</div>
 	<%= link_to('Create a group', new_group_path, :class => 'top-right icon add') %>
 	<div class="indented">
 		<% if @groups.empty? %>
-			You don't belong to any groups yet, <%= link_to('create one', new_group_path) %> or <%= link_to('join one', groups_path) %>!
+			You don't belong to any groups yet, <%= link_to('join one', groups_path) %> or <%= link_to('create one', new_group_path) %>!
 		<% else %>
 		<ul class="lined">
 			<%= render @groups %>
@@ -16,7 +16,7 @@
 
 <% if @pending_memberships.size > 0 %>
 <div class="section relative">
-	<div class="heading">Pending Groups</div>
+	<div class="heading">Pending groups</div>
 	<div class="top-right">These are groups you have requested to join.</div>
 	<div class="indented">
 		<ul class="lined">
@@ -27,3 +27,33 @@
 	</div>
 </div>
 <% end %>
+
+<div class="section relative">
+	<div class="heading">Recent messages <strong>you've sent</strong></div>
+	<div class="indented">
+		<% if @messages.empty? %>
+			You haven't sent any messages yet.  To send a message, go to one of your groups' pages (listed above).
+		<% else %>
+		<ul class="lined">
+			<% @messages.each do |m| %>
+				<%= render 'messages/dashboard', :message => m %>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
+</div>
+
+<div class="section relative">
+	<div class="heading">Recent messages <strong>from your groups</strong></div>
+	<div class="indented">
+		<% if @others_messages.empty? %>
+			
+		<% else %>
+		<ul class="lined">
+			<% @others_messages.each do |m| %>
+				<%= render 'messages/dashboard_others', :message => m %>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
+</div>

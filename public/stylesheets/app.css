@@ -210,9 +210,9 @@ img.avatar { height: 50px; }
 /* Groups */
 .group { position: relative; height: 20px; width: 100%; padding: 0; }
 .group .locked { position: absolute; top: 9px; left: 0; }
-.group .name { position: absolute; top: 10px; left: 20px; width: 570px; overflow: hidden; }
+.group .name { position: absolute; top: 10px; left: 0; width: 590px; overflow: hidden; }
 .group .member-count { position: absolute; top: 10px; left: 600px; }
-.group .message-time { position: absolute; top: 10px; right: 20px; }
+.group .message-time { position: absolute; top: 10px; right: 0; }
 #group-message-info { height: 20px; width: 550px; color: #aaa; }
 .group-join-question {
   height: 20px;
@@ -230,7 +230,7 @@ img.avatar { height: 50px; }
 .group-subscriptions li.Email { background: transparent url(../images/icons/email-grey.png) no-repeat 0 3px; }
 .group-subscriptions li.SMS { background: transparent url(../images/icons/phone-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.AIM { background: transparent url(../images/icons/aim-grey.png) no-repeat 0 2px; }
-.group-subscriptions li.GoogleTalk { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
+.group-subscriptions li.Jabber { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
 #request-to-join {
   background: #e5e5e5 url(../images/request-to-join.png) no-repeat 0 -75px;
   width: 332px;
@@ -243,8 +243,8 @@ img.avatar { height: 50px; }
 #request-to-join:active { top: 1px; }
 
 /* Messages */
-.messages { border-bottom: 1px solid #d0d0d0; }
-.message { padding: 5px 0; border-top: 1px solid #d0d0d0; }
+.messages { border-top: 1px solid #d0d0d0; }
+.message { padding: 5px 0; border-bottom: 1px solid #d0d0d0; }
 .message .message-user a { text-decoration: none; }
 .message .body { padding: 0 0 0 5px; }
 
@@ -416,6 +416,7 @@ div.pagination .disabled { color: #777; }
 .w400 { width: 400px; margin-right: auto; margin-left: auto; }
 .w600 { width: 600px; margin-right: auto; margin-left: auto; }
 .w800 { width: 800px; margin-right: auto; margin-left: auto; }
+.h30 { height: 30px; }
 
 /* code formatting */
 pre.prettyprint { border: none; }
