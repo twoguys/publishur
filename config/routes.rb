@@ -19,5 +19,10 @@ ActionController::Routing::Routes.draw do |map|
   map.pricing       'pricing',        :controller => 'welcome',             :action => 'pricing'
   map.settings      'settings',       :controller => 'users',               :action => 'edit'
   map.home          '',               :controller => 'welcome',             :action => 'index'
+  
+  map.namespace :admin do |admin|
+    admin.resources :delayed_jobs
+  end
+  
   map.root          :home
 end
