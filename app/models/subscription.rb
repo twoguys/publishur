@@ -11,7 +11,7 @@ class Subscription < ActiveRecord::Base
   #validates_inclusion_of  :contact_type, :in => TYPES
   validates_presence_of   :contact_info
   
-  attr_accessor :message
+  attr_accessor :message, :contact_type
   
   def self.types
     TYPES
@@ -31,5 +31,8 @@ class Subscription < ActiveRecord::Base
     raise "Must implement perform method!"
   end
    
+  def before_create
+    self.type = self.contact_type
+  end
    
 end
