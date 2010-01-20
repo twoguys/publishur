@@ -1,0 +1,24 @@
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Priority</th>
+		<th>Attempts</th>
+		<th>Last Error</th>
+		<th>Run At</th>
+		<th>Locked At</th>
+		<th>Failed At</th>
+		<th>Locked By</th>
+	</tr>
+	<% for dj in @delayed_jobs %>
+	<tr>
+		<td><%= link_to dj.id, ['admin', dj] %></td>
+		<td><%= dj.priority %></td>
+		<td><%= dj.attempts %></td>
+		<td><%= "Yes" unless dj.last_error.blank? %></td>
+		<td><%= dj.run_at %></td>
+		<td><%= dj.locked_at %></td>
+		<td><%= dj.failed_at %></td>
+		<td><%= dj.locked_by %></td>
+	</tr>
+	<%- end -%>
+</table>
