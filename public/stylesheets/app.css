@@ -245,7 +245,6 @@ img.avatar { height: 50px; }
 /* Messages */
 .messages { border-top: 1px solid #d0d0d0; }
 .message { padding: 5px 0; border-bottom: 1px solid #d0d0d0; }
-.message .message-user a { text-decoration: none; }
 .message .body { padding: 0 0 0 5px; }
 
 /* Subscriptions */
@@ -401,6 +400,7 @@ div.pagination .disabled { color: #777; }
 .mt30 { margin-top: 30px; }
 .mt40 { margin-top: 40px; }
 .mt100 { margin-top: 100px; }
+.ml5 { margin-left: 5px; }
 .ml10 { margin-left: 10px; }
 .ml15 { margin-left: 15px; }
 .mr15 { margin-right: 15px; }

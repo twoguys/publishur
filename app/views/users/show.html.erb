@@ -1,2 +1,10 @@
-<h2><%= @user.name %></h2>
+<h2>This is a page about <%= @user.name %>.</h2>
 
+<div class="section relative mt20">
+	<div class="heading"><%= @user.first_name %>'s groups</div>
+	<div class="indented">
+		<ul class="lined">
+			<%= render @user.groups %>
+		</ul>
+	</div>
+</div>

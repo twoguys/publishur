@@ -29,6 +29,21 @@
 <% end %>
 
 <div class="section relative">
+	<div class="heading">Recent messages <strong>in your groups</strong></div>
+	<div class="indented">
+		<% if @others_messages.empty? %>
+			
+		<% else %>
+		<ul class="lined">
+			<% @others_messages.each do |m| %>
+				<%= render 'messages/dashboard_others', :message => m %>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
+</div>
+
+<div class="section relative">
 	<div class="heading">Recent messages <strong>you've sent</strong></div>
 	<div class="indented">
 		<% if @messages.empty? %>
@@ -37,21 +52,6 @@
 		<ul class="lined">
 			<% @messages.each do |m| %>
 				<%= render 'messages/dashboard', :message => m %>
-			<% end %>
-		</ul>
-		<% end %>
-	</div>
-</div>
-
-<div class="section relative">
-	<div class="heading">Recent messages <strong>from your groups</strong></div>
-	<div class="indented">
-		<% if @others_messages.empty? %>
-			
-		<% else %>
-		<ul class="lined">
-			<% @others_messages.each do |m| %>
-				<%= render 'messages/dashboard_others', :message => m %>
 			<% end %>
 		</ul>
 		<% end %>
