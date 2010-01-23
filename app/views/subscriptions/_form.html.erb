@@ -29,7 +29,7 @@
 			<%= form.submit submit_str, :class => 'small loader', :id => 'new-sub-submit-button' %>
 		</span>
 		<% if @subscription.id.nil? %>
-			or <%= link_to_function('Cancel', "$('#add-sub-link').show(); $('#new-sub').hide(); return false;") %>
+			or <%= link_to_function("I'm done adding rules", "$('#add-sub-link').show(); $('#new-sub').hide(); return false;") %>
 		<% else %>
 			or <%= link_to_remote('Cancel',
 				:url => group_subscription_path(@group, @subscription),
