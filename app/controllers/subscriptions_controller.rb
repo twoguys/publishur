@@ -27,6 +27,7 @@ class SubscriptionsController < ApplicationController
   end
   
   def destroy
+    sleep(2)
     @subscription.destroy
   end
   
