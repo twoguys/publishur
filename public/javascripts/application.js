@@ -1,2 +1,14 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  // $.each($('.hoverable > .hidden'), function() {
+  //     $(this).hide();
+  //   }
+  $('.hidden').hide();
+  $('.hoverable').hover(
+    function () { $(this).find('.hidden').show(); },
+    function () { $(this).find(".hidden").hide(); }
+  );
+  $('.loader').click(function() {
+    $(this).parent().addClass('loading');
+    $(this).parent().removeClass('hidden');
+  });
+});

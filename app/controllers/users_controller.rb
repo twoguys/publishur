@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated profile."
+      flash[:notice] = "Successfully updated your settings."
       redirect_to dashboard_url
     else
       render :action => 'edit'

@@ -1,47 +1,36 @@
 <div class="border-bottom">
-	<h2><%= @group.name %></h2>
+	<h2><%= @group.name %> <span class="weak">forwarding</span></h2>
 	<%= link_to('Back to the group page', @group) %>
 </div>
 
 <div class="centered">
-	<h2>How would you like to receive messages from this group?</h2>
-	<div class="mt10">
-		You can have messages posted in this group sent to you via email, chat, phone, and more!<br/>
-		<strong>This information is kept private, so others cannot see it</strong>.
+	<h2>Forward messages from this group via <strong>Email</strong>, <strong>AIM</strong>, <strong>GoogleTalk</strong>, and <strong>SMS</strong>!</h2>
+	<div class="weak">
+		This information is kept private, so others cannot see it.
 	</div>
 </div>
 
 <div class="w600">
 	<div class="shadowed-box">
-		<h2 class="strong border-bottom mt10">You're currently receiving messages from this group via...</h2>
-		<% form_for @group do |form| %>
-			<ul id="subscriptions" class="subscriptions mb10">
-				<li>
-					<span class="strong contact-type">Type</span>
-					<span class="strong contact-info">Contact Info</span>
-				</li>
-				<% form.fields_for :subscriptions do |sf| %>
-					<% if sf.object.user == current_user %>
-					<li class="subscription">
-						<span class="contact-type">
-							<%= sf.hidden_field :user_id, :value => current_user.id %>
-							<%= sf.select(:contact_type, Subscription.types.collect {|t| [ t, t ] }) %>
-						</span>
-						<span>
-							<%= sf.text_field :contact_info %>
-						</span>
-						<span>
-							<%= sf.hidden_field(:_delete, :value => '0', :class => 'delete-hidden') %>
-							<%= link_to(image_tag('/images/icons/delete.png', :title => 'Delete this subscription'), '#', :class => 'delete-subscription')%>
-						</span>
-					</li>
-					<% end %>
-				<% end %>
-			</ul>
-			<div class="mb10"><%= link_to('Add another forwarding rule', '#', :id => 'add-subscription') %></div>
-			<div id="save-warning" style="display:none;"></div>
-			<%= form.submit "Save" %> or <%= link_to('Cancel', @group) %>
+		<h2 class="strong border-bottom mt10">You're currently forwarding messages from this group to...</h2>
+		<ul id="subscriptions" class="subscriptions mb10">
+		<% @subscriptions.each do |sub| %>
+			<li id="subscription-<%= sub.id %>" class="hoverable">
+				<%= render 'subscriptions/list_show', :subscription => sub %>
+			</li>
 		<% end %>
+		</ul>
+		<div id="add-sub-section" class="grey-background p10">
+			<%= link_to_function('Add a forwarding rule',
+				"$('#new-sub').show(); $(this).hide(); return false;",
+				:id => 'add-sub-link') %>
+			<div id="new-sub" style="display:none;">
+				<%= render 'subscriptions/form' %>
+			</div>
+		</div>
+		<div class="mb10 weak small pl5">
+			rollover an existing rule to edit/delete it
+		</div>
 	</div>
 </div>	
 
@@ -66,10 +55,10 @@
 				'<input id="group_subscriptions_attributes_0_user_id" name="group[subscriptions_attributes][' + time +
 				'][user_id]" type="hidden" value="1">' +
 				'<%= select(:subscription,
-					:contact_type,
-					Subscription.types.collect {|t| [ t, t ] },
+					:type,
+					Subscription.types.collect,
 					{},
-					:name => "group[subscriptions_attributes][' + time + '][contact_type]").gsub(/\n/, "") %></span>' +
+					:name => "group[subscriptions_attributes][' + time + '][type]").gsub(/\n/, "") %></span>' +
 				'<span><%= text_field_tag("temp", nil, :name => "group[subscriptions_attributes]['
 				+ time + '][contact_info]") %></span>' +
 				'<span><%= link_to(image_tag("/images/icons/delete.png", :title => "Delete this subscription"), "#", :class => "delete-subscription")%></span></li>';

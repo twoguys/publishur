@@ -1,0 +1,1 @@
+page.replace_html("subscription-#{@subscription.id}", :partial => 'subscriptions/list_show', :locals => {:subscription => @subscription })

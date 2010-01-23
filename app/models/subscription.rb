@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
   named_scope :for_user, lambda { |user| { :conditions => { :user_id => user.id } } }
   named_scope :for_everyone_but, lambda { |user| { :conditions => ["user_id <> ?", user.id] } }
   
-  TYPES = ['Email', 'AIM', 'JabberMessage', 'SMS'].freeze
+  TYPES = {'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'SMS' => 'SMS'}
   
   #validates_presence_of   :contact_type
   #validates_inclusion_of  :contact_type, :in => TYPES
@@ -15,6 +15,14 @@ class Subscription < ActiveRecord::Base
   
   def self.types
     TYPES
+  end
+  
+  def print_type
+    return "#{TYPES[self.class.to_s]}"
+  end
+  
+  def contact_type
+    "#{self.class}"
   end
   
   def deliver(message)
@@ -32,7 +40,7 @@ class Subscription < ActiveRecord::Base
   end
    
   def before_create
-    self.type = self.contact_type
+    #self.type = self.contact_type
   end
    
 end

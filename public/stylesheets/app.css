@@ -17,7 +17,6 @@ textarea { padding: 5px; }
 p { font-family: georgia, helvetica, arial, sans-serif; line-height: 1.5em; margin: 0 0 10px 0; }
 form p { padding-bottom: 10px; }
 form { padding: 10px 0 20px; }
-small, .small { font-size: 90%; }
 label { display: block; margin: 5px 10px 5px 0; padding-top: 2px; }
 label.normal { font-size: 100%; }
 input[type="text"], input[type="password"], input[type="file"], textarea {
@@ -40,7 +39,7 @@ textarea { height: 80px; font: 12px 'Lucida Grande',Trebuchet MS,Helvetica,sans-
 input.button { font-size: 14px; border: none; }
 
 /* Button links and submit buttons */
-.button, input[type="submit"] {
+.button {
   background: #749446 url(../images/button-overlay.png) repeat-x;
   display: inline-block;
   padding: 6px 17px 8px;
@@ -59,10 +58,8 @@ input.button { font-size: 14px; border: none; }
   position: relative;
   cursor: pointer;
 }
-.button:hover, input[type="submit"]:hover { text-decoration: none; background-color: #547426; }
-.button:active, input[type="submit"]:active {
-  top: 1px;
-}
+.button:hover { text-decoration: none; background-color: #547426; }
+.button:active { top: 1px; }
 
 /* Flash notices */
 #notice {  }
@@ -126,18 +123,17 @@ input.button { font-size: 14px; border: none; }
   background-color: #e5e5e5;
 }
 #header-insides { width: 960px; padding: 0 20px 0; margin: 0 auto; position: relative; }
-#header #nav { position: absolute; top: 20px; right: 20px; font-size: 1.3em; padding: 0; }
+#header #nav { position: absolute; top: 20px; right: 20px; font-size: 1.3em; padding: 0; background-color: #fff; }
 #header #nav li {
   float: left;
-  border-right: 1px solid #eee; 
   background: transparent url(../images/nav-li.png) no-repeat 100% 50%;
+  padding: 12px 20px 0 20px;
+  height: 34px;
 }
 #header #nav li.last { background: none; }
 #header #nav li a {
   float: left;
   text-align: center;
-  height: 34px;
-  padding: 12px 20px 0 20px;
   text-decoration: none;
 }
 #header #nav li a:hover {  }
@@ -230,7 +226,7 @@ img.avatar { height: 50px; }
 .group-subscriptions li.Email { background: transparent url(../images/icons/email-grey.png) no-repeat 0 3px; }
 .group-subscriptions li.SMS { background: transparent url(../images/icons/phone-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.AIM { background: transparent url(../images/icons/aim-grey.png) no-repeat 0 2px; }
-.group-subscriptions li.Jabber { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
+.group-subscriptions li.JabberMessage { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
 #request-to-join {
   background: #e5e5e5 url(../images/request-to-join.png) no-repeat 0 -75px;
   width: 332px;
@@ -248,8 +244,23 @@ img.avatar { height: 50px; }
 .message .body { padding: 0 0 0 5px; }
 
 /* Subscriptions */
-table.subscriptions { text-align: left; }
+ul.subscriptions li { padding: 5px; position: relative; background-color: #efefef; }
+ul.subscriptions li:hover { background-color: #e0e0e0; }
+ul.subscriptions li .sub-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  padding: 6px 0;
+}
+ul.subscriptions li .sub-actions a { margin: 0 5px 0 0; }
+ul.subscriptions li .sub-actions a img { position: relative; top: 1px; }
 .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; }
+#add-sub-section { margin: 5px 0 0; }
+.sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; }
+.sub-form input[type="text"] { font-size: 1em; }
+.sub-form #examples { margin: 0 0 0 130px; }
+.sub-form #examples span { width: 80px; display: block; float: left; font-weight: bold; }
 
 /* In-place Editor */
 .inplaceeditor-form { display: block; }
@@ -321,10 +332,10 @@ div.pagination .disabled { color: #777; }
   font-size: 1.2em;
   padding: 10px;
   margin: 0 0 10px 0;
-  color: #84b861;
-  background-color: #e8f8da;
+  color: #999;
+  background-color: #f0f0f0;
   text-shadow: rgb(255, 255, 255) 1px 1px 0px;
-  border-bottom: 1px solid #d4e8c2;
+  border-bottom: 1px solid #ccc;
   -moz-border-radius-topleft: 8px;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topright: 8px;
@@ -405,11 +416,13 @@ div.pagination .disabled { color: #777; }
 .ml15 { margin-left: 15px; }
 .mr15 { margin-right: 15px; }
 .p0 { padding: 0; }
+.p5 { padding: 5px; }
 .p10 { padding: 10px; }
 .pt10 { padding-top: 10px; }
 .pb30 { padding-bottom: 30px; }
 .pb50 { padding-bottom: 50px; }
 .pl20 { padding-left: 20px; }
+.pl5 { padding-left: 5px; }
 .pr20 { padding-right: 20px; }
 .w300 { width: 300px; }
 .w200 { width: 200px; }
@@ -438,13 +451,14 @@ ul.hoverable li:hover .hidden { visibility: visible; }
 .big { font-size: 2em; }
 .very-big { font-size: 3em;}
 .medium { font-size: 1.2em; line-height: 1.4em; }
-.small { font-size: 80%; }
+small, .small, input.small { font-size: 0.88em; }
 .strong { font-weight: bold; }
 .weak { color: #777; }
 .block { display: block; }
 .rounded { -moz-border-radius: 10px; -webkit-border-radius: 10px; }
 .dashed { border: 1px dashed #ccc; }
 .border-bottom { border-bottom: 1px dashed #ccc; margin-bottom: 10px; padding-bottom: 10px; }
+.border-top { border-top: 1px dashed #ccc; padding-top: 10px; margin-top: 10px; }
 .indented { margin-left:10px; margin-right: 10px; }
 .rounded {
   border-radius: 8px;
@@ -465,7 +479,7 @@ ul.hoverable li:hover .hidden { visibility: visible; }
 .light-grey { color: #aaa; }
 .light-grey-border { border: 1px solid #ccc; }
 .light-grey-background { background-color: #e5e5e5; }
-.grey-background { background-color: #ccc; }
+.grey-background { background-color: #ddd; }
 .white-background { background-color: #fff; }
 .green-background { background-color: #117906; }
 .blue-background { background-color: #2a82e4; }
@@ -481,6 +495,15 @@ ul.hoverable li:hover .hidden { visibility: visible; }
 .information { color: #777; margin-bottom: 20px; }
 .actions { position: absolute; top: 15px; right: 20px; }
 .actions a { display: inline-block; margin-left: 10px; }
+.loading { background: transparent url(../images/loader.gif) no-repeat 50% 50%; }
+.loading * {
+  visibility: hidden;
+  -moz-border-radius: none;
+  -webkit-border-radius: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border: none;
+}
 ul.lined li { border-bottom: 1px solid #ddd; padding: 8px 0; }
 ul.lined li:last-child { border: none; }
 .twitter-icon { float: left; padding: 0 5px 0; }

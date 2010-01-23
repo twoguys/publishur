@@ -1,0 +1,40 @@
+<% @subscription ||= subscription %>
+<% url = @subscription.id.nil? ? group_subscriptions_path(@group) : group_subscription_path(@group, @subscription) %>
+<% remote_form_for(@subscription, :url => url, :html => {:class => 'sub-form'}) do |form| %>
+	<div>
+		<span class="contact-type">
+			Choose <strong>how</strong>:
+		</span>
+		<span class="contact-info">
+			<%= form.select :contact_type, Subscription.types.collect.map{|a| a.reverse }.sort{|a, b| a[1] <=> b[1]} %>
+		</span>
+	</div>
+	<div>
+		<span class="contact-type">
+			Choose <strong>where</strong>:
+		</span>
+		<span class="contact-info">
+			<%= form.text_field :contact_info %>
+		</span>
+		<div id="examples" class="small weak">
+			<div><span>AIM:</span>jsmith</div>
+			<div><span>Email:</span>john.smith@gmail.com</div>
+			<div><span>GoogleTalk:</span>john.smith</div>
+			<div><span>SMS:</span>123-456-7890</div>
+		</div>
+	</div>
+	<div class="border-top">
+		<span id="submit-parent">
+			<% submit_str = @subscription.id.nil? ? "Add this rule" : "Save this rule" %>
+			<%= form.submit submit_str, :class => 'small loader', :id => 'new-sub-submit-button' %>
+		</span>
+		<% if @subscription.id.nil? %>
+			or <%= link_to_function('Cancel', "$('#add-sub-link').show(); $('#new-sub').hide(); return false;") %>
+		<% else %>
+			or <%= link_to_remote('Cancel',
+				:url => group_subscription_path(@group, @subscription),
+				:method => :get,
+				:class => 'loader') %>
+		<% end %>
+	</div>
+<% end %>

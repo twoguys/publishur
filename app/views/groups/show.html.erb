@@ -18,7 +18,7 @@
 				<% else %>
 				<ul class="mt10 border-bottom group-subscriptions">
 					<% @subscriptions.each do |sub| %>
-						<li class="<%= sub.type %>">
+						<li class="<%= sub.class.to_s %>">
 							<%= print_subscription(sub) %>
 						</li>
 					<% end %>

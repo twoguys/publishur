@@ -60,7 +60,7 @@ class GroupsController < ApplicationController
   def forwarding
     @membership = @group.group_memberships.for_user(current_user).first
     @subscriptions = @group.subscriptions.for_user(current_user)
-    @subscriptions += [@group.subscriptions.new(:user => current_user)] if @subscriptions.empty?
+    @subscription = @group.subscriptions.new(:user => current_user)
   end
   
   def toggle_lock
@@ -68,7 +68,22 @@ class GroupsController < ApplicationController
     redirect_to @group
   end
   
-  def update
+  def update    # 
+      # group_data = params[:group]
+      # require 'pp'
+      # new_subs = []
+      # @group.subscriptions.each do |sub|
+      #   if sub.is_a?(Subscription)
+      #     @group.subscriptions.delete(sub)
+      #     new_sub = sub.type.contstantize.new
+      #     new_sub.contact_info = sub.contact_info
+      #     new_sub.user = sub.user
+      #     new_subs << new_sub
+      #   end
+      # end
+      # new_subs.each do |new_sub|
+      #   @group.subscriptions << new_sub
+      # end
     @group.update_attributes(params[:group])
     flash[:notice] = "Message forwarding updated"
     redirect_to @group

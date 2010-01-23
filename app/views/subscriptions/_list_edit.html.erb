@@ -1,0 +1,8 @@
+<% form_for([@group, subscription]) do |form| %>
+	<span class="contact-type">
+		<%= form.select :contact_type, Subscription.types.collect %>
+	</span>
+	<span class="contact-info">
+		<%= form.text_field :contact_info %>
+	</span>
+<% end %>

@@ -1,0 +1,5 @@
+page.insert_html("bottom", "subscriptions", :partial => 'subscriptions/list_show', :locals => {:subscription => @subscription}) if @subscription.valid?
+page['submit-parent'].removeClass('loading')
+page << "$('#subscription-#{@subscription.id}').effect('highlight', {}, 2000);"
+page << "$('#subscription-#{@subscription.id}').hover(function () { $(this).find('.hidden').show(); },function () { $(this).find('.hidden').hide(); })"
+page << "$('#subscription_contact_info').attr('value','');"

@@ -1,0 +1,19 @@
+<div id="subscription-<%= subscription.id %>-insides" class="subscription-insides">
+	<span class="contact-type">
+		<%= subscription.print_type %>
+	</span>
+	<span class="contact-info">
+		<%= subscription.contact_info %>
+	</span>
+	<span class="sub-actions hidden">
+		<%= link_to_remote('Edit',
+			:url => edit_group_subscription_path(:group_id => subscription.group, :id => subscription.id),
+			:method => :get,
+			:html => {:class => 'loader'}) %>
+		<%= link_to_remote(image_tag('/images/icons/mini-trash.png', :title => 'Delete'),
+			:url => group_subscription_path(:group_id => subscription.group, :id => subscription.id),
+			:method => :delete,
+			:confirm => 'Are you sure you want to delete this?',
+			:html => {:class => 'loader'}) %>
+	</span>
+</div>

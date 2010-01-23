@@ -1,16 +1,43 @@
 <div class="centered">
-	<h2>This is where you can update your settings.</h2>
+	<h2>This is where you update your personal settings.</h2>
 	
 	<div class="w400">
 		<div class="shadowed-box text-left">
+			<ul>
 			<% form_for current_user do |form| %>
-				<%= form.label :timezone, "Time zone" %>
-				<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
-				
-				<div class="mt10">
+				<li class="border-bottom">
+					<h2 class="strong">Change your name</h2>
+				</li>
+				<li>
+					<%= form.label :first_name %>
+					<%= form.text_field :first_name %>
+				</li>
+				<li>
+					<%= form.label :last_name %>
+					<%= form.text_field :last_name %>
+				</li>
+				<li class="border-bottom mt20">
+					<h2 class="strong">Change your password</h2>
+				</li>
+				<li>
+					<%= form.label :password, 'New password' %>
+					<%= form.password_field :password %>
+				</li>
+				<li>
+					<%= form.label :password_confirmation, 'New password (again)' %>
+					<%= form.password_field :password_confirmation %>
+				</li>
+				<li class="border-bottom mt20">
+					<h2 class="strong">Change your time zone</h2>
+				</li>
+				<li>
+					<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
+				</li>
+				<li class="mt10">
 					<%= form.submit %>
-				</div>
+				</li>
 			<% end %>
+			</ul>
 		</div>
 	</div>
 </div>
