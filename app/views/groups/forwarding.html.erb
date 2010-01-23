@@ -15,9 +15,7 @@
 		<h2 class="strong border-bottom mt10">You're currently forwarding messages from this group to...</h2>
 		<ul id="subscriptions" class="subscriptions mb10">
 		<% @subscriptions.each do |sub| %>
-			<li id="subscription-<%= sub.id %>" class="hoverable">
-				<%= render 'subscriptions/list_show', :subscription => sub %>
-			</li>
+			<%= render 'subscriptions/list_show', :subscription => sub %>
 		<% end %>
 		</ul>
 		<div id="add-sub-section" class="grey-background p10">
