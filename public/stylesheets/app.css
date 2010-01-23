@@ -19,6 +19,7 @@ form p { padding-bottom: 10px; }
 form { padding: 10px 0 20px; }
 label { display: block; margin: 5px 10px 5px 0; padding-top: 2px; }
 label.normal { font-size: 100%; }
+input[type="submit"] { cursor: pointer; }
 input[type="text"], input[type="password"], input[type="file"], textarea {
   font-size: 14pt;
   padding: 5px;
@@ -288,9 +289,11 @@ ul.subscriptions li .sub-actions a img { position: relative; top: 1px; }
   -webkit-box-shadow: none;
   border: 0 none;
   margin: 0;
-  position: re;
-  right: 5px;
+  position: relative;
+  cursor: pointer;
+  right: 15px;
   width: 20px;
+  height: 20px;
 }
 #search input:focus { outline: 0 none; }
 
