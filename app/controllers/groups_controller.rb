@@ -68,24 +68,12 @@ class GroupsController < ApplicationController
     redirect_to @group
   end
   
-  def update    # 
-      # group_data = params[:group]
-      # require 'pp'
-      # new_subs = []
-      # @group.subscriptions.each do |sub|
-      #   if sub.is_a?(Subscription)
-      #     @group.subscriptions.delete(sub)
-      #     new_sub = sub.type.contstantize.new
-      #     new_sub.contact_info = sub.contact_info
-      #     new_sub.user = sub.user
-      #     new_subs << new_sub
-      #   end
-      # end
-      # new_subs.each do |new_sub|
-      #   @group.subscriptions << new_sub
-      # end
+  def edit
+  end
+  
+  def update
     @group.update_attributes(params[:group])
-    flash[:notice] = "Message forwarding updated"
+    flash[:notice] = "Group updated"
     redirect_to @group
   end
   
