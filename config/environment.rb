@@ -19,6 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic',     :version => '2.1.3'
   config.gem 'net-toc',       :version => '0.2', :lib => 'net/toc'
   config.gem 'xmpp4r-simple', :version => '0.8.8'
+  config.gem 'httparty',      :version => '0.5.0'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
