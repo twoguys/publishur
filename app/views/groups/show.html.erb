@@ -59,8 +59,9 @@
 			<% end %>
 			<div id="group-message-info"></div>
 			<ul class="messages">
-				<%= render @group.messages %>
+				<%= render @messages %>
 			</ul>
+			<div><%= will_paginate @messages %></div>
 		</div>
 	</div>
 </div>

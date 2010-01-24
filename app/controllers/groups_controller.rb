@@ -27,8 +27,9 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @membership = @group.group_memberships.for_user(current_user).first
-    @subscriptions = @group.subscriptions.for_user(current_user)
+    @membership     = @group.group_memberships.for_user(current_user).first
+    @subscriptions  = @group.subscriptions.for_user(current_user)
+    @messages       = @group.messages.paginate :page => params[:page] || 1
   end
   
   def join

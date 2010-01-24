@@ -4,6 +4,10 @@ class Message < ActiveRecord::Base
   
   validates_presence_of :body
   
+  def self.per_page
+    10
+  end
+  
   def mine?(user)
     user && self.user == user
   end
