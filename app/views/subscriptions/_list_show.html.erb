@@ -21,6 +21,9 @@
 				:before => "$('#delete-sub-#{subscription.id}').parent().addClass('loading'); $('#delete-sub-#{subscription.id}').parent().removeClass('hidden');",
 				:html => { :id => "delete-sub-#{subscription.id}" }) %>
 		</span>
+		<span class="description<%= subscription.class.to_s == "Tweet" ? "-tall" : "" %> hidden">
+			<%= subscription.print_description %>
+		</span>
 	</div>
 <% unless insides %>
 </li>

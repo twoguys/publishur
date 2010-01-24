@@ -8,4 +8,8 @@ class JabberMessage < Subscription
     im.deliver(self.contact_info, self.message.body)
   end
   
+  def print_description
+    "You will receive IMs from <strong>publishur.messenger</strong>"
+  end
+  
 end

@@ -9,4 +9,8 @@ class AIM < Subscription
     receiver.send_im(self.message.body)
   end
   
+  def print_description
+    "You will receive IMs from <strong>publishur@aim.com</strong>"
+  end
+  
 end

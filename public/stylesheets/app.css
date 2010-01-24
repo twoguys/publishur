@@ -256,6 +256,20 @@ ul.subscriptions li .sub-actions {
 }
 ul.subscriptions li .sub-actions a { margin: 0 5px 0 0; }
 ul.subscriptions li .sub-actions a img { position: relative; top: 1px; }
+ul.subscriptions li .description, ul.subscriptions li .description-tall {
+  background: transparent url(../images/callout-bubble-right.png) no-repeat;
+  position: absolute;
+  top: -24px;
+  right: -220px;
+  width: 175px;
+  height: 34px;
+  padding: 20px 20px 20px 25px;
+  text-align: center;
+}
+ul.subscriptions li .description-tall {
+  padding: 15px 20px 15px 25px;
+  height: 44px;
+}
 .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; }
 #add-sub-section { margin: 5px 0 0; }
 .sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; }

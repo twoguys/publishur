@@ -21,6 +21,10 @@ class Subscription < ActiveRecord::Base
     return "#{TYPES[self.class.to_s]}"
   end
   
+  def print_description
+    # handled by subclasses
+  end
+  
   def contact_type
     "#{self.class}"
   end
