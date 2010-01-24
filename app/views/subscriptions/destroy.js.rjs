@@ -1,1 +1,2 @@
-page["subscription-#{@subscription.id}"].remove
+page["subscription-#{@old_sub.id}"].remove
+page.replace_html("add-sub-section", :partial => 'subscriptions/add') if @before_count == 5

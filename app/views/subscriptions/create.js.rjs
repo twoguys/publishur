@@ -3,3 +3,4 @@ page['submit-parent'].removeClass('loading')
 page << "$('#subscription-#{@subscription.id}').effect('highlight', {}, 2000);"
 page << "$('#subscription-#{@subscription.id}').hover(function () { $(this).find('.hidden').show(); },function () { $(this).find('.hidden').hide(); })"
 page << "$('#subscription_contact_info').attr('value','');"
+page.replace_html("add-sub-section", :partial => 'subscriptions/add') unless @group.under_limit?(current_user)

@@ -228,6 +228,7 @@ img.avatar { height: 50px; }
 .group-subscriptions li.SMS { background: transparent url(../images/icons/phone-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.AIM { background: transparent url(../images/icons/aim-grey.png) no-repeat 0 2px; }
 .group-subscriptions li.JabberMessage { background: transparent url(../images/icons/google-grey.png) no-repeat 0 3px; }
+.group-subscriptions li.Tweet { background: transparent url(../images/icons/twitter-grey.png) no-repeat 0 3px; }
 #request-to-join {
   background: #e5e5e5 url(../images/request-to-join.png) no-repeat 0 -75px;
   width: 332px;
@@ -265,6 +266,7 @@ ul.subscriptions li .description, ul.subscriptions li .description-tall {
   height: 34px;
   padding: 20px 20px 20px 25px;
   text-align: center;
+  font-size: 13px;
 }
 ul.subscriptions li .description-tall {
   padding: 15px 20px 15px 25px;
@@ -313,9 +315,9 @@ ul.subscriptions li .description-tall {
 
 /* Pagination */
 div.pagination { text-align: center; height: 20px; padding: 10px; }
-div.pagination span, div.pagination a { border: 1px solid #d0d0d0; padding: 3px 7px; text-decoration: none; }
-div.pagination a:hover { background-color: #d0d0d0; border: 1px solid #999; }
-div.pagination span.current { font-weight: 900; background-color: #333; color: #eee; }
+div.pagination span, div.pagination a { border: 1px solid #999; padding: 3px 7px; text-decoration: none; }
+div.pagination a:hover { background-color: #d0d0d0; }
+div.pagination span.current { font-weight: 900; background-color: #333; color: #e5e5e5; border: 1px solid #333; }
 div.pagination .disabled { color: #aaa; border: none; }
 
 #footer {

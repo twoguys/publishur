@@ -12,5 +12,6 @@ module ApplicationHelper
     return "#{sub.contact_info}"                  if sub.is_a?(AIM)
     return "#{sub.contact_info}"                  if sub.is_a?(JabberMessage)
     "#{number_to_phone(sub.contact_info)} (SMS)"  if sub.is_a?(SMS)
+    return "#{sub.contact_info}"                  if sub.is_a?(Tweet)
   end
 end

@@ -4,8 +4,8 @@
 </div>
 
 <div class="weak centered">
-	<h2>Forward messages from this group via <strong>Email</strong>, <strong>AIM</strong>, and <strong>GoogleTalk</strong>!</h2>
-	<div>(SMS and Twitter coming soon)</div>
+	<h2>Forward messages from this group via <strong>Email</strong>, <strong>AIM</strong>, <strong>GoogleTalk</strong> and <strong>Twitter</strong>!</h2>
+	<div>(SMS coming soon)</div>
 </div>
 
 <div class="w600 mb40">
@@ -17,12 +17,7 @@
 		<% end %>
 		</ul>
 		<div id="add-sub-section" class="grey-background p10">
-			<%= link_to_function('Add a forwarding rule',
-				"$('#new-sub').show(); $(this).hide(); return false;",
-				:id => 'add-sub-link') %>
-			<div id="new-sub" style="display:none;">
-				<%= render 'subscriptions/form' %>
-			</div>
+			<%= render 'subscriptions/add' %>
 		</div>
 		<div class="mb10 weak small pl5">
 			rollover an existing rule to edit/delete it

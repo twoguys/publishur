@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   before_filter :find_subscription, :only => [:show, :edit, :update, :destroy]
   
   def create
-    if params[:subscription] && !params[:subscription][:contact_type].blank?
+    if params[:subscription] && !params[:subscription][:contact_type].blank? && @group.under_limit?(current_user)
       @subscription = params[:subscription][:contact_type].constantize.new(params[:subscription])
       @subscription.group = @group
       @subscription.user = current_user
@@ -27,8 +27,10 @@ class SubscriptionsController < ApplicationController
   end
   
   def destroy
-    sleep(2)
+    @before_count = @group.subscriptions.for_user(current_user).count
     @subscription.destroy
+    @old_sub = @subscription
+    @subscription = Subscription.new(:group => @group, :user => current_user)
   end
   
   private

@@ -17,4 +17,8 @@ class Group < ActiveRecord::Base
     self.subscriptions.each { |sub| sub.deliver(message) }
   end
   
+  def under_limit?(user)
+    self.subscriptions.for_user(user).count < 5
+  end
+  
 end
