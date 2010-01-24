@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :body
   
   def self.per_page
-    10
+    15
   end
   
   def mine?(user)

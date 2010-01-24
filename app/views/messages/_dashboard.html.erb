@@ -1,5 +1,8 @@
 <li class="message">
-	<span class="">
+	<span class="message-user">
+		<%= link_to(message.user.name, message.user) %>
+	</span>
+	<span class="body">
 		<%= auto_link(h(message.body)) %>
 	</span>
 	<span class="weak">

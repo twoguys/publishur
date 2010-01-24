@@ -128,14 +128,14 @@ input.button { font-size: 14px; border: none; }
 #header #nav li {
   float: left;
   background: transparent url(../images/nav-li.png) no-repeat 100% 50%;
-  padding: 12px 20px 0 20px;
-  height: 34px;
 }
 #header #nav li.last { background: none; }
 #header #nav li a {
   float: left;
   text-align: center;
   text-decoration: none;
+  padding: 12px 20px 0 20px;
+  height: 34px;
 }
 #header #nav li a:hover {  }
 #header #nav li a.active { background: none; color: #353535; }
@@ -299,10 +299,10 @@ ul.subscriptions li .sub-actions a img { position: relative; top: 1px; }
 
 /* Pagination */
 div.pagination { text-align: center; height: 20px; padding: 10px; }
-div.pagination span, div.pagination a { border: 1px solid #ccc; padding: 4px; }
-div.pagination a:hover { background-color: #ccc; border: 1px solid #999; text-decoration: none; }
-div.pagination span.current { font-weight: 900; }
-div.pagination .disabled { color: #777; }
+div.pagination span, div.pagination a { border: 1px solid #d0d0d0; padding: 3px 7px; text-decoration: none; }
+div.pagination a:hover { background-color: #d0d0d0; border: 1px solid #999; }
+div.pagination span.current { font-weight: 900; background-color: #333; color: #eee; }
+div.pagination .disabled { color: #aaa; border: none; }
 
 #footer {
   background: transparent url(../images/footer-bg.png) repeat-x 50% 0;
@@ -335,10 +335,10 @@ div.pagination .disabled { color: #777; }
   font-size: 1.2em;
   padding: 10px;
   margin: 0 0 10px 0;
-  color: #999;
-  background-color: #f0f0f0;
-  text-shadow: rgb(255, 255, 255) 1px 1px 0px;
-  border-bottom: 1px solid #ccc;
+  color: #555;
+  background-color: #d0d0d0;
+  text-shadow: #fff 1px 1px 0px;
+  border-bottom: 1px solid #bbb;
   -moz-border-radius-topleft: 8px;
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topright: 8px;
@@ -359,7 +359,7 @@ div.pagination .disabled { color: #777; }
 /* Icon Links */
 .icon {
   padding: 0 0 5px 20px;
-  display: block;
+  display: inline-block;
   background-repeat: no-repeat;
 }
 .icon_left { padding: 1px 0 5px 20px; background-repeat: no-repeat; }
@@ -381,6 +381,7 @@ div.pagination .disabled { color: #777; }
 .add { background-image: url(../images/icons/add.png); }
 .edit { background-image: url(../images/icons/pencil.png); }
 .undo { background-image: url(../images/icons/arrow_undo.png); }
+.back { background-image: url(../images/icons/left-arrow.png); padding: 1px 0 0 24px; }
 .delete { background-image: url(../images/icons/delete.png); }
 .reply { background-image: url(../images/icons/arrow_reply.png); }
 .info { background-image: url(../images/icons/information.png); }

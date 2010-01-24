@@ -5,11 +5,8 @@ class MessagesController < ApplicationController
     @message      = Message.new(params[:message])
     @message.user = current_user
     
-    if @group.messages << @message
-      redirect_to @group
-    else
-      render @group
-    end
+    @group.messages << @message if @message.valid?
+    redirect_to @group
   end
   
   def destroy

@@ -32,6 +32,11 @@ class GroupsController < ApplicationController
     @messages       = @group.messages.paginate :page => params[:page] || 1
   end
   
+  def destroy
+    @group.destroy if @group.admin?(current_user)
+    redirect_to groups_path
+  end
+  
   def join
     if @group.members.include?(current_user)
       redirect_to @group

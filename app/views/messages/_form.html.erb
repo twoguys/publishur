@@ -2,12 +2,18 @@
 	<% form_for [group, message] do |form| %>
 		<%= form.error_messages %>
 		<%= form.text_area :body %>
-  	<%= form.submit "Post message" %>
+  	<%= form.submit "Post message", :class => 'button' %>
 	<% end %>
 </div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-	   $('#message_body').focus();
+	  $('#message_body').focus();
+		$('#message_body').keyup(function() {
+			if ($('#message_body').val().length > 140)
+				$('#group-message-info').text('Reminder: Try not to make your messages too long. You\'re at ' + $('#message_body').val().length + ' characters.');
+			else
+				$('#group-message-info').text('');
+		});
 	 });
 </script>
