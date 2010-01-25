@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
   named_scope :for_user, lambda { |user| { :conditions => { :user_id => user.id } } }
   named_scope :for_everyone_but, lambda { |user| { :conditions => ["user_id <> ?", user.id] } }
   
-  TYPES = { 'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'Tweet' => 'Twitter', 'SMS' => 'SMS' }
+  TYPES = { 'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'Tweet' => 'Twitter', 'PostHook' => 'HTTP Post', 'SMS' => 'SMS' }
   
   #validates_presence_of   :contact_type
   #validates_inclusion_of  :contact_type, :in => TYPES
