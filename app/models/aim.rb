@@ -5,8 +5,8 @@ class AIM < Subscription
     password      = ENV['AIM_PASSWORD'] || 'b33r1sc00l'
     client        = Net::TOC.new(login, password)
     client.connect
-    receiver      = friend = client.buddy_list.buddy_named(self.contact_info)
-    receiver.send_im(self.message.body)
+    receiver      = client.buddy_list.buddy_named(self.contact_info)
+    receiver.send_im("#{self.group.name}: #{self.message.body}")
   end
   
   def print_description

@@ -5,6 +5,7 @@ class Tweet < Subscription
     password      = ENV['TWITTER_PASSWORD']  || 'b33r1sc00l'
     twitter       = Twitter.new(login, password)
     
+    #twitter.direct_message(self.contact_info, "#{self.group.name}: #{self.message.body}")
     twitter.direct_message(self.contact_info, self.message.body)
   end
 

@@ -9,6 +9,10 @@ class Group < ActiveRecord::Base
   
   accepts_nested_attributes_for :subscriptions, :allow_destroy => true
   
+  def to_param
+    "#{id}-#{name.downcase.gsub(/[^a-z0-9]+/i, '-')}"
+  end
+  
   def admin?(user)
     self.admins.include?(user)
   end

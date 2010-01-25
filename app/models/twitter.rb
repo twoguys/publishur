@@ -6,7 +6,8 @@ class Twitter
     self.class.basic_auth user, pass
   end
 
-  def direct_message(username, text)
-    self.class.post('/statuses/update.json', :query => { :status => "d #{username} #{text}" })
+  def direct_message(username, message)
+    #self.class.post('/statuses/update.json', :query => { :status => "d #{username} #{text}" })
+    self.class.post('/direct_messages/new.json', :query => { :user => username, :text => message })
   end
 end
