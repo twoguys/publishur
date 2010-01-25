@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :group_memberships
   has_many :messages, :order => "created_at DESC"
   has_many :subscriptions
+  #has_many :owned_groups, :class_name => "Group", :foreign_key => "user_id"
   
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
   

@@ -1,5 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  include SpreedlyHelpers
+  
   def link_to_active(display, url = nil, condition = nil, *other_css_classes)
     unless condition == true or condition == false
       condition = condition == display

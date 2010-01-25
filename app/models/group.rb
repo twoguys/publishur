@@ -7,6 +7,10 @@ class Group < ActiveRecord::Base
   has_many :messages, :order => 'created_at DESC'
   has_many :subscriptions
   
+  #belongs_to :owner, :class_name => "User", :foreign_key => "user_id"
+  
+  #after_create :create_free_spreedly_plan
+  
   accepts_nested_attributes_for :subscriptions, :allow_destroy => true
   
   def to_param
@@ -23,6 +27,22 @@ class Group < ActiveRecord::Base
   
   def under_limit?(user)
     self.subscriptions.for_user(user).count < 5
+  end
+  
+  def refresh_from_spreedly
+    sub = RSpreedly::Subscriber.find(self.id)
+    self.update_attributes(:active => sub.active, :spreedly_token => sub.token)
+    rescue ActiveResource::ResourceNotFound
+      self.update_attribute(:active, false)
+  end
+  
+  private
+  
+  # Create a new account on spreedly for the free plan
+  def create_free_spreedly_plan
+    sub = RSpreedly::Subscriber.new(:customer_id => self.id, :email => self.owner.email)
+    sub.save
+    self.update_attributes(:spreedly_token => sub.token, :spreedly_plan => ENV['SPREEDLY_FREE_PLAN'] || 'free')
   end
   
 end

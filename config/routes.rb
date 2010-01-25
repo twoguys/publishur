@@ -2,7 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
   map.resources :groups,
-    :member => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get } do |group|
+    :member       => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get },
+    :collection   => { :changed => :post } do |group|
     group.resources :messages
     group.resources :subscriptions
     group.resources :group_memberships, :only => [:update, :destroy]

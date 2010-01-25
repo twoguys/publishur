@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => :updated
+  
   before_filter :require_user
   before_filter :find_group, :except => [:index, :new, :create]
   before_filter :allowed, :except => [:index, :new, :create, :join_request, :join]
@@ -81,6 +83,17 @@ class GroupsController < ApplicationController
     @group.update_attributes(params[:group])
     flash[:notice] = "Group updated"
     redirect_to @group
+  end
+  
+  # Update POST from spreedly
+  def changed
+    subscriber_ids = params[:subscriber_ids].split(",")
+    subscriber_ids.each do |each|
+      group = Group.find_by_id(each)
+      group.refresh_from_spreedly if group
+    end
+
+    head(:ok)
   end
   
   private
