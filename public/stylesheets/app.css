@@ -24,8 +24,8 @@ input[type="text"], input[type="password"], input[type="file"], textarea {
   font-size: 14pt;
   padding: 5px;
   border: 1px solid #ccc;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 6px;
   margin-bottom: 10px;
   width: 300px;
@@ -88,11 +88,11 @@ input.button { font-size: 14px; border: none; }
   color: red;
 }
 
-/* Error Messages */
+/* ' Messages */
 .errorExplanation {
   background-color: #e5bcbd;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
@@ -272,7 +272,8 @@ ul.subscriptions li .description-tall {
   padding: 15px 20px 15px 25px;
   height: 44px;
 }
-.contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; }
+ul.subscriptions li .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; vertical-align: top; }
+ul.subscriptions li .contact-info { width: 350px; display: inline-block; }
 #add-sub-section { margin: 5px 0 0; }
 .sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; }
 .sub-form input[type="text"] { font-size: 1em; }

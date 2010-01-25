@@ -7,6 +7,9 @@ class Group < ActiveRecord::Base
   has_many :messages, :order => 'created_at DESC'
   has_many :subscriptions
   
+  validates_presence_of :name
+  validates_presence_of :short_name
+  
   #belongs_to :owner, :class_name => "User", :foreign_key => "user_id"
   
   #after_create :create_free_spreedly_plan

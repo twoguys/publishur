@@ -11,7 +11,7 @@
 	  $('#message_body').focus();
 		$('#message_body').keyup(function() {
 			if ($('#message_body').val().length > 140)
-				$('#group-message-info').text('Reminder: Try not to make your messages too long. You\'re at ' + $('#message_body').val().length + ' characters.');
+				$('#group-message-info').text('Reminder: Long messages may get cut off (Twitter and SMS). You\'re at ' + $('#message_body').val().length + ' characters.');
 			else
 				$('#group-message-info').text('');
 		});

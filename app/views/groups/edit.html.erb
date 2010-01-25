@@ -13,6 +13,11 @@
 		    <%= form.text_field :name %>
 		  </li>
 			<li>
+		    <%= form.label :short_name, "Give it a good \"short name\" or abbreviation." %>
+				<small class="block weak">(Saves space when we send messages to Twitter or SMS)</small>
+		    <%= form.text_field :short_name %>
+		  </li>
+			<li>
 				<%= form.label :public, "Will it be public or private?", :class => 'mb10' %>
 				<div class="mb10 indented">
 					<%= form.radio_button :public, true %> <strong>Public</strong>

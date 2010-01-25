@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100125034019) do
     t.boolean  "public",         :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
     t.string   "spreedly_token"
     t.string   "spreedly_plan"
   end
