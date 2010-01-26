@@ -1,4 +1,4 @@
-class Twitter
+class Publishur::Twitter
   include HTTParty
   base_uri 'twitter.com'
 
