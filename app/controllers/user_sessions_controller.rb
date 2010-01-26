@@ -1,5 +1,9 @@
 class UserSessionsController < ApplicationController
-  def new  
+  def new
+    if current_user
+      flash[:notice] = "You're already logged in!"
+      redirect_to dashboard_path 
+    end
     @user_session = UserSession.new  
   end
   
