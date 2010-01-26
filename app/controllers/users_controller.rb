@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
   
   def new
+    nav :signup
     @user = User.new
     @user.account_type = "free"
   end

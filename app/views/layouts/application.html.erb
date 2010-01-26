@@ -56,13 +56,13 @@
 				</li>
 				<% else %>
 				<li>
-					<%= link_to_active('Tour', root_path, @nav == :tour) %>
+					<%= link_to_active('Tour', tour_path, @nav == :tour) %>
 				</li>
 				<li>
 					<%= link_to_active('Pricing', pricing_path, @nav == :pricing) %>
 				</li>
 				<li class="last">
-					<%= link_to_active('Try it!', pricing_path, @nav == :signup) %>
+					<%= link_to_active('Try it!', signup_path, @nav == :signup) %>
 				</li>
 				<% end %>
 			</ul>
@@ -106,7 +106,7 @@
 						If you like it, feel free to jump over to our site and let us know!
 					</p>
 					<p>
-						If you really, REALLY like it, <%= link_to('upgrade to the Pro version', pricing_path) %>!
+						If you really, REALLY like it, tell your friends!
 					</p>
 				</td>
 			</tr>
