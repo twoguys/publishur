@@ -99,7 +99,7 @@ input.button { font-size: 14px; border: none; }
 }
 .errorExplanation p { border-bottom: 1px solid #fff; margin-bottom: 10px; }
 .fieldWithErrors label { color: #990033; }
-.fieldWithErrors input[type="text"], .errors input[type="password"] { border: 1px solid #990033; }
+.fieldWithErrors input[type="text"], .fieldWithErrors input[type="password"] { border: 1px solid #990033; }
 
 /* Header */
 #login {
