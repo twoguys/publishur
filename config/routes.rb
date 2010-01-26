@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
   map.resources :groups,
-    :member       => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get },
+    :member       => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get, :full => :get },
     :collection   => { :changed => :post } do |group|
     group.resources :messages
     group.resources :subscriptions

@@ -1,4 +1,4 @@
-<% if @group.under_limit?(current_user) %>
+<% if @group.under_subscription_limit?(current_user) %>
 	<%= link_to_function('Add a forwarding rule',
 		"$('#new-sub').show(); $('#add-sub-link').hide(); return false;",
 		:id => 'add-sub-link') %>
