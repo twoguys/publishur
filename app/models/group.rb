@@ -42,10 +42,10 @@ class Group < ActiveRecord::Base
   private
   
   # Create a new account on spreedly for the free plan
-  def create_free_spreedly_plan
-    sub = RSpreedly::Subscriber.new(:customer_id => self.id, :email => self.owner.email)
-    sub.save
-    self.update_attributes(:spreedly_token => sub.token, :spreedly_plan => ENV['SPREEDLY_FREE_PLAN'] || 'free')
-  end
+  # def create_free_spreedly_plan
+  #   sub = RSpreedly::Subscriber.new(:customer_id => self.id, :email => self.owner.email)
+  #   sub.save
+  #   self.update_attributes(:spreedly_token => sub.token, :spreedly_plan => ENV['SPREEDLY_FREE_PLAN'] || 'free')
+  # end
   
 end
