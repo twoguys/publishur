@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   has_many :subscriptions
   #has_many :owned_groups, :class_name => "Group", :foreign_key => "user_id"
   
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
   
   def name

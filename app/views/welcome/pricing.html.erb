@@ -1,61 +1,11 @@
-<div class="centered big">Join completely free!</div>
-<div class="centered">No setup fees. No hidden costs.</div>
-
-<%= image_tag('/images/try-it-out.png', :id => 'try-it-out') %>
-
-<div class="pricing pro">
-	<div class="title">Pro</div>
-	<div class="price">
-		<span class="dollar-sign">$</span>
-		<span class="value">20</span>
-		for 12 months
-	</div>
-	<div class="for-who">NO ADS</div>
-	<div class="features">
-		<ul>
-			<li class="feature"><strong>Unlimited</strong> messages</li>
-			<li class="feature"><strong>Unlimited </strong> groups</li>
-			<li class="feature receive">
-				Receive messages via:
-				<ul>
-					<li>Email</li>
-					<li>AIM</li>
-					<li>GoogleTalk</li>
-					<li>SMS*</li>
-					<li>Twitter</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<%= link_to('', signup_pro_path, :class => 'signup-link') %>
+<% content_for :wide do %>
+<div id="diagram">
+	<%= image_tag('/images/pricing-diagram.gif') %>
 </div>
+<% end %>
 
-<div class="pricing free">
-	<div class="title">Free</div>
-	<div class="price">
-		<span class="dollar-sign">$</span>
-		<span class="value">0</span>
-	</div>
-	<div class="for-who">AD-SUPPORTED</div>
-	<div class="features">
-		<ul>
-			<li class="feature"><strong>Unlimited</strong> messages</li>
-			<li class="feature"><strong>Unlimited</strong> groups</li>
-			<li class="feature receive">
-				Receive messages via:
-				<ul>
-					<li>Email</li>
-					<li>AIM</li>
-					<li>GoogleTalk</li>
-					<li>SMS*</li>
-					<li>Twitter</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<%= link_to('', signup_path, :class => 'signup-link') %>
+<% if !current_user %>
+<div class="mt30 pb30 centered">
+	<%= link_to('', signup_path, :id => 'signup-button') %>
 </div>
-<div class="clear"></div>
-<div class="weak centered">
-	* supports most providers
-</div>
+<% end %>

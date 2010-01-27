@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   end
   
   def new
+    if current_user
+      flash[:notice] = "You're already logged in!"
+      redirect_to dashboard_path 
+    end
+    nav :signup
     @user = User.new
     @user.account_type = "free"
   end

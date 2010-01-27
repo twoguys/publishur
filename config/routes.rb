@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :user_sessions
   map.resources :groups,
-    :member       => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get },
+    :member       => { :join => :get, :join_request => :get, :forwarding => :get, :toggle_lock => :get, :full => :get },
     :collection   => { :changed => :post } do |group|
     group.resources :messages
     group.resources :subscriptions
@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signout       'signout',        :controller => 'user_sessions',       :action => 'destroy'
   
   map.dashboard     'dashboard',      :controller => 'welcome',             :action => 'dashboard'
+  map.tour          'tour',           :controller => 'welcome',             :action => 'tour'
   map.pricing       'pricing',        :controller => 'welcome',             :action => 'pricing'
   map.settings      'settings',       :controller => 'users',               :action => 'edit'
   map.home          '',               :controller => 'welcome',             :action => 'index'

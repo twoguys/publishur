@@ -12,6 +12,10 @@ class WelcomeController < ApplicationController
     @messages = current_user.my_recent_messages_per_group
     @others_messages = current_user.newest_message_per_group
   end
+
+  def tour
+    nav :tour
+  end
   
   def pricing
     nav :pricing

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100125034019) do
+ActiveRecord::Schema.define(:version => 20100126202524) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20100125034019) do
     t.string   "short_name"
     t.string   "spreedly_token"
     t.string   "spreedly_plan"
+    t.integer  "level",          :default => 5
   end
 
   create_table "messages", :force => true do |t|

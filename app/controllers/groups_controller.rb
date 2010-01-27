@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   
   before_filter :require_user
   before_filter :find_group, :except => [:index, :new, :create]
-  before_filter :allowed, :except => [:index, :new, :create, :join_request, :join]
+  before_filter :allowed, :except => [:index, :new, :create, :join_request, :join, :full]
   
   def index
     nav :groups
@@ -41,11 +41,19 @@ class GroupsController < ApplicationController
   
   def join
     if @group.members.include?(current_user)
+      flash[:notice] = "You're already a member of this group!"
       redirect_to @group
-    elsif @group.public?
+    elsif @group.public? && @group.under_user_limit?
       @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => true)
       redirect_to @group
+    elsif !@group.under_user_limit?
+      redirect_to full_group_path(@group)
+    else # private and under limit
+      render 'join'
     end
+  end
+  
+  def full
   end
   
   def join_request
