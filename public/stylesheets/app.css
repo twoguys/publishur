@@ -302,8 +302,8 @@ ul.subscriptions li .description-tall {
   padding: 15px 20px 15px 25px;
   height: 44px;
 }
-ul.subscriptions li .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; vertical-align: top; }
-ul.subscriptions li .contact-info { width: 350px; display: inline-block; }
+ul.subscriptions li .contact-type, #new-sub .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; vertical-align: top; }
+ul.subscriptions li .contact-info, #new-sub .contact-info { width: 350px; display: inline-block; }
 #add-sub-section { margin: 5px 0 0; }
 .sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; }
 .sub-form input[type="text"] { font-size: 1em; }
