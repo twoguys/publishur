@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100127231731) do
+ActiveRecord::Schema.define(:version => 20100128025226) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20100127231731) do
     t.string   "account_type",      :default => "free"
     t.string   "timezone",          :default => "Eastern Time (US & Canada)"
     t.boolean  "send_me_updates",   :default => true
+    t.boolean  "admin",             :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

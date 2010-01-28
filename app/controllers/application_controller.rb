@@ -43,6 +43,14 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session_url
         return false
       end
+      return true
+    end
+    
+    def require_admin
+      unless require_user && current_user.admin?
+        redirect_to root_path 
+        return false
+      end
     end
     
     def redirect_back_or(default)

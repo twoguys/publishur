@@ -23,8 +23,11 @@ ActionController::Routing::Routes.draw do |map|
   map.home          '',               :controller => 'welcome',             :action => 'index'
   
   map.namespace :admin do |admin|
-    admin.resources :delayed_jobs
+    admin.resources :delayed_jobs,  :only => [:index, :show]
+    admin.resources :base,          :only => [:index]
   end
+  
+  map.admin 'admin', :controller => 'admin/base', :action => 'index'
   
   map.root          :home
 end
