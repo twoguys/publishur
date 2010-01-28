@@ -9,7 +9,7 @@ class Subscription < ActiveRecord::Base
   
   attr_accessor :message, :contact_type
   
-  TYPES = { 'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'Tweet' => 'Twitter', 'PostHook' => 'HTTP Post', 'SMS' => 'SMS' }
+  TYPES = { 'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'Tweet' => 'Twitter', 'PostHook' => 'HTTP Post' }
   
   def self.types
     TYPES
