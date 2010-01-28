@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.dashboard     'dashboard',      :controller => 'welcome',             :action => 'dashboard'
   map.tour          'tour',           :controller => 'welcome',             :action => 'tour'
   map.pricing       'pricing',        :controller => 'welcome',             :action => 'pricing'
+  map.terms         'terms',          :controller => 'welcome',             :action => 'terms'
   map.settings      'settings',       :controller => 'users',               :action => 'edit'
   map.home          '',               :controller => 'welcome',             :action => 'index'
   

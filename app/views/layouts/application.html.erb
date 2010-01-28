@@ -24,120 +24,122 @@
 		<div>- <%= link_to('Chrome', 'http://google.com/chrome') %></div>
 		<div>- <%= link_to('IE8', 'http://www.microsoft.com/windows/internet-explorer/default.aspx') %></div>
   </div>
-  <div id="wrapper">
-		<div id="login">
-			<div id="login-insides">
-				<ul>
-					<% if current_user %>
-					<li>Signed in as <strong><%= current_user.email %></strong></li>
-					<li class="last"><%= link_to('Sign out', signout_path) %></li>
-					<% else %>
-					<li><%= link_to('Sign up', signup_path) %></li>
-					<li class="last"><%= link_to('Sign in', signin_path) %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-		<div id="header">
-			<div id="header-insides">
-				<div id="notice">
-					<%= render 'layouts/flashes' %>
-				</div>
-				<%= link_to(image_tag('/images/logo.gif'), root_path) %>
-				<ul id="nav" class="shadowed-box">
-					<li class="first">
-						<%= link_to_active('Home', root_path, @nav == :home) %>
-					</li>
-					<% if current_user %>
-					<li>
-						<%= link_to_active('Dashboard', dashboard_path, @nav == :dashboard) %>
-					</li>
-					<li>
-						<%= link_to_active('Groups', groups_path, @nav == :groups) %>
-					</li>
-					<% if admin? %>
-					<li>
-						<%= link_to_active('Admin', admin_path, @nav == :admin) %>
-					</li>
-					<%- end -%>
-					<li class="last">
-						<%= link_to_active('Settings', settings_path, @nav == :settings) %>
-					</li>
-					<% else %>
-					<li>
-						<%= link_to_active('Tour', tour_path, @nav == :tour) %>
-					</li>
-					<li>
-						<%= link_to_active('Pricing', pricing_path, @nav == :pricing) %>
-					</li>
-					<li class="last">
-						<%= link_to_active('Try it!', signup_path, @nav == :signup) %>
-					</li>
-					<% end %>
-				</ul>
-			</div>
-	  </div>
-	  <div id="centered">
-			<div id="mid">
-				<%= yield :wide %>
-				<div id="mid-insides">
-					<%= yield %>
+	<div id="wrap">
+		<div id="main" class="clearfix">
+			<div id="login">
+				<div id="login-insides">
+					<ul>
+						<% if current_user %>
+						<li>Signed in as <strong><%= current_user.email %></strong></li>
+						<li class="last"><%= link_to('Sign out', signout_path) %></li>
+						<% else %>
+						<li><%= link_to('Sign up', signup_path) %></li>
+						<li class="last"><%= link_to('Sign in', signin_path) %></li>
+						<% end %>
+					</ul>
 				</div>
 			</div>
-		</div>
-		<div id="footer">
-			<table id="footer_insides">
-				<tr>
-					<td>
-						<h3>What is Publishur?</h3>
-						<p>
-							Publishur lets you send messages to groups of people, and it lets *them* decide how they want to receive your messages.
-						</p>
-						<p>
-							We give you the ability to receive messages via a number of ways. Instead of everyone having to
-							use the same thing, use what you like best!
-						</p>
-					</td>
-					<td>
-						<h3>Why did we create this?</h3>
-						<p>
-							We wanted a simple way to send messages to specific groups of our friends,
-							but our friends all use different things.
-						</p>
-						<p>
-							We also wanted to take advantage of things like email, AIM, GoogleTalk, SMS, Twitter in a simple, clever way.
-						</p>
-					</td>
-					<td>
-						<h3>Who made this awesome thing?</h3>
-						<p>
-							This is a <%= link_to('Two Guys', 'http://weretwoguys.com') %> project.
-							If you like it, feel free to jump over to our site and let us know!
-						</p>
-						<p>
-							If you really, REALLY like it, tell your friends!
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<h3>Want to tell others?</h3>
-						<p>
-							<%= link_to(image_tag('/images/twitter-bird.png'), 'http://twitter.com/home?status=Wish+you+could+have+friends%27+messages+sent+to+your+email%2C+SMS%2C+AIM%2C+or+GoogleTalk+based+on+the+context%3F+Check+out+http://publishur.com+!', :class => 'twitter-icon', :target => :new) %>
-							<%= link_to('Post about us on Twitter', 'http://twitter.com/home?status=Wish+you+could+have+friends%27+messages+sent+to+your+email%2C+SMS%2C+AIM%2C+or+GoogleTalk+based+on+the+context%3F+Check+out+http://publishur.com+!', :target => :new) %>
-						</p>
-					</td>
-					<td>
-						<h3>Want to get updates about us?</h3>
-						<p>
-							<%= link_to(image_tag('/images/plus-sign.png'), 'http://twitter.com/publishur', :class => 'twitter-icon', :target => :new) %>
-							<%= link_to('Follow us on Twitter', 'http://twitter.com/publishur', :target => :new) %>
-						</p>
-					</td>
-				</tr>
-			</table>
+			<div id="header">
+				<div id="header-insides">
+					<div id="notice">
+						<%= render 'layouts/flashes' %>
+					</div>
+					<%= link_to(image_tag('/images/logo.gif'), root_path) %>
+					<ul id="nav" class="shadowed-box">
+						<li class="first">
+							<%= link_to_active('Home', root_path, @nav == :home) %>
+						</li>
+						<% if current_user %>
+						<li>
+							<%= link_to_active('Dashboard', dashboard_path, @nav == :dashboard) %>
+						</li>
+						<li>
+							<%= link_to_active('Groups', groups_path, @nav == :groups) %>
+						</li>
+						<% if admin? %>
+						<li>
+							<%= link_to_active('Admin', admin_path, @nav == :admin) %>
+						</li>
+						<%- end -%>
+						<li class="last">
+							<%= link_to_active('Settings', settings_path, @nav == :settings) %>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to_active('Tour', tour_path, @nav == :tour) %>
+						</li>
+						<li>
+							<%= link_to_active('Pricing', pricing_path, @nav == :pricing) %>
+						</li>
+						<li class="last">
+							<%= link_to_active('Try it!', signup_path, @nav == :signup) %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+		  </div>
+		  <div id="centered">
+				<div id="mid">
+					<%= yield :wide %>
+					<div id="mid-insides">
+						<%= yield %>
+					</div>
+				</div>
+			</div>
 		</div>
   </div>
+	<div id="footer">
+		<table id="footer_insides">
+			<tr>
+				<td>
+					<h3>What is Publishur?</h3>
+					<p>
+						Publishur lets you send messages to groups of people, and it lets *them* decide how they want to receive your messages.
+					</p>
+					<p>
+						We give you the ability to receive messages via a number of ways. Instead of everyone having to
+						use the same thing, use what you like best!
+					</p>
+				</td>
+				<td>
+					<h3>Why did we create this?</h3>
+					<p>
+						We wanted a simple way to send messages to specific groups of our friends,
+						but our friends all use different things.
+					</p>
+					<p>
+						We also wanted to take advantage of things like email, AIM, GoogleTalk, SMS, Twitter in a simple, clever way.
+					</p>
+				</td>
+				<td>
+					<h3>Who made this awesome thing?</h3>
+					<p>
+						This is a <%= link_to('Two Guys', 'http://weretwoguys.com') %> project.
+						If you like it, feel free to jump over to our site and let us know!
+					</p>
+					<p>
+						If you really, REALLY like it, tell your friends!
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Want to tell others?</h3>
+					<p>
+						<%= link_to(image_tag('/images/twitter-bird.png'), 'http://twitter.com/home?status=Wish+you+could+have+friends%27+messages+sent+to+your+email%2C+SMS%2C+AIM%2C+or+GoogleTalk+based+on+the+context%3F+Check+out+http://publishur.com+!', :class => 'twitter-icon', :target => :new) %>
+						<%= link_to('Post about us on Twitter', 'http://twitter.com/home?status=Wish+you+could+have+friends%27+messages+sent+to+your+email%2C+SMS%2C+AIM%2C+or+GoogleTalk+based+on+the+context%3F+Check+out+http://publishur.com+!', :target => :new) %>
+					</p>
+				</td>
+				<td>
+					<h3>Want to get updates about us?</h3>
+					<p>
+						<%= link_to(image_tag('/images/plus-sign.png'), 'http://twitter.com/publishur', :class => 'twitter-icon', :target => :new) %>
+						<%= link_to('Follow us on Twitter', 'http://twitter.com/publishur', :target => :new) %>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</div>
 	<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
