@@ -16,7 +16,7 @@
 	<%= link_to('Create a group', new_group_path, :class => 'top-right icon add') %>
 	<div class="indented">
 		<% if @groups.empty? %>
-			No groups yet, <%= link_to('create one', new_group_path) %>!
+			No groups found.
 		<% else %>
 		<ul class="lined">
 			<%= render @groups %>

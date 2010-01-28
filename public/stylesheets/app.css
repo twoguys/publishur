@@ -237,8 +237,8 @@ img.avatar { height: 50px; }
 /* Groups */
 .group { position: relative; height: 20px; width: 100%; padding: 0; }
 .group .open { position: absolute; top: 9px; left: 0; }
-.group .name { position: absolute; top: 10px; left: 25px; width: 590px; overflow: hidden; }
-.group .member-count { position: absolute; top: 10px; left: 625px; }
+.group .name { position: absolute; top: 10px; left: 25px; width: 565px; overflow: hidden; }
+.group .member-count { position: absolute; top: 10px; left: 600px; }
 .group .message-time { position: absolute; top: 10px; right: 0; }
 #group-message-info { height: 20px; width: 550px; color: #aaa; }
 .group-join-question {
