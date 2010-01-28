@@ -33,8 +33,15 @@
 				<li>
 					<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
 				</li>
-				<li class="mt10">
-					<%= form.submit %>
+				<li class="border-bottom mt20">
+					<h2 class="strong">Finding out about updates</h2>
+				</li>
+				<li>
+					<%= form.check_box :send_me_updates %>
+					<%= form.label :send_me_updates, 'Yes, send me feature updates', :class => 'inline' %>
+				</li>
+				<li class="mt20">
+					<%= form.submit 'Save settings', :class => 'button' %>
 				</li>
 			<% end %>
 			</ul>

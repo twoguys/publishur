@@ -104,6 +104,10 @@ class GroupsController < ApplicationController
     head(:ok)
   end
   
+  def upgrade
+    
+  end
+  
   private
     def find_group
       @group = Group.find(params[:id], :include => [:users, :group_memberships])

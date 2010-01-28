@@ -442,6 +442,7 @@ div.pagination .disabled { color: #aaa; border: none; }
 .cancel { background-image: url(../images/icons/cancel.png); }
 .mail { background-image: url(../images/icons/email.png); }
 .search { background-image: url(../images/icons/magnifier.png); }
+.upgrade { background-image: url(../images/icons/upgrade.png); }
 
 .rounded-one, .rounded-two, .rounded-three, .left-side-icon { padding-left: 60px; }
 .rounded-one { background: #e5e5e5 url(../images/rounded-one.jpg) no-repeat 0 50%;  }
