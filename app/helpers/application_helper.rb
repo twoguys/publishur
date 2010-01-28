@@ -16,4 +16,8 @@ module ApplicationHelper
     "#{number_to_phone(sub.contact_info)} (SMS)"  if sub.is_a?(SMS)
     return "#{sub.contact_info}"                  if sub.is_a?(Tweet)
   end
+  
+  def admin?
+    current_user && current_user.admin?
+  end
 end

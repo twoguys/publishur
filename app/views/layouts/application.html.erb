@@ -45,7 +45,7 @@
 				<li>
 					<%= link_to_active('Groups', groups_path, @nav == :groups) %>
 				</li>
-				<% if current_user.admin? %>
+				<% if admin? %>
 				<li>
 					<%= link_to_active('Admin', admin_path, @nav == :admin) %>
 				</li>
