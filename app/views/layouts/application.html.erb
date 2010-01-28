@@ -51,7 +51,7 @@
 				<li>
 					<%= link_to_active('Groups', groups_path, @nav == :groups) %>
 				</li>
-				<% if current_user.admin? %>
+				<% if admin %>
 				<li>
 					<%= link_to_active('Admin', admin_path, @nav == :admin) %>
 				</li>
@@ -71,7 +71,7 @@
 				</li>
 				<% end %>
 			</ul>
-			<% if current_user.admin? %>
+			<% if admin %>
 				<%= link_to "Dashboard", admin_path %> - <%= link_to "Jobs", admin_delayed_jobs_path %>
 			<%- end -%>
 		</div>

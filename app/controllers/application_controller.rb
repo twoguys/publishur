@@ -47,8 +47,9 @@ class ApplicationController < ActionController::Base
     end
     
     def require_admin
-      unless require_user && current_user.admin?
-        redirect_to root_path 
+      unless current_user && current_user.admin?
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to new_user_session_url
         return false
       end
     end
