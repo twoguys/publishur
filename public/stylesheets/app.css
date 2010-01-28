@@ -472,6 +472,7 @@ div.pagination .disabled { color: #aaa; border: none; }
 .p10 { padding: 10px; }
 .pt10 { padding-top: 10px; }
 .pb30 { padding-bottom: 30px; }
+.pb40 { padding-bottom: 40px; }
 .pb50 { padding-bottom: 50px; }
 .pl20 { padding-left: 20px; }
 .pl5 { padding-left: 5px; }
@@ -539,6 +540,7 @@ small, .small, input.small { font-size: 0.88em; }
 .red-background:hover { background-color: #c40a0a; }
 .dashed-bottom { border-bottom: 1px dashed #ddd; }
 .lined-bottom { background: #e5e5e5 url(../images/separator-line.gif) no-repeat 50% 100%; }
+.lined-bottom-dark { border-bottom: 3px solid #353535; }
 .no_border { border: none; }
 .no_underline, .no_underline:hover { text-decoration: none; }
 .valign-top { vertical-align: top; }
