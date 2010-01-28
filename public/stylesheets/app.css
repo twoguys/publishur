@@ -501,6 +501,7 @@ div.pagination .disabled { color: #aaa; border: none; }
 pre.prettyprint { border: none; }
 
 /* Site-wide class styles */
+.body { font-family: georgia, helvetica, arial, sans-serif; line-height: 1.5em; }
 .hidden { display: none; }
 .down-below { position: absolute; top: 10000px; }
 .centered { text-align: center; }
@@ -557,6 +558,7 @@ small, .small, input.small { font-size: 0.88em; }
 .no_border { border: none; }
 .no_underline, .no_underline:hover { text-decoration: none; }
 .valign-top { vertical-align: top; }
+.disc-list li { list-style-type: disc; margin-left: 20px; }
 .header { font-size: 18px; border-bottom: 1px solid #ccc; margin-bottom: 10px; }
 .header img { float: left; margin: -8px 5px 0 0; }
 .information { color: #777; margin-bottom: 20px; }
