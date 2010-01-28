@@ -10,5 +10,11 @@
 <%= Message.count %> messages
 <br />
 <%= Subscription.count %> subscriptions
+<ul>
+	<li>Email: <%= Email.count %></li>
+	<li>AIM: <%= AIM.count %></li>
+	<li>Jabber: <%= JabberMessage.count %></li>
+	<li>Twitter: <%= Tweet.count %></li>
+	<li>HTTP Post: <%= PostHook.count %></li>
 <br />
 <%= Delayed::Job.count %> pending jobs
