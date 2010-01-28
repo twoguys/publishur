@@ -11,7 +11,7 @@
 	</div>
 	<div class="weak message-time">
 		<% if group.messages.count > 0 %>
-		last message posted <%= time_ago_in_words(group.messages.last.created_at) %> ago
+		last message posted <%= time_ago_in_words(group.messages.first.created_at) %> ago
 		<% end %>
 	</div>
 </li>
