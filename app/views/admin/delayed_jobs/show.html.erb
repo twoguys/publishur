@@ -1,5 +1,5 @@
 <%= link_to "< Back", admin_delayed_jobs_path %><br />
-<strong><%= @delayed_job.id %></strong>
+<strong><%= @delayed_job.id %></strong> <%= link_to "Delete", admin_delayed_job_path(@delayed_job), :method => :delete, :confirm => "Are you sure you want to delete this job?" %>
 <hr />
 <textarea disabled='true' cols='80'><%= @delayed_job.handler %></textarea>
 <hr />

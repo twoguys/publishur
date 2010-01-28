@@ -2,7 +2,7 @@
 <div class="mb20">
 	<%= link_to("Back to the dashboard", admin_path, :class => 'icon back') %>
 </div>
-
+<%= link_to "Delete All", destroy_all_admin_delayed_jobs_path, :method => :delete, :confirm => "Are you sure you want to delete all the existing jobs?" %>
 <table>
 	<tr>
 		<th>ID</th>
@@ -13,6 +13,7 @@
 		<th>Locked At</th>
 		<th>Failed At</th>
 		<th>Locked By</th>
+		<th>Delete</th>
 	</tr>
 	<% for dj in @delayed_jobs %>
 	<tr>
@@ -24,6 +25,7 @@
 		<td><%= dj.locked_at %></td>
 		<td><%= dj.failed_at %></td>
 		<td><%= dj.locked_by %></td>
+		<td><%= link_to "Delete", admin_delayed_job_path(dj), :method => :delete, :confirm => "Are you sure you want to delete this job?" %><td>
 	</tr>
 	<%- end -%>
 </table>
