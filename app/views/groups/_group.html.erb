@@ -1,7 +1,10 @@
 <li class="group">
+	<div class="open">
+		<%= image_tag("/images/icons/door.png", :title => "Closed group", :class => "mr5") if !group.public? %>
+		<%= image_tag("/images/icons/door_open.png", :title => "Open group", :class => "mr5") if group.public? %>
+	</div>
 	<div class="name">
 		<%= link_to(group.name, group) %>
-		<%= image_tag("/images/icons/lock.png", :title => "Private group", :class => "ml5") if !group.public? %>
 	</div>
 	<div class="weak member-count">
 		<%= pluralize(group.members.count, "member") %>

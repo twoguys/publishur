@@ -18,14 +18,14 @@
 		    <%= form.text_field :short_name %>
 		  </li>
 			<li>
-				<%= form.label :public, "Will it be public or private?", :class => 'mb10' %>
+				<%= form.label :public, "Will it be open or closed?", :class => 'mb10' %>
 				<div class="mb10 indented">
-					<%= form.radio_button :public, true %> <strong>Public</strong>
+					<%= form.radio_button :public, true %> <strong>Open</strong>
 					<small class="weak">(Anyone can join)</small>
 				</div>
 				<div class="indented">
-					<%= form.radio_button :public, false %> <strong>Private</strong>
-					<small class="weak">(You have to invite people)</small>
+					<%= form.radio_button :public, false %> <strong>Closed</strong>
+					<small class="weak">(You approve who joins)</small>
 				</div>
 			</li>
 		  <li class="mt10">

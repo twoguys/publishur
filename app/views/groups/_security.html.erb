@@ -1,13 +1,13 @@
 <div class="right">
 	<% if @group.public? %>
-		<span class="public">Public</span>
+		<span class="public">Open</span>
 		<% if @group.admin?(current_user) %>
-		<%= link_to('Lock', toggle_lock_group_path(@group)) %>
+		<%= link_to('Close', toggle_lock_group_path(@group)) %>
 		<% end %>
 	<% else %>
-		<span class="private">Private</span>
+		<span class="private">Closed</span>
 		<% if @group.admin?(current_user) %>
-		<%= link_to('Unlock', toggle_lock_group_path(@group)) %>
+		<%= link_to('Open', toggle_lock_group_path(@group)) %>
 		<% end %>
 	<% end %>
 </div>
