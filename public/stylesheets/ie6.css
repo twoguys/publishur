@@ -1,0 +1,12 @@
+html, body { background-color: #e5e5e5; font: 14px helvetica, 'arial sans-serif'; }
+#wrapper { display: none; }
+#ie_pwnage {
+  display: block;
+  width: 326px;
+  height: 100px;
+  margin: 200px auto;
+  padding-top: 227px;
+  position: relative;
+  background: url(/images/sorry-ie6.gif) 0px 0px no-repeat;
+}
+#ie_pwnage a { font-size: 1.2em; }

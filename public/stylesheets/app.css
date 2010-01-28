@@ -1,4 +1,5 @@
 * { margin: 0; padding: 0; list-style: none; }
+#ie_pwnage { display: none; }
 html, body {
   font: 13px helvetica, 'arial sans-serif';
   background-color: #222;
