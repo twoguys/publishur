@@ -1,8 +1,8 @@
 class Tweet < Subscription
   
   def perform
-    login         = ENV['TWITTER_LOGIN']     || 'publishur'
-    password      = ENV['TWITTER_PASSWORD']  || 'b33r1sc00l'
+    login         = ENV['TWITTER_LOGIN']
+    password      = ENV['TWITTER_PASSWORD']
     twitter       = Publishur::Twitter.new(login, password)
     
     #twitter.direct_message(self.contact_info, "#{self.group.name}: #{self.message.body}")

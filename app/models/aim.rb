@@ -1,8 +1,8 @@
 class AIM < Subscription
  
   def perform
-    login         = ENV['AIM_LOGIN'] || 'publishur'
-    password      = ENV['AIM_PASSWORD'] || 'b33r1sc00l'
+    login         = ENV['AIM_LOGIN']
+    password      = ENV['AIM_PASSWORD']
     client        = Net::TOC.new(login, password)
     client.connect
     receiver      = client.buddy_list.buddy_named(self.contact_info)
