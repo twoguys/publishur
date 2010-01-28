@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100128025226) do
+ActiveRecord::Schema.define(:version => 20100128040319) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(:version => 20100128025226) do
     t.boolean  "public",         :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "short_name"
     t.string   "spreedly_token"
     t.string   "spreedly_plan"
+    t.string   "short_name"
     t.integer  "level",          :default => 5
   end
 
@@ -59,13 +59,6 @@ ActiveRecord::Schema.define(:version => 20100128025226) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-  end
-
-  create_table "user_sessions", :force => true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
