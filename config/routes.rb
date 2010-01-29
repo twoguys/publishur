@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :delayed_jobs,  :only => [:index, :show, :destroy], :collection => { :destroy_all => :delete }
     admin.resources :base,          :only => [:index]
+    admin.resources :users,         :only => [:index]
   end
   
   map.admin 'admin', :controller => 'admin/base', :action => 'index'

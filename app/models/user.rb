@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :send_me_updates
   
+  def self.per_page; 25; end
+  
   def name
     "#{first_name} #{last_name}"
   end

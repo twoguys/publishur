@@ -1,0 +1,31 @@
+<h1>Users</h1>
+<div class="mb20">
+	<%= link_to("Back to the dashboard", admin_path, :class => 'icon back') %>
+</div>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Email</th>
+		<th>First</th>
+		<th>Last</th>
+		<th>Login Count</th>
+		<th>Last Login</th>
+		<th>Send Updates</th>
+		<th>Admin</th>
+	</tr>
+	<% for user in @users %>
+	<tr>
+		<td><%= user.id %></td>
+		<td><%= mail_to(user.email) %></td>
+		<td><%= user.first_name %></td>
+		<td><%= user.last_name %></td>
+		<td><%= user.login_count %></td>
+		<td><%= time_ago_in_words(user.last_login_at) unless user.last_login_at.blank? %></td>
+		<td><%= user.send_me_updates %></td>
+		<td><%= user.admin %></td>
+	</tr>
+	<%- end -%>
+</table>
+
+<%= will_paginate @users %>
