@@ -415,7 +415,7 @@ div.pagination .disabled { color: #aaa; border: none; }
 .secondary-right .section .header { border-bottom: 1px dashed #ccc; font-weight: bold; margin: 0 0 5px 0; }
 
 /* Tables */
-table.styled { border-collapse: collapse; }
+table.styled { border-collapse: collapse; width: 100%; }
 table.styled th, table.styled td { padding: 10px; text-align: left; }
 table.styled th { background-color: #d8f3b9; border-bottom: 1px solid #e5e5e5; border-top: 2px solid #b8d399; color: #315622; }
 table.styled td { background-color: #edffe8; border-bottom: 1px solid #e5e5e5; }
