@@ -1,7 +1,7 @@
 class Email < Subscription
   
-  def perform
-    Notifications.deliver_message(self.contact_info, self.group, self.message)
+  def deliver(message)
+    Notifications.deliver_message(self.contact_info, self.group, message)
   end
   
   def print_description

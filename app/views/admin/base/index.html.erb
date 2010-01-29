@@ -1,5 +1,6 @@
 <h1>Admin Dashboard</h1>
 <div class="mb20">
+	<%= link_to('View users', admin_users_path) %><br />
 	<%= link_to('View the current background jobs', admin_delayed_jobs_path) %>
 </div>
 
@@ -10,5 +11,14 @@
 <%= Message.count %> messages
 <br />
 <%= Subscription.count %> subscriptions
+<ul>
+	<li>Email: <%= Email.count %></li>
+	<li>AIM: <%= AIM.count %></li>
+	<li>Jabber: <%= JabberMessage.count %></li>
+	<li>Twitter: <%= Tweet.count %></li>
+	<li>HTTP Post: <%= PostHook.count %></li>
+</ul>
 <br />
+<%= image_tag @subscription_chart.to_url(:chf => 'bg,s,E5E5E5', :chts => "749446,16") %>
+<br /><br />
 <%= Delayed::Job.count %> pending jobs

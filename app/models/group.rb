@@ -55,15 +55,15 @@ class Group < ActiveRecord::Base
     self.level == MEMBER_LEVELS["business"]
   end
   
-  def refresh_from_spreedly
-    sub = RSpreedly::Subscriber.find(self.id)
-    self.update_attributes(:active => sub.active, :spreedly_token => sub.token)
-    rescue ActiveResource::ResourceNotFound
-      self.update_attribute(:active, false)
-  end
+  # FIXME
+  # def refresh_from_spreedly
+  #     sub = RSpreedly::Subscriber.find(self.id)
+  #     self.update_attributes(:active => sub.active, :spreedly_token => sub.token)
+  #     rescue ActiveResource::ResourceNotFound
+  #       self.update_attribute(:active, false)
+  #   end
   
-  private
-  
+  # FIXME
   # Create a new account on spreedly for the free plan
   # def create_free_spreedly_plan
   #   sub = RSpreedly::Subscriber.new(:customer_id => self.id, :email => self.owner.email)
