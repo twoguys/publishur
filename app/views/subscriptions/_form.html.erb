@@ -2,14 +2,18 @@
 <% url = @subscription.id.nil? ? group_subscriptions_path(@group) : group_subscription_path(@group, @subscription) %>
 <% remote_form_for(@subscription, :url => url, :html => {:class => 'sub-form'}) do |form| %>
 	<div>
-		<span class="contact-type">
-			Choose <strong>how</strong>:
-		</span>
-		<span class="contact-info">
-			<%= form.select :contact_type, Subscription.types.collect.map{|a| a.reverse }.sort{|a, b| a[1] <=> b[1]} %>
-		</span>
+		<div class="left">
+			<span class="contact-type">
+				Choose <strong>how</strong>:
+			</span>
+			<span>
+				<%= form.select :contact_type, Subscription.types.collect.map{|a| a.reverse }.sort{|a, b| a[1] <=> b[1]} %>
+			</span>
+		</div>
+		<div id="sub-form-hint" style="display:none;">
+		</div>
 	</div>
-	<div>
+	<div class="clear">
 		<span class="contact-type">
 			Choose <strong>where</strong>:
 		</span>
@@ -39,3 +43,17 @@
 		<% end %>
 	</div>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#subscription_contact_type').change(function () {
+			var str = "";
+			if ($("select option:selected").text() == "Twitter") {
+				$('#sub-form-hint').html("Make sure you're <a href=\"http://twitter.com/publishur\" target=\"new\">following us</a>!");
+				$('#sub-form-hint').show();
+			} else {
+				$('#sub-form-hint').hide();
+			}
+		}).change();
+	})
+</script>

@@ -318,10 +318,12 @@ ul.subscriptions li .description-tall {
 ul.subscriptions li .contact-type, #new-sub .contact-type { padding: 2px 20px 2px 0; width: 100px; display: inline-block; vertical-align: top; }
 ul.subscriptions li .contact-info, #new-sub .contact-info { width: 350px; display: inline-block; }
 #add-sub-section { margin: 5px 0 0; }
-.sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; }
+.sub-form { padding: 0; background-color: #e0e0e0; padding: 5px; position: relative; }
 .sub-form input[type="text"] { font-size: 1em; }
+.sub-form input { display: inline-block; }
 .sub-form #examples { margin: 0 0 0 130px; }
 .sub-form #examples span { width: 80px; display: block; float: left; font-weight: bold; }
+.sub-form #sub-form-hint { float: left; margin-left: 10px; }
 
 /* In-place Editor */
 .inplaceeditor-form { display: block; }
