@@ -286,7 +286,7 @@ img.avatar { height: 50px; }
 /* Messages */
 .messages { border-top: 1px solid #d0d0d0; }
 .message { padding: 5px 0; border-bottom: 1px solid #d0d0d0; }
-.message .body { padding: 0 0 0 5px; }
+.message .body { padding: 0 0 0 5px; font-family: helvetica, 'arial sans-serif'; }
 
 /* Subscriptions */
 ul.subscriptions li { padding: 5px; position: relative; background-color: #efefef; }
@@ -413,6 +413,13 @@ div.pagination .disabled { color: #aaa; border: none; }
 .primary-right .insides .top-right { top: 0; right: 18px; }
 .secondary-left { float: left; width: 230px; position: relative; }
 .secondary-right .section .header { border-bottom: 1px dashed #ccc; font-weight: bold; margin: 0 0 5px 0; }
+
+/* Tables */
+table.styled { border-collapse: collapse; }
+table.styled th, table.styled td { padding: 10px; text-align: left; }
+table.styled th { background-color: #d8f3b9; border-bottom: 1px solid #e5e5e5; border-top: 2px solid #b8d399; color: #315622; }
+table.styled td { background-color: #edffe8; border-bottom: 1px solid #e5e5e5; }
+table.styled tr:hover td { background-color: #ddfccf; }
 
 /* Icon Links */
 .icon {
