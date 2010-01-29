@@ -23,6 +23,10 @@ class Group < ActiveRecord::Base
     "#{id}-#{name.downcase.gsub(/[^a-z0-9]+/i, '-')}"
   end
   
+  def self.per_page
+    15
+  end
+  
   def admin?(user)
     self.admins.include?(user)
   end
