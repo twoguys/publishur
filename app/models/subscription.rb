@@ -7,7 +7,7 @@ class Subscription < ActiveRecord::Base
   
   validates_presence_of   :contact_info
   
-  attr_accessor :message, :contact_type
+  attr_accessor :contact_type
   
   TYPES = { 'Email' => 'Email', 'AIM' => 'AIM', 'JabberMessage' => 'GoogleTalk', 'Tweet' => 'Twitter', 'PostHook' => 'HTTP Post' }
   
@@ -28,15 +28,19 @@ class Subscription < ActiveRecord::Base
   end
   
   def deliver(message)
-    self.message = message
-    Delayed::Job.enqueue(self)
-    
-    # Uncomment to send messages without using DJ
-    # self.perform
+    raise "Must implement deliver method!"
   end
   
-  def perform
-    raise "Must implement perform method!"
-  end 
+  # def deliver(message)
+  #     self.message = message
+  #     Delayed::Job.enqueue(self)
+  #     
+  #     # Uncomment to send messages without using DJ
+  #     # self.perform
+  #   end
+  
+  # def perform
+  #     raise "Must implement perform method!"
+  #   end 
    
 end

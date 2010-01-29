@@ -1,7 +1,7 @@
 class PostHook < Subscription
   
-  def perform
-    Publishur::Poster.post(self.contact_info, :query => { :message => self.message.body, :group => self.message.group.name, :user => self.message.user.name })
+  def deliver(message)
+    Publishur::Poster.post(self.contact_info, :query => { :message => message.body, :group => message.group.name, :user => message.user.name })
   end
   
   def print_description

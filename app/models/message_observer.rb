@@ -1,5 +1,7 @@
 class MessageObserver < ActiveRecord::Observer
+  
   def after_save(message)
-    message.group.deliver_message(message)
+    Delayed::Job.enqueue(Publishur::MessageJob.new(message.id))
   end
+  
 end
