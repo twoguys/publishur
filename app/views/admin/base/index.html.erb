@@ -1,24 +1,37 @@
 <h1>Admin Dashboard</h1>
 <div class="mb20">
-	<%= link_to('View users', admin_users_path) %><br />
-	<%= link_to('View the current background jobs', admin_delayed_jobs_path) %>
+	<%= link_to("View the #{pluralize(User.count, "user")}", admin_users_path) %><br />
+	<%= link_to("View the current #{pluralize(Delayed::Job.count, "background job")}", admin_delayed_jobs_path) %>
 </div>
 
-<%= User.count %> users
-<br />
-<%= Group.count %> groups
-<br />
-<%= Message.count %> messages
-<br />
-<%= Subscription.count %> subscriptions
-<ul>
-	<li>Email: <%= Email.count %></li>
-	<li>AIM: <%= AIM.count %></li>
-	<li>Jabber: <%= JabberMessage.count %></li>
-	<li>Twitter: <%= Tweet.count %></li>
-	<li>HTTP Post: <%= PostHook.count %></li>
+<ul class="horizontal mt20 mb20">
+	<li>
+		<%= image_tag('/images/icons/user.png') %>
+		<%= User.count %> users
+	</li>
+	<li>
+		<%= image_tag('/images/icons/group.png') %>
+		<%= Group.count %> groups
+	</li>
+	<li>
+		<%= image_tag('/images/icons/message.png') %>
+		<%= Message.count %> messages
+	</li>
+	<li>
+		<%= image_tag('/images/icons/subscription.png') %>
+		<%= Subscription.count %> subscriptions
+	</li>
 </ul>
-<br />
-<%= image_tag @subscription_chart.to_url(:chf => 'bg,s,E5E5E5', :chts => "749446,16") %>
-<br /><br />
-<%= Delayed::Job.count %> pending jobs
+
+<div>
+	<%= image_tag(@subscription_chart.to_url(:chf => 'bg,s,E5E5E5', :chts => "749446,16"), :class => 'left') %>
+	<ul class="mt40 ml15 left medium">
+		<li>Email: <%= Email.count %></li>
+		<li>AIM: <%= AIM.count %></li>
+		<li>Jabber: <%= JabberMessage.count %></li>
+		<li>Twitter: <%= Tweet.count %></li>
+		<li>HTTP Post: <%= PostHook.count %></li>
+	</ul>
+</div>
+
+<div class="clear"></div>

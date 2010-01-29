@@ -379,6 +379,10 @@ div.pagination .disabled { color: #aaa; border: none; }
 /* Widths */
 .third { width: 200px; padding: 0 60px; float: left; }
 
+/* Lists */
+ul.horizontal li { display: inline-block; font-size: 1.8em; line-height: 32px; padding: 0 60px 0 0; }
+ul.horizontal li img { float: left; margin: 0 10px 0 0; }
+
 /* Sections */
 .section {
   margin: 0 0 10px 0;
