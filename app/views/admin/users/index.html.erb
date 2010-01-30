@@ -17,6 +17,7 @@
 		<th>Last</th>
 		<th>Login Count</th>
 		<th>Last Login</th>
+		<th>Created</th>
 		<th>Send Updates</th>
 		<th>Admin</th>
 	</tr>
@@ -28,8 +29,9 @@
 		<td><%= user.last_name %></td>
 		<td><%= user.login_count %></td>
 		<td><%= time_ago_in_words(user.last_login_at) unless user.last_login_at.blank? %></td>
-		<td><%= user.send_me_updates %></td>
-		<td><%= user.admin %></td>
+		<td><%= time_ago_in_words(user.created_at) %></td>
+		<td><%= user.send_me_updates ? image_tag('accept.png') : image_tag('delete.png') %></td>
+		<td><%= user.admin ? image_tag('accept.png') : image_tag('delete.png') %></td>
 	</tr>
 	<%- end -%>
 </table>
