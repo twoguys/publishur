@@ -1,1 +1,0 @@
-ExceptionNotifier.exception_recipients = %w(mwhuss@gmail.com djbrowning@gmail.com)
