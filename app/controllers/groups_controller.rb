@@ -22,6 +22,7 @@ class GroupsController < ApplicationController
     @group = Group.create(params[:group])
     if @group.save
       @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true)
+      Email.create(:group => @group, :user => current_user, :contact_info => current_user.email)
       redirect_to @group
     else
       render 'new'
@@ -45,6 +46,7 @@ class GroupsController < ApplicationController
       redirect_to @group
     elsif @group.public? && @group.under_user_limit?
       @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => true)
+      Email.create(:group => @group, :user => current_user, :contact_info => current_user.email)
       redirect_to @group
     elsif !@group.under_user_limit?
       redirect_to full_group_path(@group)
