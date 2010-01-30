@@ -1,6 +1,7 @@
 <h1>Admin Dashboard</h1>
 <div class="mb20">
 	<%= link_to("View the #{pluralize(User.count, "user")}", admin_users_path) %><br />
+	<%= link_to("View the #{pluralize(Event.count, "event")}", admin_events_path) %><br />
 	<%= link_to("View the current #{pluralize(Delayed::Job.count, "background job")}", admin_delayed_jobs_path) %>
 </div>
 

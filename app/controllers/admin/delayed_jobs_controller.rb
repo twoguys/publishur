@@ -1,7 +1,5 @@
-class Admin::DelayedJobsController < ApplicationController
-  
-  before_filter :require_admin
-  
+class Admin::DelayedJobsController < Admin::BaseController
+
   def index
     @delayed_jobs = Delayed::Job.paginate :page => params[:page] || 1, :per_page => 20
   end
