@@ -26,13 +26,6 @@
 
 <div>
 	<%= image_tag(@subscription_chart.to_url(:chf => 'bg,s,E5E5E5', :chts => "749446,16"), :class => 'left') %>
-	<ul class="mt40 ml15 left medium">
-		<li>Email: <%= Email.count %></li>
-		<li>AIM: <%= AIM.count %></li>
-		<li>Jabber: <%= JabberMessage.count %></li>
-		<li>Twitter: <%= Tweet.count %></li>
-		<li>HTTP Post: <%= PostHook.count %></li>
-	</ul>
 </div>
 
 <div class="clear"></div>
