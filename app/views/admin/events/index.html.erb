@@ -9,12 +9,14 @@
 		<th>ID</th>
 		<th>Event</th>
 		<th>Time</th>
+		<th>Type</th>
 	</tr>
 	<% for event in @events %>
 	<tr class="row" title="<%= event.id %>">
 		<td><%= event.id %></td>
 		<td><%= event.body %></td>
 		<td><%= time_ago_in_words(event.created_at) %> ago</td>
+		<td><%= event.class_type %></td>
 	</tr>
 	<%- end -%>
 </table>
