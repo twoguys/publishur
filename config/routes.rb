@@ -24,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home          '',               :controller => 'welcome',             :action => 'index'
   
   map.namespace :admin do |admin|
-    admin.resources :delayed_jobs,  :only => [:index, :show, :destroy], :collection => { :destroy_all => :delete }
+    admin.resources :delayed_jobs,  :only => [:index, :show, :destroy], :collection => { :destroy_all => :delete }, :member => { :retry => :get }
     admin.resources :dashboard,     :only => [:index]
     admin.resources :users,         :only => [:index]
     admin.resources :events,        :only => [:index]
