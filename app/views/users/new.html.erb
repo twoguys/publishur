@@ -42,8 +42,11 @@
 				some cool billing form inputs will go here
 			</li>
 			<% end %>
-		  <li class="mt20">
-		    <%= form.submit "Create my account", :class => 'button' %>
+		  <li class="mt10">
+				<div class="mb10 small">
+					By clicking "I accept. Create my account.", you are agreeing to the <%= link_to("Terms and Conditions of Use &amp; Privacy Policy", terms_path) %>.
+				</div>
+		    <%= form.submit "I accept. Create my account.", :class => 'button' %>
 		  </li>
 		</ol>
 		<% end %>
