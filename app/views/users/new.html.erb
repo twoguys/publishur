@@ -33,6 +33,7 @@
 			<li>
 				<%= form.label :timezone, "Time zone" %>
 				<%= form.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones %>
+			</li>
 			<% if @user.paying? %>
 			<li class="border-bottom mt20">
 				<h2 class="strong">2. Enter your billing information</h2>

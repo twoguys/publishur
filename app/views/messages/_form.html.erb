@@ -3,9 +3,18 @@
 		<%= form.error_messages %>
 		<%= form.text_area :body %>
   	<%= form.submit "Post message", :class => 'button' %>
-		<br />Send @ <%= form.datetime_select :send_at %>
+		<!--br />Send @ <%#= form.datetime_select :send_at %>-->
+		<div id="group-send-in-the-future-container" class="small">
+			<%= check_box_tag 'group_send_in_the_future' %>
+			<span id="group-send-in-the-future-text">Delay this message?</span>
+			<div id="group-send-at-box" style="display:none;">
+				Delay this message until:
+				<%= form.datetime_select :send_at %>
+			</div>
+		</div>
 	<% end %>
-</div><br />
+</div>	
+<div id="group-message-info"></div>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -15,6 +24,16 @@
 				$('#group-message-info').text('Reminder: Long messages may get cut off (Twitter and SMS). You\'re at ' + $('#message_body').val().length + ' characters.');
 			else
 				$('#group-message-info').text('');
+		});
+		$('#group_send_in_the_future').click(function() {
+			console.log($(this).attr('checked'));
+			if($(this).attr('checked')) {
+				$('#group-send-in-the-future-text').hide();
+				$('#group-send-at-box').show();
+			} else {
+				$('#group-send-in-the-future-text').show()
+				$('#group-send-at-box').hide();
+			}
 		});
 	 });
 </script>

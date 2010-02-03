@@ -49,7 +49,7 @@
 		$('#subscription_contact_type').change(function () {
 			var str = "";
 			if ($("select option:selected").text() == "Twitter") {
-				$('#sub-form-hint').html("Make sure you're <a href=\"http://twitter.com/publishur\" target=\"new\">following us</a>!");
+				$('#sub-form-hint').html("You have to <a href=\"http://twitter.com/publishur\" target=\"new\">follow us</a> for this to work!");
 				$('#sub-form-hint').show();
 			} else {
 				$('#sub-form-hint').hide();

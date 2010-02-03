@@ -253,6 +253,10 @@ img.avatar { height: 50px; }
 .group .name { position: absolute; top: 10px; left: 25px; width: 565px; overflow: hidden; }
 .group .member-count { position: absolute; top: 10px; left: 600px; }
 .group .message-time { position: absolute; top: 10px; right: 0; }
+#group-send-in-the-future-container { position: relative; }
+#group_send_in_the_future { position: absolute; top: 2px; }
+#group-send-in-the-future-text { position: absolute; top: 0; left: 18px; line-height: 20px; }
+#group-send-at-box { position: absolute; top: 0; left: 18px; }
 #group-message-info { height: 20px; width: 550px; color: #aaa; }
 .group-join-question {
   height: 20px;
@@ -261,8 +265,8 @@ img.avatar { height: 50px; }
   background: transparent url(../images/drawn-comment.png) no-repeat 0 5px;
 }
 .group-message-form { position: relative; }
-.group-message-form form { padding: 0; height: 45px; }
-.group-message-form textarea { width: 550px; height: 30px; }
+.group-message-form form { padding: 0; height: 68px; }
+.group-message-form textarea { width: 550px; height: 30px; margin-bottom: 5px; }
 .group-message-form input[type="submit"] { position: absolute; top: 0; right: 0; font-size: 0.9em; }
 .private { padding: 1px 0 0 20px; background: transparent url(../images/icons/door.png) no-repeat; }
 .public { padding: 1px 0 0 20px; background: transparent url(../images/icons/door_open.png) no-repeat; }

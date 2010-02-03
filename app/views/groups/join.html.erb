@@ -1,9 +1,10 @@
 <div class="centered">
 	<% if @group.pending_members.include?(current_user) %>
 	<h2>You have requested to join this group.</h2>
-	<div class="mt20">
+	<div class="mt20 mb20">
 		Once the group owner accepts this request you can participate in this group.
 	</div>
+	<%= link_to('Go back to the list of groups', groups_path) %>.
 	<% else %>
 	<h2>This group is private, but you can request to join it.</h2>
 	<div class="mt20 mb20">

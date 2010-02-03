@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
   def create
     @message      = Message.new(params[:message])
     @message.user = current_user
+    @message.send_at = Time.now unless params[:group_send_in_the_future]
     
     @group.messages << @message if @message.valid?
     redirect_to @group
