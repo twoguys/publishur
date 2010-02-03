@@ -3,8 +3,9 @@
 		<%= form.error_messages %>
 		<%= form.text_area :body %>
   	<%= form.submit "Post message", :class => 'button' %>
+		<br />Send @ <%= form.datetime_select :send_at %>
 	<% end %>
-</div>
+</div><br />
 
 <script type="text/javascript">
 	$(document).ready(function() {

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100128040319) do
+ActiveRecord::Schema.define(:version => 20100203022849) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20100128040319) do
     t.datetime "locked_at"
     t.datetime "failed_at"
     t.text     "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "body"
+    t.string   "class_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20100128040319) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "send_at"
   end
 
   create_table "subscriptions", :force => true do |t|

@@ -1,6 +1,7 @@
 <h1>Admin Dashboard</h1>
 <div class="mb20">
 	<%= link_to("View the #{pluralize(User.count, "user")}", admin_users_path) %><br />
+	<%= link_to("View the #{pluralize(Event.count, "event")}", admin_events_path) %><br />
 	<%= link_to("View the current #{pluralize(Delayed::Job.count, "background job")}", admin_delayed_jobs_path) %>
 </div>
 
@@ -25,13 +26,6 @@
 
 <div>
 	<%= image_tag(@subscription_chart.to_url(:chf => 'bg,s,E5E5E5', :chts => "749446,16"), :class => 'left') %>
-	<ul class="mt40 ml15 left medium">
-		<li>Email: <%= Email.count %></li>
-		<li>AIM: <%= AIM.count %></li>
-		<li>Jabber: <%= JabberMessage.count %></li>
-		<li>Twitter: <%= Tweet.count %></li>
-		<li>HTTP Post: <%= PostHook.count %></li>
-	</ul>
 </div>
 
 <div class="clear"></div>

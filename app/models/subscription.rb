@@ -31,6 +31,14 @@ class Subscription < ActiveRecord::Base
     raise "Must implement deliver method!"
   end
   
+  # :to
+  # :from
+  # :message
+  # :group
+  # :type
+  def quick_deliver(opts={})
+    raise "Must implement quick deliver method!"
+  end  
   # def deliver(message)
   #     self.message = message
   #     Delayed::Job.enqueue(self)
