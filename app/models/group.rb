@@ -20,7 +20,8 @@ class Group < ActiveRecord::Base
   MEMBER_LEVELS = {"free" => 5, "team" => 20, "business" => 50}.freeze
   
   def to_param
-    "#{id}-#{name.downcase.gsub(/[^a-z0-9]+/i, '-')}"
+    #{}"#{id}-#{name.downcase.gsub(/[^a-z0-9]+/i, '-')}"
+    "#{id} #{name}".slugify
   end
   
   def self.per_page
