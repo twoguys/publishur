@@ -18,5 +18,14 @@ class Notifications < ActionMailer::Base
     
     body       :message => message
   end
+  
+  def events_summary(events)
+    subject     "[Publishur] Event Summary for Yesterday"
+    recipients  "mwhuss@gmail.com, djbrowning@gmail.com"
+    from        'Publishur Messenger <messenger@publishur.com>'
+    sent_on     Time.now
+    
+    body        :events => events
+  end
 
 end

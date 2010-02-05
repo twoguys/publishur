@@ -1,0 +1,7 @@
+Event Summary for Publishur
+<%= @events.size %> events happened yesterday...
+
+Timeline:
+<% for event in @events %>
+	<%= event.body %>
+<%- end -%>
