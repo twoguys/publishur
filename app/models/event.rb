@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   def self.per_page; 20; end
   
   def self.send_summary(time)
-    @events = Event.find(:all, :conditions => ["created_at > ? and creared_at < ?", time - 24.hours, time])
+    @events = Event.find(:all, :conditions => ["created_at > ? and created_at < ?", time - 24.hours, time])
     
   end
   
