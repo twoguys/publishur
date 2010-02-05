@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   
   def self.send_summary(time)
     @events = Event.find(:all, :conditions => ["created_at > ? and created_at < ?", time - 24.hours, time])
-    
+    Notifications.deliver_events_summary(@events)
   end
   
 end
