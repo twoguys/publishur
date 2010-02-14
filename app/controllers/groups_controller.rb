@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :updated
   
-  before_filter :require_user
+  before_filter :require_user, :except => [:join]
   before_filter :find_group, :except => [:index, :new, :create]
   before_filter :allowed, :except => [:index, :new, :create, :join_request, :join, :full]
   
@@ -21,15 +21,25 @@ class GroupsController < ApplicationController
   def create
     @group = Group.create(params[:group])
     if @group.save
-      @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true)
+      @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true, :accepted => true)
       Email.create(:group => @group, :user => current_user, :contact_info => current_user.email)
-      redirect_to @group
+      redirect_to invite_group_path(@group)
     else
       render 'new'
     end
   end
   
+  def invite
+    if !@group.admin?(current_user)
+      flash[:error] = "Sorry, you have to be the group admin."
+      redirect_to @group
+    else
+      @group_membership = GroupMembership.new
+    end
+  end
+  
   def show
+    redirect_to join_group_path unless @group.members.include?(current_user)
     @membership     = @group.group_memberships.for_user(current_user).first
     @subscriptions  = @group.subscriptions.for_user(current_user)
     @messages       = @group.messages.paginate :page => params[:page] || 1
@@ -41,37 +51,22 @@ class GroupsController < ApplicationController
   end
   
   def join
-    if @group.members.include?(current_user)
-      flash[:notice] = "You're already a member of this group!"
-      redirect_to @group
-    elsif @group.public? && @group.under_user_limit?
-      @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => true)
-      Email.create(:group => @group, :user => current_user, :contact_info => current_user.email)
-      redirect_to @group
-    elsif !@group.under_user_limit?
-      redirect_to full_group_path(@group)
-    else # private and under limit
-      render 'join'
-    end
-  end
-  
-  def full
-  end
-  
-  def join_request
-    if @group.members.include?(current_user)
-      flash[:notice] = "You are already a member!"
-      redirect_to @group
-    elsif @group.public?
-      @group.members << current_user
-      flash[:notice] = "You successfully joined this group."
-      redirect_to @group
-    elsif !@group.pending_members.include?(current_user)
-      @group.group_memberships << GroupMembership.new(:user => current_user, :accepted => false)
-      flash[:notice] = "Your request has been saved."
-      redirect_to join_group_path(@group)
+    if current_user
+      if @group.members.include?(current_user)
+        flash[:notice] = "You're already a member of this group!"
+        redirect_to @group
+      elsif !@group.under_user_limit?
+        redirect_to full_group_path(@group)
+      else
+        membership = @group.handle_user_join(current_user)
+        redirect_to @group if membership.member?
+      end
     else
-      redirect_to join_group_path(@group)
+      if session[:join_groups].is_a?(Array)
+        session[:join_groups] = (session[:join_groups] + [@group.id]).uniq
+      else
+        session[:join_groups] = [@group.id]
+      end
     end
   end
   

@@ -1,4 +1,4 @@
-<h2 class="mb20">Here is your Dashboard, your home away from home.</h2>
+<h2 class="mb20">Here is your Dashboard, a summary of your groups.</h2>
 
 <div class="section relative mb20">
 	<div class="heading">Your groups</div>
@@ -14,13 +14,27 @@
 	</div>
 </div>
 
-<% if @pending_memberships.size > 0 %>
+<% if @invited_memberships.size > 0 %>
 <div class="section relative mb20">
-	<div class="heading">Pending groups</div>
-	<div class="top-right">These are groups you have requested to join.</div>
+	<div class="heading">Group Invitations</div>
+	<div class="top-right">These are groups you have been invited to join.</div>
 	<div class="indented">
 		<ul class="lined">
-			<% @pending_memberships.each do |m| %>
+			<% @invited_memberships.each do |m| %>
+				<%= render m.group %>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+<% if @requested_memberships.size > 0 %>
+<div class="section relative mb20">
+	<div class="heading">Pending groups</div>
+	<div class="top-right">These are groups you have requested to join. The owner has to accept your request.</div>
+	<div class="indented">
+		<ul class="lined">
+			<% @requested_memberships.each do |m| %>
 				<%= render m.group %>
 			<% end %>
 		</ul>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100203022849) do
+ActiveRecord::Schema.define(:version => 20100213175103) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(:version => 20100203022849) do
   create_table "group_memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
-    t.boolean  "accepted",   :default => true
     t.boolean  "admin",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state"
   end
 
   create_table "groups", :force => true do |t|
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(:version => 20100203022849) do
     t.boolean  "public",         :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
     t.string   "spreedly_token"
     t.string   "spreedly_plan"
-    t.string   "short_name"
     t.integer  "level",          :default => 5
   end
 
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20100203022849) do
     t.string   "timezone",          :default => "Eastern Time (US & Canada)"
     t.boolean  "send_me_updates",   :default => true
     t.boolean  "admin",             :default => false
+    t.string   "state"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -1,0 +1,57 @@
+<div class="w400">
+	<h2 class="centered">Step 2: Invite friends to your group.</h2>
+	<div class="centered">
+		or <%= link_to('skip this step', @group) %>
+	</div>
+
+	<div class="shadowed-box">
+		<% if @group.under_user_limit? %>
+			<% form_for [@group, @group_membership] do |form| %>
+			<%= form.error_messages %>
+			<ol class="formList">
+				<li>
+		    	<%= label_tag :email, '<strong>Email address</strong> of a friend' %>
+					<%= text_field_tag :email %>
+					<small class="weak block">
+						If they're a member of Publishur, we'll add them to your group.<br/>
+						If not, we'll invite them and add them to your group once they join!
+					</small>
+			  </li>
+			  <li class="mt10">
+			    <%= form.submit "Add friend" %>
+			  </li>
+			</ol>
+			<% end %>
+		<% else %>
+			<h3>We're sorry, this group is full.</h3>
+			<div class="mt20">
+				If you would like to add more members, please <%= link_to('upgrade this group', upgrade_group_path(@group)) %>.
+			</div>
+		<% end %>
+		<% invitees = @group.group_memberships.invited %>
+		<% unless invitees.empty? %>
+		<div>
+			<h3>Users you've invited</h3>
+			<ul>
+				<% invitees.each do |gm| %>
+					<%= render gm.user %>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<div class="mt10 pb20">
+			<h3>Current group members</h3>
+			<ul>
+				<% @group.group_memberships.each do |gm| %>
+					<%= render gm.user if gm.member? %>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	   $('#email').focus();
+	 });
+</script>

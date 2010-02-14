@@ -1,14 +1,23 @@
 <% pending ||= false %>
 <li class="user">
 	<%= link_to(user.name, user) %>
-	<% if @group && @group.admin?(user) %>
+	<% if @group && @group.admin?(user) && user == current_user%>
+		<strong>(you, owner)</strong>
+	<% elsif @group && @group.admin?(user) %>
 		<strong>(owner)</strong>
+	<% elsif user == current_user %>
+		<strong>(you)</strong>
 	<% end %>
 	<% if pending && @group.admin?(current_user) %>
 		<% membership = @group.group_memberships.for_user(user).first %>
 		(
-		<%= link_to('allow', [@group, membership], :method => :put, :class => 'mr10') %> or
-		<%= link_to('deny', [@group, membership], :method => :delete, :confirm => 'Are you sure you want to deny this user?') %>
+		<% form_tag(accept_group_group_membership_path(@group, membership), :class => "inline p0") do %>
+			<%= link_to_function('accept', "$(this).closest('form').submit();") %>
+		<% end %>
+		or
+		<% form_tag(reject_group_group_membership_path(@group, membership), :class => "inline p0") do %>
+			<%= link_to_function('reject', "$(this).closest('form').submit();", :confirm => 'Are you sure you want to deny this user?') %>
+		<% end %>
 		)
 	<% end %>
 </li>

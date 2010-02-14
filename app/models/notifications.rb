@@ -27,5 +27,23 @@ class Notifications < ActionMailer::Base
     
     body        :events => events
   end
+  
+  def invite_to_publishur(invitee, inviter, group, url)
+    subject     "Join Publishur!"
+    recipients  invitee
+    from        'Publishur <noreply@publishur.com>'
+    sent_on     Time.now
+    
+    body        :inviter => inviter, :group => group, :url => url
+  end
+  
+  def invite_to_group(invitee, inviter, group, url)
+    subject     "Join Publishur!"
+    recipients  invitee
+    from        'Publishur <noreply@publishur.com>'
+    sent_on     Time.now
+    
+    body        :inviter => inviter, :group => group, :url => url
+  end
 
 end

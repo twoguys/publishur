@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      join_stored_groups(@user)
       flash[:notice] = "Registration successful. Please sign in."
       redirect_to signin_url
     else

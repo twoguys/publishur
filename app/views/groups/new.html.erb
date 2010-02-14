@@ -17,17 +17,17 @@
 				<small class="block weak">(Saves space when we send messages to Twitter or SMS)</small>
 		    <%= form.text_field :short_name %>
 		  </li>
-			<li>
-				<%= form.label :public, "Will it be open or closed?", :class => 'mb10' %>
+			<!--li>
+				<%#= form.label :public, "Will it be open or closed?", :class => 'mb10' %>
 				<div class="mb10 indented">
-					<%= form.radio_button :public, true %> <strong>Open</strong>
+					<%#= form.radio_button :public, true %> <strong>Open</strong>
 					<small class="weak">(Anyone can join)</small>
 				</div>
 				<div class="indented">
-					<%= form.radio_button :public, false %> <strong>Closed</strong>
+					<%#= form.radio_button :public, false %> <strong>Closed</strong>
 					<small class="weak">(You approve who joins)</small>
 				</div>
-			</li>
+			</li-->
 		  <li class="mt10">
 		    <%= form.submit "Create group" %> or <%= link_to('Cancel', groups_path) %>
 		  </li>

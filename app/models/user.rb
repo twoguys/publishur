@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.ignore_blank_passwords = Proc.new { |user| user.invited? }
+  end
   
   #acts_as_network :friends,         :through => :invites,   :conditions => ["is_accepted = ?", true]
   #acts_as_network :pending_friends, :through => :invites,   :conditions => ["is_accepted = ?", false]
   
-  has_many :groups, :through => :group_memberships, :conditions => ["accepted = ?", true]
+  has_many :groups, :through => :group_memberships, :conditions => ["state = ?", "member"]
   has_many :group_memberships
   has_many :messages, :order => "created_at DESC"
   has_many :subscriptions
@@ -13,7 +15,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
   
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :send_me_updates
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :send_me_updates, :state
   
   def self.per_page; 25; end
   
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
   
   def paying?
     self.account_type != "free"
+  end
+  
+  def invited?
+    self.state == "invited"
   end
   
   def my_recent_messages_per_group

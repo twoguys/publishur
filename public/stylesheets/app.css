@@ -474,6 +474,7 @@ table.styled tr:hover td { background-color: #ddfccf; }
 .upgrade { background-image: url(../images/icons/upgrade.png); }
 .open { background-image: url(../images/icons/door_open.png); }
 .closed { background-image: url(../images/icons/door.png); }
+.friends { background-image: url(../images/icons/group_add.png); }
 
 .rounded-one, .rounded-two, .rounded-three, .left-side-icon { padding-left: 60px; }
 .rounded-one { background: #e5e5e5 url(../images/rounded-one.jpg) no-repeat 0 50%;  }
@@ -502,6 +503,7 @@ table.styled tr:hover td { background-color: #ddfccf; }
 .p5 { padding: 5px; }
 .p10 { padding: 10px; }
 .pt10 { padding-top: 10px; }
+.pb20 { padding-bottom: 20px; }
 .pb30 { padding-bottom: 30px; }
 .pb40 { padding-bottom: 40px; }
 .pb50 { padding-bottom: 50px; }

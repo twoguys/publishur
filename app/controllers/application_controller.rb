@@ -64,6 +64,16 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
     
+    def join_stored_groups(user)
+      if session[:join_groups].is_a?(Array)
+        session[:join_groups].each do |id|
+          puts 'joining group: ' + id.to_s
+          Group.find(id).handle_user_join(user) if Group.exists?(id)
+        end
+      end
+      session[:join_groups] = []
+    end
+    
     def set_timezone
       Time.zone = current_user.timezone if current_user
     end

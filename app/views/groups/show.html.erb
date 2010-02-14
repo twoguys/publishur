@@ -1,25 +1,29 @@
 <div class="border-bottom">
-	<h2><%= @group.name %></h2>
-	<%= link_to('Back to groups', groups_path, :class => 'mr15 icon back') %>
+	<h2 class="mb10"><%= @group.name %></h2>
+	<%= link_to('Invite friends to this group', invite_group_path(@group), :class => 'mr15 icon friends') if @group.admin?(current_user) %>
 	<%= link_to('Upgrade this group', upgrade_group_path(@group), :class => 'mr15 icon upgrade') if @group.admin?(current_user) %>
 	<%= link_to('Edit this group', edit_group_path(@group), :class => 'mr15 icon edit') if @group.admin?(current_user) %>
 	<%= link_to('Delete this group', group_path(@group), :method => :delete, :confirm => "Are you sure you want to delete this group?  All of its messages will be erased as well...this cannot be undone.", :class => 'icon delete') if @group.admin?(current_user) %>
-	<%= image_tag('/images/you-arent-forwarding.png') if @subscriptions.empty? %>
+	
+	<%= link_to('Leave this group', [@group, @membership], :method => :delete, :confirm => "Are you sure you want to leave this group?", :class => 'icon delete') if !@group.admin?(current_user) %>
+	<div>
+		<%= image_tag('/images/you-arent-forwarding.png') if @subscriptions.empty? %>
+	</div>
 </div>
 
 <div>
 	<div class="secondary-right">
 	  <div class="insides">
-			<div id="group-subscriptions">
+			<div id="group-subscriptions" class="border-bottom">
 				<%= link_to('Edit', forwarding_group_path(@group), :class => 'right') if !@subscriptions.empty? %>
 				<h3>Message forwarding</h3>
 				<% if @subscriptions.empty? %>
-					<div class="mt10 border-bottom">
+					<div class="mt10">
 						Forward this group's messages to your Email, AIM, Twitter, and more!
 						<%= link_to('Start forwarding!', forwarding_group_path(@group), :class => 'block')%>
 					</div>
 				<% else %>
-				<ul class="mt10 border-bottom group-subscriptions">
+				<ul class="mt10 group-subscriptions">
 					<% @subscriptions.each do |sub| %>
 						<li class="<%= sub.class.to_s %>">
 							<%= print_subscription(sub) %>
@@ -31,11 +35,11 @@
 			<div id="group-members">
 				<%= render 'security' %>
 				<h3>Members</h3>
-				<% if !@group.pending_members.empty? %>
+				<% if !@group.requested_members.empty? %>
 				<div class="mt10 white-background rounded p10">
 					<strong>Requests to join this group</strong>
 					<ul class="members">
-						<%= render @group.pending_members, :pending => true %>
+						<%= render @group.requested_members, :pending => true %>
 					</ul>	
 				</div>
 				<% end %>

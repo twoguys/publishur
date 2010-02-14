@@ -10,6 +10,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
+      join_stored_groups(@user_session.user)
       flash[:notice] = "Successfully logged in."
       redirect_to dashboard_url
     else
