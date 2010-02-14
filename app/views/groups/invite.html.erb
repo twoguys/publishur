@@ -1,7 +1,7 @@
 <div class="w400">
-	<h2 class="centered">Step 2: Invite friends to your group.</h2>
+	<h2 class="centered">Step 2: Invite friends to your group</h2>
 	<div class="centered">
-		or <%= link_to('skip this step', @group) %>
+		or <%= link_to('go to the group page', @group) %>.
 	</div>
 
 	<div class="shadowed-box">
@@ -47,6 +47,12 @@
 				<% end %>
 			</ul>
 		</div>
+	</div>
+	
+	
+	<div class="mt30 centered">
+		<h3 class="mb5">Want to invite a bunch of folks to this group?</h3>
+		Send them this link: <%= link_to(join_group_path(@group, :only_path => false), join_group_path(@group)) %>
 	</div>
 </div>
 
