@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.create(params[:group])
     if @group.save
-      @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true, :accepted => true)
+      @group.group_memberships << GroupMembership.new(:user => current_user, :admin => true, :state => "member")
       Email.create(:group => @group, :user => current_user, :contact_info => current_user.email)
       redirect_to invite_group_path(@group)
     else
