@@ -6,7 +6,7 @@ class GroupMembershipsController < ApplicationController
     @friend = User.find_all_by_email(params[:email])
     if @friend.empty? # user does not exist in our system
       # email this address and invite them to publishur
-      Notifications.deliver_invite_to_publishur(params[:email], current_user, @group, join_group_path(@group))
+      Notifications.deliver_invite_to_publishur(params[:email], current_user, @group, join_group_url(@group))
       flash[:notice] = "We have invited your friend to join Publishur."
     else
       @friend = @friend.first

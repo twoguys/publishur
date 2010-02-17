@@ -52,7 +52,7 @@
 	
 	<div class="mt30 centered">
 		<h3 class="mb5">Want to invite a bunch of folks to this group?</h3>
-		Send them this link: <%= link_to(join_group_path(@group, :only_path => false), join_group_path(@group)) %>
+		Send them this link: <%= link_to(join_group_url(@group), join_group_path(@group)) %>
 	</div>
 </div>
 

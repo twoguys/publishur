@@ -54,8 +54,6 @@ class Group < ActiveRecord::Base
         # do nothing
       end
     end
-    require 'pp'
-    pp membership
     return membership
   end
   
