@@ -15,3 +15,7 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+
+config.gem 'rack-environment'
+
+ActionMailer::Base.default_url_options[:host] = ENV['HOST'] || "publishur.local"

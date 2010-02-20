@@ -65,24 +65,24 @@ module Bundler
   FINGERPRINT  = "034fb83504972e2dac613b54b1eea9b4df2f747b"
   SPECS        = [
         {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib"], :name=>"activesupport", :groups=>[:default]},
+        {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/actionmailer-2.3.5/lib"], :name=>"actionmailer", :groups=>[:default]},
         {:version=>"0.8", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/gchartrb-0.8/lib"], :name=>"gchartrb", :groups=>[:default]},
-        {:version=>"2.3.11", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/will_paginate-2.3.11/lib"], :name=>"will_paginate", :groups=>[:default]},
         {:version=>"0.2", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/net-toc-0.2/."], :name=>"net-toc", :groups=>[:default]},
+        {:version=>"2.3.11", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/will_paginate-2.3.11/lib"], :name=>"will_paginate", :groups=>[:default]},
         {:version=>"1.0.1", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.1/lib"], :name=>"rack", :groups=>[:default]},
         {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib"], :name=>"actionpack", :groups=>[:default]},
-        {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/actionmailer-2.3.5/lib"], :name=>"actionmailer", :groups=>[:default]},
         {:version=>"0.1.6", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/crack-0.1.6/lib"], :name=>"crack", :groups=>[:default]},
         {:version=>"2.1.3", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/authlogic-2.1.3/lib"], :name=>"authlogic", :groups=>[:default]},
         {:version=>"0.8.7", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/rake-0.8.7/lib"], :name=>"rake", :groups=>[:default]},
+        {:version=>"0.5.0", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/httparty-0.5.0/lib"], :name=>"httparty", :groups=>[:default]},
         {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib"], :name=>"activerecord", :groups=>[:default]},
         {:version=>"2.1.3", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/hoptoad_notifier-2.1.3/lib"], :name=>"hoptoad_notifier", :groups=>[:default]},
-        {:version=>"0.5.0", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/httparty-0.5.0/lib"], :name=>"httparty", :groups=>[:default]},
         {:version=>"0.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/xmpp4r-0.5/lib"], :name=>"xmpp4r", :groups=>[:default]},
         {:version=>"0.8.8", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/xmpp4r-simple-0.8.8/lib"], :name=>"xmpp4r-simple", :groups=>[:default]},
         {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/activeresource-2.3.5/lib"], :name=>"activeresource", :groups=>[:default]},
         {:version=>"2.3.5", :load_paths=>["/opt/local/lib/ruby/gems/1.8/gems/rails-2.3.5/lib"], :name=>"rails", :groups=>[:default]},
       ]
-  AUTOREQUIRES = {:default=>[["rails", false], ["will_paginate", false], ["authlogic", false], ["net/toc", true], ["xmpp4r-simple", false], ["httparty", false], ["google_chart", true], ["hoptoad_notifier", false]]}
+  AUTOREQUIRES = {:default=>[["rails", false], ["httparty", false], ["authlogic", false], ["xmpp4r-simple", false], ["will_paginate", false], ["net/toc", true], ["google_chart", true], ["hoptoad_notifier", false]]}
 
   extend SharedHelpers
 
