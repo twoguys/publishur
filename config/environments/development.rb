@@ -17,5 +17,3 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.gem 'rack-environment'
-
-ActionMailer::Base.default_url_options[:host] = ENV['HOST'] || "publishur.local"
