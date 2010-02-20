@@ -45,5 +45,23 @@ class Notifications < ActionMailer::Base
     
     body        :inviter => inviter, :group => group, :url => url
   end
+  
+  def request_to_join(group_membership)
+    subject     "[Publishur] #{group_membership.user.name} wants to join #{group_membership.group.name}"
+    recipients  group_membership.group.admins.first.email
+    from        'Publishur <noreply@publishur.com>'
+    sent_on     Time.now
+    
+    body        :group => group_membership.group, :user => group_membership.user
+  end
+  
+  def membership_accepted_notification(group_membership)
+    subject     "[Publishur] Welcome to #{group_membership.group.name}!"
+    recipients  group_membership.user.email
+    from        'Publishur <noreply@publishur.com>'
+    sent_on     Time.now
+    
+    body        :group => group_membership.group
+  end
 
 end

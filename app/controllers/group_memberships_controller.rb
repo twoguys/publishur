@@ -19,6 +19,7 @@ class GroupMembershipsController < ApplicationController
   
   def accept
     @group_membership.update_attribute(:state, "member")
+    Notifications.deliver_membership_accepted_notification(@group_membership)
     redirect_to @group
   end
   

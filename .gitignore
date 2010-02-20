@@ -9,3 +9,4 @@ public/system
 doc
 coverage
 coverage.data
+config/environment.yml
