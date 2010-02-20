@@ -3,19 +3,16 @@ class GroupMembershipsController < ApplicationController
   before_filter :find_group_membership, :only => [:accept, :reject, :destroy]
   
   def create
-    @friend = User.find_all_by_email(params[:email])
-    if @friend.empty? # user does not exist in our system
+    @friend = User.find_by_email(params[:email])
+    if @friend.nil? # user does not exist in our system
       # email this address and invite them to publishur
       Notifications.deliver_invite_to_publishur(params[:email], current_user, @group, join_group_url(@group))
       flash[:notice] = "We have invited your friend to join Publishur."
+    elsif @group.members.include?(@friend)
+      flash[:notice] = "#{@friend.name} is already a member of your group"
     else
-      @friend = @friend.first
-      if @group.members.include?(@friend)
-        flash[:notice] = "#{@friend.name} is already a member of your group"
-      else
-        @group_membership = @group.invite_existing_user(@friend)
-        flash[:notice] = "#{@friend.name} was invited to your group."
-      end
+      @group_membership = @group.invite_existing_user(@friend)
+      flash[:notice] = "#{@friend.name} was invited to your group."
     end  
     redirect_to invite_group_path(@group)
   end

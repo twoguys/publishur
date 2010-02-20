@@ -44,7 +44,6 @@ class Group < ActiveRecord::Base
     # is there an existing membership?
     membership = self.group_memberships.find_all_by_user_id(user.id)
     if membership.empty?
-      puts 'here'
       membership = GroupMembership.create(:user => user, :group => self, :state => "requested")
     else
       membership = membership.first
