@@ -44,6 +44,7 @@
 						<%= render 'layouts/flashes' %>
 					</div>
 					<%= link_to(image_tag('/images/logo.gif'), root_path) %>
+					<%= image_tag('/images/beta-badge.png', :id => 'beta-badge') %>
 					<ul id="nav" class="shadowed-box">
 						<li class="first">
 							<%= link_to_active('Home', root_path, @nav == :home) %>
